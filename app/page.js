@@ -1,95 +1,77 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
+import React, { useEffect, useRef } from 'react'
+import { ReactLenis } from '@studio-freight/react-lenis'
+import Nav from '@/Components/home/Nav'
+import Page1 from '@/Components/home/Page1'
+import LocomotiveScroll from 'locomotive-scroll'
+import gsap from 'gsap'
+import Page2 from '@/Components/home/Page2'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+const page = () => {
+  useEffect(() => {
+  const locomotiveScroll = new LocomotiveScroll();
+  }, [])
+  // useEffect(() => {
+  //   const image = document.querySelector('.page1');
+  //   const secondDiv = document.querySelector('.page2');
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+  //   // Set up GSAP animation
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: window, // Use the document body as the trigger
+  //       start: 'top top',
+  //       end: 'bottom top',
+  //       scrub: true, // Enable scrubbing for a smoother effect
+  //     },
+  //   });
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+  //   // Define the animation for the second div
+  //   tl.to(secondDiv, { y: '-50%', ease: 'none' });
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+  //   return () => {
+  //     // Kill GSAP animations on component unmount
+  //     tl.kill();
+  //   };
+  // }, []);
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+  // useEffect(() => {
+  //   // Ensure that the DOM is ready before applying animations
+  //   gsap.to('.page2', {
+  //     y: '-70%', // Adjust this value to control the overlap
+  //     ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: '.page2',
+  //       start: 'bottam -100%',
+  //       end: 'bottom bottom',
+  //       scrub: 1, // Controls the smoothness of the animation
+  //     },
+  //   });
+  // }, []);
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+  // useEffect(() => {
+  //   // Ensure that the DOM is ready before applying animations
+  //   gsap.to('.page2', {
+  //     y: '-70%', // Adjust this value to control the overlap
+  //     ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: '.page2',
+  //       start: '30% top', // Adjust this value to start the animation when the first div is 30% from the top
+  //       end: '+=100%',
+  //       pin: true,
+  //       scrub: 1, // Controls the smoothness of the animation
+  //     },
+  //   });
+  // }, []);
+
+  return <>
+        <Nav />
+        <Page1 />
+        {/* <Page2 /> */}
+        <Page1 />
+
+      </>
 }
+
+export default page

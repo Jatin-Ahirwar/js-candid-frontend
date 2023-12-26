@@ -1,7 +1,9 @@
-import { Inter } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Wrapper from '@/Wrapper/Wrapper'
+import { ReactLenis } from '@studio-freight/react-lenis'
+// import 'remixicon/fonts/remixicon.css'
+import 'remixicon/fonts/remixicon.css'
 
 export const metadata = {
   title: 'Create Next App',
@@ -9,9 +11,15 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+     <html lang="en">
+      <body suppressHydrationWarning>
+        <Wrapper>
+        <NextTopLoader color="rgba(247, 181, 95, 0.753)" />
+          {children}
+        </Wrapper>
+      </body>
     </html>
   )
 }
