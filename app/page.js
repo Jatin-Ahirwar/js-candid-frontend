@@ -69,7 +69,6 @@ const page = () => {
         <Nav />
         <Page1 />
         {/* <Page2 /> */}
-        <Page1 />
 
       </>
 }

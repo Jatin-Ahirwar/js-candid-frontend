@@ -1,9 +1,12 @@
+"use client"
+import Stories from '@/Components/home/Stories'
 import React from 'react'
 
 const stories = () => {
-  return (
-    <div>stories</div>
-  )
+  return <>
+    <Stories />
+  </>
+  
 }
 
 export default stories

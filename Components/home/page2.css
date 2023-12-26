@@ -11,10 +11,6 @@ html,body {
 .page2 {
     height: 40%;
     width: 100%;
-    /* background-image: url("=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background-color: #f5ebd99e; */
     background-color: burlywood;
 }
 
