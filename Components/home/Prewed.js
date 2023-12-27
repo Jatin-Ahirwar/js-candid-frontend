@@ -1,19 +1,14 @@
 "use client"
 import React, { useEffect } from 'react'
-import "@/Components/home/Stories.css"
-import LocomotiveScroll from 'locomotive-scroll'
+import "@/Components/home/Prewed.css"
 import Link from 'next/link'
 
+const Prewed = () => {
 
-const Stories = () => {
-    useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll();
-    }, [])
     return <> 
     <div className='storiesdiv'>
         <div className='storytopdiv'>
-            <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
-            <h3>Delve deeper into our world of story-telling!</h3>
+            <h1 style={{letterSpacing:"5px"}}>Pre-Weddings</h1>
         </div>
         <div className='storycontent'>
             <Link style={{textDecoration:"none", color:"black"}} href="" className='storyproductdiv'>
@@ -22,8 +17,8 @@ const Stories = () => {
                 </div>
                 <div className='storydetailsdiv'>
                     <h3>SHIVAM & SHRASTI</h3> 
-                    <h5 style={{fontWeight:"100"}}>11/12/2022</h5> 
-                    <p style={{fontStyle:"italic"}}>PALM SPRING RESORT BHOPAL</p> 
+                    <p style={{fontFamily:"times"}}>Jaipur,India</p> 
+                    <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More <i class="ri-arrow-right-line"></i></h6> 
                 </div>    
             </Link>
 
@@ -33,6 +28,7 @@ const Stories = () => {
         </div>    
     </div>
    </>
+
 }
 
-export default Stories
+export default Prewed

@@ -11,8 +11,8 @@ const Nav = () => {
     <Link style={{textDecoration:"none" , color:"black"}} href="/"><h1 className="logo">Js<span>candid</span></h1></Link>
       <div className="links">
           <Link className="link" href="/Content/stories">Stories</Link>
-          <Link className="link" href="">Images</Link>
-          <Link className="link" href="">PreWeddings</Link>
+          <Link className="link" href="/Content/images">Images</Link>
+          <Link className="link" href="/Content/prewedding">PreWeddings</Link>
           <Link className="link" href="/Content/trailer">Trailers</Link>
           <Link className="link" href="">Contact</Link>
           <Link className="link" href="">About us</Link>

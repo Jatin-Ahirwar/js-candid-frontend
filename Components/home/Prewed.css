@@ -27,12 +27,9 @@ html,body {
     justify-content: center;
     gap: 8px;
 }
-.storytopdiv h2{
+.storytopdiv h1{
+    text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 100;
-}
-.storytopdiv h3{
-    font-style: italic;
     font-weight: 100;
 }
 .storycontent{
@@ -77,6 +74,7 @@ html,body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* gap: 5px; */
     justify-content: space-between;
 }
 .storyproductdiv h3{
