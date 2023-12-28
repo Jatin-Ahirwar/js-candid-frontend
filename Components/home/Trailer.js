@@ -6,9 +6,6 @@ import Link from 'next/link'
 
 
 const Trailer = () => {
-    useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll();
-    }, [])
     return <> 
     <div className='imagesmaindiv'>
         <div className='imagetopdiv'>
@@ -23,6 +20,7 @@ const Trailer = () => {
                     <h4>mumbai , india</h4>
                 </div>
             </Link>
+
             <Link href="" className='imagediv'>
                 <img className='coverimg' src="https://images.unsplash.com/photo-1703535753934-7ab4ca4836c8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                 <i id='play' class="ri-play-mini-fill"></i>
@@ -41,11 +39,15 @@ const Trailer = () => {
                 </div>
             </Link>
 
-            
             <Link href="" className='imagediv'>
                 <img className='coverimg' src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                <i id='play' class="ri-play-mini-fill"></i>
+                <div className='pattern'>
+                    <h2>natasha & hardik</h2>
+                    <h4>mumbai , india</h4>
+                </div>
             </Link>
-            
+
         </div>
 
     </div>

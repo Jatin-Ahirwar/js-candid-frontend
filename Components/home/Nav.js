@@ -15,7 +15,7 @@ const Nav = () => {
           <Link className="link" href="/Content/prewedding">PreWeddings</Link>
           <Link className="link" href="/Content/trailer">Trailers</Link>
           <Link className="link" href="/Content/contact">Contact</Link>
-          <Link className="link" href="">About us</Link>
+          <Link className="link" href="/Content/aboutus">About us</Link>
           <div className='profilediv'>
               <p style={{fontSize:"12px",display:"flex",alignItems:"center",cursor:"pointer"}}>MORE <i style={{fontSize:"15px"}} class="ri-arrow-down-s-fill"></i></p>
                 <div className="hidden-nav">

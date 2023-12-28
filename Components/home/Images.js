@@ -1,14 +1,11 @@
 "use client"
 import React, { useEffect } from 'react'
 import "@/Components/home/images.css"
-import LocomotiveScroll from 'locomotive-scroll'
 import Link from 'next/link'
 
 
 const Images = () => {
-    useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll();
-    }, [])
+
     return <> 
     <div className='imagesmaindiv'>
         <div className='imagetopdiv'>

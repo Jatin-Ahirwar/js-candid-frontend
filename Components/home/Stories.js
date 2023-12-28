@@ -1,14 +1,11 @@
 "use client"
 import React, { useEffect } from 'react'
 import "@/Components/home/Stories.css"
-import LocomotiveScroll from 'locomotive-scroll'
 import Link from 'next/link'
 
 
 const Stories = () => {
-    useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll();
-    }, [])
+
     return <> 
     <div className='storiesdiv'>
         <div className='storytopdiv'>

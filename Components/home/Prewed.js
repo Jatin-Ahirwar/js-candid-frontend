@@ -4,7 +4,6 @@ import "@/Components/home/Prewed.css"
 import Link from 'next/link'
 
 const Prewed = () => {
-
     return <> 
     <div className='storiesdiv'>
         <div className='storytopdiv'>
