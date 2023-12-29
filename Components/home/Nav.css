@@ -48,6 +48,9 @@ html,body {
 .link:hover{
     color: black;
 }
+#hiddenlink:hover{
+    color: black;
+}
 
 .hidden-nav {
     height: 25vh;

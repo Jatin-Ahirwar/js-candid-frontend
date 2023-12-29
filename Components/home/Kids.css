@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,8 +7,8 @@ html,body {
     height: 100%;
     width: 100%;
 }
-.imagesmaindiv{
-    /* min-height: calc(100vh - 20vh); */
+.kidswrapper{
+    /* min-height: calc(100vh - 22vh); */
     min-height: 100vh;
     width: 100%;
     background-color: #f5ebd99e;
@@ -17,7 +17,7 @@ html,body {
     align-items: center;
     padding: 0 0 20vh 0;
 }
-.imagetopdiv{
+.kidstopdiv{
     height: 20vh;
     width: 60%;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
@@ -27,14 +27,11 @@ html,body {
     justify-content: center;
     gap: 8px;
 }
-
-.imagetopdiv h1{
+.kidstopdiv h2{
     letter-spacing: 2px;
     font-weight: 100;
 }
-
 .imagecontentwrapper{
-    /* margin-top: 20px; */
     min-height: calc(100vh - 60vh);
     width: 60%;
     gap: 1.29vw;
@@ -43,20 +40,42 @@ html,body {
     grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
     padding: 9vh 0 9vh 0;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
-    /* background-color: rebeccapurple; */
 }
+
 .imagediv{
-    height: 31vh;
+    height: 40vh;
     width: 31vh;
-    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
     transition: all ease .5s;
 }
 .imagediv:hover{
     scale: 1.05;
 }
+
 .coverimg{
     width: 100%;
-    height: 100%;
+    height: 80%;
     object-fit: cover;
     object-position: center;
 }
+.imagediv h4{
+    letter-spacing: 2px;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    padding: 10px 0 7px 0;
+}
+.imagediv h6{
+    font-size: 8px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+
+
