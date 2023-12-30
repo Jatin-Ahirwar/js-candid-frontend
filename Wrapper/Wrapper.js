@@ -4,16 +4,15 @@ import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
 import 'react-toastify/dist/ReactToastify.css';
 import { ReactLenis } from '@studio-freight/react-lenis'
+import { AnimatePresence } from 'framer-motion';
 
 
 const Wrapper = ({ children }) => {
   return (
     <>
-    {/* <ReactLenis root> */}
         <Provider store={store}>
-              {children} 
+              {children}
         </Provider>
-    {/* </ReactLenis> */}
     </>
   )
 }

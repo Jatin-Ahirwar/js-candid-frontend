@@ -20,10 +20,6 @@ const Prewed = () => {
                     <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More <i class="ri-arrow-right-line"></i></h6> 
                 </div>    
             </Link>
-
-            
-
-
         </div>    
     </div>
    </>

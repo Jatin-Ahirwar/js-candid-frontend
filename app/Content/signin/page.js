@@ -1,9 +1,10 @@
+import Signin from '@/Components/home/Signin'
 import React from 'react'
 
-const Signin = () => {
+const signin = () => {
   return (
-    <div>Signin</div>
+    <Signin />
   )
 }
 
-export default Signin
+export default signin

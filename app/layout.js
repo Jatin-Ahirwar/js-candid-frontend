@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
      <html lang="en">
       <body suppressHydrationWarning>
         <Wrapper>
-        {/* <NextTopLoader color="rgba(247, 181, 95, 0.753)" /> */}
         <NextTopLoader color="black" />
           {children}
         </Wrapper>

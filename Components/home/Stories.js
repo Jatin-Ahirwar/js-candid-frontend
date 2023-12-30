@@ -2,12 +2,17 @@
 import React, { useEffect } from 'react'
 import "@/Components/home/Stories.css"
 import Link from 'next/link'
+import { motion } from "framer-motion";
 
 
 const Stories = () => {
-
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 1 } },
+    };
     return <> 
-    <div className='storiesdiv'>
+    <motion.div initial="hidden" animate="visible" variants={containerVariants} className='storiesdiv'>
+    {/* <div className='storiesdiv'> */}
         <div className='storytopdiv'>
             <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
             <h3>Delve deeper into our world of story-telling!</h3>
@@ -23,12 +28,9 @@ const Stories = () => {
                     <p style={{fontStyle:"italic"}}>PALM SPRING RESORT BHOPAL</p> 
                 </div>    
             </Link>
-
-            
-
-
         </div>    
-    </div>
+    {/* </div> */}
+    </motion.div>
    </>
 }
 

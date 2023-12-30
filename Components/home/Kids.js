@@ -36,8 +36,6 @@ const Kids = () => {
                 </Link>  
 
         </div>
-
-
     </div>
   </>
 }

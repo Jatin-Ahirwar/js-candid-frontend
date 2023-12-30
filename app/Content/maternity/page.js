@@ -1,9 +1,10 @@
+import Maternity from '@/Components/home/Maternity'
 import React from 'react'
 
-const Maternity = () => {
+const maternity = () => {
   return (
-    <div>Maternity</div>
+    <Maternity />
   )
 }
 
-export default Maternity
+export default maternity

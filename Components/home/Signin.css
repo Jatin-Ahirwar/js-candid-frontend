@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+.signinmaindiv{
+    /* min-height: calc(100vh - 20vh); */
+    min-height: 81.2vh;
+    width: 100%;
+    background-color: #f5ebd99e;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 20vh 0;
+}
+.signintopdiv{
+    height: 20vh;
+    width: 60%;
+    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.signintopdiv h1{
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.signincontentwrapper{
+    height: 50vh;
+    width: 60%;
+    /* background-color: rebeccapurple; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+
+}
+.signincontent{
+    border: .2px solid rgba(128, 128, 128, 0.212);
+    border-radius: 10px;
+    height: 80%;
+    width: 50%;
+}
+.signinform{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 3vh;   
+    align-items: center;
+    justify-content: center;
+}
+.signinput-wrapper{
+    min-height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+.signinlabel{
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #919090;
+}
+.signinlabel span{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    text-transform: lowercase;
+    letter-spacing: 0;
+    font-size: 12px;
+}
+.signinput{
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: .2px solid #919090;
+    border-radius: 5px;
+}
+.signinbtn{
+    cursor: pointer;
+    border-radius: 50px;
+    height: 6vh;
+    width: 9vw;
+    border: none;
+    outline: none;
+    background-color: rgb(96, 93, 93);
+    transition: all ease .5s;
+}
+.signinbtn p{
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.signinbtn:hover{
+    background-color: rgb(131, 124, 124);
+}
+
+

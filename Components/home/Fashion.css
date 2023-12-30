@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+.fashionwrapper{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f5ebd99e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 20vh 0;
+}
+.fashiontopdiv{
+    height: 20vh;
+    width: 60%;
+    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.fashiontopdiv h2{
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+.fashionstorycontent{
+    min-height: calc(100vh - 41.6vh);
+    /* min-height: calc(100vh - 20vh); */
+    width: 100%;
+    gap: 2.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
+    padding: 5vh 4vw 0 4vw;
+    /* padding: 0 4vw 9vh 4vw; */
+    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+}
+.fashionproductdiv{
+    flex-shrink: 0;
+    height: 60vh;
+    width: 21vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+    gap: 15px;
+    transition: opacity 0.3s ease-in-out;
+}
+.fashionproductdiv h3{
+    font-weight: 100;
+}
+.productcoverimgdiv{
+    height: 70%;
+    width: 100%;
+    /* background-color: red; */
+}
+.productcoverimg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.productdetailsdiv{
+    /* background-color: aqua; */
+    height: calc(100% - 80%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 5px; */
+    justify-content: space-between;
+}
