@@ -11,8 +11,8 @@ const Stories = () => {
         visible: { opacity: 1, transition: { duration: 1 } },
     };
     return <> 
-    <motion.div initial="hidden" animate="visible" variants={containerVariants} className='storiesdiv'>
-    {/* <div className='storiesdiv'> */}
+    {/* <motion.div initial="hidden" animate="visible" variants={containerVariants} className='storiesdiv'> */}
+    <div className='storiesdiv'>
         <div className='storytopdiv'>
             <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
             <h3>Delve deeper into our world of story-telling!</h3>
@@ -29,8 +29,8 @@ const Stories = () => {
                 </div>    
             </Link>
         </div>    
-    {/* </div> */}
-    </motion.div>
+    </div>
+    {/* </motion.div> */}
    </>
 }
 

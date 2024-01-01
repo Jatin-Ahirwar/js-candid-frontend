@@ -15,13 +15,14 @@ const layout = ({children}) => {
     const locomotiveScroll = new LocomotiveScroll();
   }, [])
   return <>        
-    <Nav />
-        <AnimatePresence initial={false} mode='popLayout'>
-          <motion.div key={children.key} initial="hidden" animate="visible" variants={containerVariants} style={{height:"100%" , width:"100%"}}>
-            {children}
-          </motion.div>
-        </AnimatePresence>
-
+      <Nav />
+      <motion.div 
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      exit={{opacity:0}}
+      >
+        {children}
+      </motion.div>
   </>
 }
 

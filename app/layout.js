@@ -2,7 +2,6 @@ import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 import Wrapper from '@/Wrapper/Wrapper'
 import { ReactLenis } from '@studio-freight/react-lenis'
-// import 'remixicon/fonts/remixicon.css'
 import 'remixicon/fonts/remixicon.css'
 
 export const metadata = {
@@ -23,3 +22,10 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+
+
+
+
+
+
