@@ -1,9 +1,19 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import '@/Components/home/Fashion.css'
 import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncaallfashion } from '@/Store/Actions/FashionActions'
 const Fashion = () => {
+    const dispatch = useDispatch()
+    const { fashions } = useSelector((state)=>state.FashionReducer)
+    useEffect(()=>{
+        dispatch(asyncaallfashion())
+    } , [])
+
   return <>
         <div className='fashionwrapper'>
+            <p>{JSON.stringify(fashions)}</p>
         <div className='fashiontopdiv'>
             <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>fashion & commercial</h2>
         </div>

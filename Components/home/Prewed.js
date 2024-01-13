@@ -2,10 +2,20 @@
 import React, { useEffect } from 'react'
 import "@/Components/home/Prewed.css"
 import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncaallprewedding } from '@/Store/Actions/PreweddingActions'
 
 const Prewed = () => {
+    const dispatch = useDispatch()
+    const { preweddings } = useSelector((state)=>state.PreweddingReducer)
+    useEffect(()=>{
+        dispatch(asyncaallprewedding())
+    } , [])
+
     return <> 
     <div className='storiesdiv'>
+        <p>{JSON.stringify(preweddings)}</p>
+
         <div className='storytopdiv'>
             <h1 style={{letterSpacing:"5px"}}>Pre-Weddings</h1>
         </div>

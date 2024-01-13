@@ -3,9 +3,17 @@ import React, { useEffect } from 'react'
 import "@/Components/home/Stories.css"
 import Link from 'next/link'
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncaallstories } from '@/Store/Actions/StoriesActions';
 
 
 const Stories = () => {
+    const dispatch = useDispatch()
+    const { stories } = useSelector((state)=>state.StoriesReducer)
+    useEffect(()=>{
+        dispatch(asyncaallstories())
+    } , [])
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { duration: 1 } },
@@ -13,6 +21,7 @@ const Stories = () => {
     return <> 
     {/* <motion.div initial="hidden" animate="visible" variants={containerVariants} className='storiesdiv'> */}
     <div className='storiesdiv'>
+        <p>{JSON.stringify(stories)}</p>
         <div className='storytopdiv'>
             <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
             <h3>Delve deeper into our world of story-telling!</h3>

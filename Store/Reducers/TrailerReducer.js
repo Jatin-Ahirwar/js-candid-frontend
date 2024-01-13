@@ -11,7 +11,7 @@ export const TrailerReducer = createSlice({
     initialState,
     
     reducers:{
-        addtrailer:(state,action) =>{
+        addtrailers:(state,action) =>{
             state.trailers = action.payload
         },
         addsingletrailer:(state,action) =>{
