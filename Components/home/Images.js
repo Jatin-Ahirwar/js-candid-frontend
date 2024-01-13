@@ -1,12 +1,23 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "@/Components/home/images.css"
 import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncaAllImages } from '@/Store/Actions/ImagesActions'
 
 
 const Images = () => {
+    const dispatch = useDispatch()
+    const { images } = useSelector((state)=>state.ImagesReducer)
+
+    useEffect(() => {
+      dispatch(asyncaAllImages())
+    }, [])
+
+
     return <> 
     <div className='imagesmaindiv'>
+        <p>{JSON.stringify(images)}</p>
         <div className='imagetopdiv'>
             <h1 style={{letterSpacing:"5px"}}>IMAGES</h1>
         </div> 

@@ -1,8 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import  EmployeReducer  from './Reducers/EmployeReducer'
+import AdminReducer  from './Reducers/AdminReducer'
+import ImagesReducer from './Reducers/ImagesReducer'
+import KidsReducer from './Reducers/KidsReducer'
+import MaternityReducer from './Reducers/MaternityReducer'
 
 export const store = configureStore({
   reducer: {
-    EmployeReducer
+    AdminReducer,
+    ImagesReducer,
+    KidsReducer,
+    MaternityReducer
   },
 })

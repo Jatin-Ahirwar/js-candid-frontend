@@ -1,10 +1,9 @@
 "use client"
-import { store } from '@/Store/Store';
+import { store } from '@/Store/Store.js';
 import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ReactLenis } from '@studio-freight/react-lenis'
-import { AnimatePresence } from 'framer-motion';
 
 
 const Wrapper = ({ children }) => {

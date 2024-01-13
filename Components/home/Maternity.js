@@ -1,11 +1,19 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import "@/Components/home/Maternity.css"
 import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncaAllImages } from '@/Store/Actions/MaternityActions'
 
 const Maternity = () => {
-  return (
+  const dispatch = useDispatch()
+  useEffect(()=>{
+      dispatch(asyncaAllImages())
+  },[])
+  const { images } = useSelector((state)=>state.MaternityReducer)
+return (
     <div className='maternitymaindiv'>
+      <p>{JSON.stringify(images)}</p>
         <div className='maternitytopdiv'>
             <h1 style={{letterSpacing:"5px"}}>MATERNITY</h1>
         </div> 
