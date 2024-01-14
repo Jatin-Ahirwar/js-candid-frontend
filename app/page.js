@@ -1,11 +1,8 @@
 "use client"
-
 import React, { useEffect, useRef } from 'react'
-import { ReactLenis } from '@studio-freight/react-lenis'
 import Nav from '@/Components/home/Nav'
 import Page1 from '@/Components/home/Page1'
 import LocomotiveScroll from 'locomotive-scroll'
-import "../node_modules/locomotive-scroll/dist/locomotive-scroll.modern.mjs";
 
 import gsap from "gsap"
 import Page2 from '@/Components/home/Page2'

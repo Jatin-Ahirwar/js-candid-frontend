@@ -9,7 +9,7 @@ html,body {
 }
 .contactmaindiv{
     /* min-height: calc(100vh - 22vh); */
-    min-height: 100vh;
+    min-height: 150vh;
     width: 100%;
     background-color: #f5ebd99e;
     display: flex;
