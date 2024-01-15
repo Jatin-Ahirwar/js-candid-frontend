@@ -20,7 +20,8 @@ const Nav = () => {
               <p style={{fontSize:"12px",display:"flex",alignItems:"center",cursor:"pointer"}}>MORE <i style={{fontSize:"15px"}} class="ri-arrow-down-s-fill"></i></p>
                 <div className="hidden-nav">
                     <Link id="hiddenlink"  href="/Content/kids">baby & Kids </Link>
-                    <Link id="hiddenlink"  href="/Content/maternity">Maternity</Link>
+                    {/* <Link id="hiddenlink"  href="/Content/maternity">Maternity</Link> */}
+                    <Link id="hiddenlink"  href="/Content/event">Events</Link>
                     <Link id="hiddenlink"  href="/Content/fashion">Fashion & Commercial</Link>
                     <Link id="hiddenlink"  href="/Content/signin">Sign in</Link>
                 </div>

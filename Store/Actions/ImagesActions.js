@@ -10,3 +10,13 @@ export const asyncaAllImages = () => async(dispatch,getstate)=>{
         dispatch(iserror(error.response.data.message))
     }
 }
+
+export const asyncaSingleImage = (index) => async(dispatch,getstate)=>{
+    try {
+        const { data } = await axios.post(`/findsingleImages/${index}`)
+        dispatch(addsingleimages(data.singleImage))
+        console.log(data.singleImage)
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+    }
+}

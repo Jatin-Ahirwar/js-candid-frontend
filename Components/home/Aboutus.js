@@ -18,8 +18,6 @@ const Aboutus = () => {
             </div>
             <div className='ownership'>
                 <h1>"Jayant Arya"</h1>
-                {/* <h3>-- Founder, Js Candid --</h3> */}
-                {/* <h5>— FOUNDER, JS CANDID</h5> */}
                 <h6>—  FOUNDER,  JS CANDID</h6>
             </div>
         </div>

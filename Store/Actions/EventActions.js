@@ -3,9 +3,9 @@ import {  addevents, addsingleevent, iserror, removeerror } from "../Reducers/Ev
 
 export const asyncaallevents = () => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post("/findalltrailer")
-        dispatch(addevents(data))
-        console.log(data)
+        const { data } = await axios.post("/findallevent")
+        dispatch(addevents(data.allevent))
+        console.log(data.allevent)
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }
@@ -13,7 +13,7 @@ export const asyncaallevents = () => async(dispatch,getstate)=>{
 
 export const asyncaSingleevents = (index) => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post(`/findsingletrailer/:${index}`)
+        const { data } = await axios.post(`/findsingleevent/:${index}`)
         dispatch(addsingleevent(data.images))
         console.log(data.images)
     } catch (error) {
