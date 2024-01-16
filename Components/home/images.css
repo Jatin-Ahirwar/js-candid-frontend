@@ -16,6 +16,7 @@ html,body {
     flex-direction: column;
     align-items: center;
     padding: 0 0 20vh 0;
+    position: relative;
 }
 .imagetopdiv{
     height: 20vh;
@@ -48,7 +49,7 @@ html,body {
 .imagediv{
     height: 31vh;
     width: 31vh;
-    background-color: yellow;
+    /* background-color: yellow; */
     transition: all ease .5s;
 }
 .imagediv:hover{
@@ -59,4 +60,94 @@ html,body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+.overlay{
+    position: absolute;
+    top: -18.7%;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+.overlaybgimage{
+    filter: blur(30px);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* opacity: 0; */
+}
+.overlaywraper{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.331);
+    position: absolute;
+    top: 0;
+
+}
+.overlaytop{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+.overlayleft{
+    height: 50px;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3vh;
+}
+.overlayright{
+    height: 50px;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.overlaymid{
+    /* height: calc(100% - 100px); */
+    height: calc(100% - 190px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    color: white;
+    /* background-color: blueviolet; */
+
+}
+.overlaymidleft{
+    overflow: hidden;
+    font-size: 3vh;
+    background-color: gray;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.overlaymidcenter{
+    /* height: calc(100% - 150px); */
+    height: 100%;
+    width: calc(100% - 20vw);
+    border: .2px solid rgba(128, 128, 128, 0.094);
+}
+.overlaymidcenterimage{
+    height: 100%;
+    width: 100%;
+}
+.overlaymidright{
+    overflow: hidden;
+    font-size: 3vh;
+    background-color: gray;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

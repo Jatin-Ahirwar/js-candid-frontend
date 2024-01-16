@@ -20,7 +20,6 @@ html,body {
 .kidstopdiv{
     height: 20vh;
     width: 60%;
-    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,18 +32,20 @@ html,body {
 }
 .imagecontentwrapper{
     min-height: calc(100vh - 60vh);
-    width: 60%;
-    gap: 1.29vw;
+    width: 80%;
+    gap: 10px;
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
     padding: 9vh 0 9vh 0;
+    border-top: .2px solid rgba(128, 128, 128, 0.212);
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+    /* background-color: rebeccapurple; */
 }
 
 .imagediv{
-    height: 40vh;
-    width: 31vh;
+    height: 35vh;
+    width: 26.2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +60,7 @@ html,body {
 
 .coverimg{
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }

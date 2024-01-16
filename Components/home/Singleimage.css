@@ -11,4 +11,12 @@ html,body {
     background-color: rebeccapurple;
     height: 81.3vh;
     width: 100%;
+    position: relative;
+}
+.wrapperoverlay{
+    /* background-color: rosybrown; */
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    width: 100%;
 }

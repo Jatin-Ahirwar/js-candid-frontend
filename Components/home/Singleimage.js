@@ -9,6 +9,9 @@ const Singleimage = () => {
     return <>
         <div className='wrappp'>            
             <p>{JSON.stringify(singleimages)}</p>
+            <div className='wrapperoverlay'>
+                
+            </div>
         </div>
     </>
 }
