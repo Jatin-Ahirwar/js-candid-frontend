@@ -67,14 +67,16 @@ html,body {
     height: 100%;
     width: 100%;
     display: none;
+    overflow: hidden;
 }
 .overlaybgimage{
-    filter: blur(30px);
+    scale: 1.2;
+    filter: blur(20px);
+    -webkit-filter: blur(10px);
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
-    /* opacity: 0; */
 }
 .overlaywraper{
     height: 100%;
@@ -134,11 +136,15 @@ html,body {
     /* height: calc(100% - 150px); */
     height: 100%;
     width: calc(100% - 20vw);
-    border: .2px solid rgba(128, 128, 128, 0.094);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .overlaymidcenterimage{
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
+    object-fit: cover;
+    object-position: center;
 }
 .overlaymidright{
     overflow: hidden;
