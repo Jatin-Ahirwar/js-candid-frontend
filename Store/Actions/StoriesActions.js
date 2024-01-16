@@ -12,11 +12,11 @@ export const asyncaallstories = () => async(dispatch,getstate)=>{
 }
 
 
-export const asyncaSinglestories = (index) => async(dispatch,getstate)=>{
+export const asyncaSinglestories = (id) => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post(`/findsinglestories/:${index}`)
-        dispatch(addsinglestories(data.images))
-        console.log(data.images)
+        const { data } = await axios.post(`/findsinglestories/${id}`)
+        dispatch(addsinglestories(data.singlestorie))
+        console.log(data.singlestorie)
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }

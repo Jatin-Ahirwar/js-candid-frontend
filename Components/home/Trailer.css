@@ -49,7 +49,6 @@ html,body {
 .trailerdiv{
     height: 35vh;
     width: 28.8vw;
-    background-color: yellow;
     position: relative;
     filter: grayscale(100%);
     transition: all ease .5s;
