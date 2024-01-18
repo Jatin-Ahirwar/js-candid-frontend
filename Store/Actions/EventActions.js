@@ -11,11 +11,11 @@ export const asyncaallevents = () => async(dispatch,getstate)=>{
     }
 }
 
-export const asyncaSingleevents = (index) => async(dispatch,getstate)=>{
+export const asyncaSingleevent = (index) => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post(`/findsingleevent/:${index}`)
-        dispatch(addsingleevent(data.images))
-        console.log(data.images)
+        const { data } = await axios.post(`/findsingleevent/${index}`)
+        dispatch(addsingleevent(data.singleevent))
+        console.log(data.singleevent)
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }

@@ -12,7 +12,6 @@ const layout = ({children}) => {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1 } },
   };
-
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll();
   }, [])

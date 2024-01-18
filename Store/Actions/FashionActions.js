@@ -13,9 +13,9 @@ export const asyncaallfashion = () => async(dispatch,getstate)=>{
 
 export const asyncaSinglefashion = (index) => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post(`/findsinglefashion/:${index}`)
-        dispatch(addsinglefashion(data.images))
-        console.log(data.images)
+        const { data } = await axios.post(`/findsinglefashion/${index}`)
+        dispatch(addsinglefashion(data.singlefashion))
+        console.log(data.singlefashion)
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }

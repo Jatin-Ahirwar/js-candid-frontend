@@ -2,13 +2,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SingleEvent from '@/Components/home/SingleEvent'
+import { asyncaSingleevent } from '@/Store/Actions/EventActions'
 
 
 const page = (props) => {
     const dispatch = useDispatch()
     const id = props.params.id
     useEffect(()=>{
-        dispatch()
+        dispatch(asyncaSingleevent(id))
     },[])
     
     return <>

@@ -27,11 +27,21 @@ const SinglePrewed = () => {
             }
         </div>
 
-        <h3 id='teasername'>TEASER</h3>
-        <div style={{margin:"3vh 0"}} className='storiestrailer'>
-            <i id='play' class="ri-play-fill"></i>
-            <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleprewedding?.teaser}`}></video>
-        </div>   
+        {
+            singleprewedding?.teaser.length > 0 ? 
+            <>    
+            <h3 id='teasername'>TEASER</h3>
+            <div style={{margin:"3vh 0"}} className='storiestrailer'>
+                <i id='play' class="ri-play-fill"></i>
+                <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleprewedding?.teaser}`}></video>
+            </div>
+               
+            </>
+
+            : ""
+
+        }    
+
     </div>
   )
 }

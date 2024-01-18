@@ -13,7 +13,7 @@ const Event = () => {
 
   return <>
         <div className='fashionwrapper'>
-            <p>{JSON.stringify(events)}</p>
+            {/* <p>{JSON.stringify(events)}</p> */}
         <div className='fashiontopdiv'>
             <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>Event</h2>
         </div>
@@ -21,7 +21,7 @@ const Event = () => {
         <div className='fashionstorycontent'>
             {
                 events?.map((event)=>(
-                    <Link style={{textDecoration:"none", color:"black"}} href="" className='fashionproductdiv'>
+                    <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singleevent/${event._id}`} className='fashionproductdiv'>
                         <div className='productcoverimgdiv' >
                             <img className='productcoverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${event.posterimage}`} alt="" />
                         </div>
@@ -33,9 +33,7 @@ const Event = () => {
                     </Link>
                 ))
             }
-        </div>    
-
-        
+        </div>            
     </div>
   </>
 }

@@ -30,10 +30,17 @@ const SingleStories = () => {
         </div>
         ))
         }
-        <div className='storiestrailer'>
-            <i id='play' class="ri-play-fill"></i>
-            <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singlestories?.teaser}`}></video>
-        </div>   
+        {
+            singlestories?.teaser.length > 0 ? 
+            <>
+            <h3 style={{marginBottom:"4vh"}} id='teasername'>TEASER</h3>
+            <div className='storiestrailer'>
+                <i id='play' class="ri-play-fill"></i>
+                <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singlestories?.teaser}`}></video>
+            </div> 
+            </>
+            : ""  
+        }
     </div>
   )
 }

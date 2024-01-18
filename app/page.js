@@ -11,12 +11,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const page = () => {
   useEffect(() => {
-    if(typeof window !== 'undefined')
-      {
         const locomotiveScroll = new LocomotiveScroll();
-      }
   }, [])
-  
+
 return <>
         <Nav />
         <Page1 />
