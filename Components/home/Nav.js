@@ -4,8 +4,6 @@ import Link from "next/link"
 import React, { useEffect, useRef, useState } from 'react'
 
 const Nav = () => {
-
-
   return <>
     <div className='nav'>
     <Link style={{textDecoration:"none" , color:"black"}} href="/"><h1 className="logo">Js<span>candid</span></h1></Link>

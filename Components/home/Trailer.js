@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
 import "@/Components/home/Trailer.css"
-import LocomotiveScroll from 'locomotive-scroll'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncaalltrailers } from '@/Store/Actions/TrailerActions'
@@ -9,6 +8,7 @@ import { asyncaalltrailers } from '@/Store/Actions/TrailerActions'
 
 const Trailer = () => {
     const dispatch = useDispatch()
+
     const { trailers } = useSelector((state)=>state.TrailerReducer)
 
     useEffect(() => {

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useSelector } from 'react-redux'
-import "@/Components/home/SingleStories.css"
+import "@/Components/home/SinglePrewed.css"
 
 const SinglePrewed = () => {
     const { singleprewedding } = useSelector((state)=>state.PreweddingReducer)

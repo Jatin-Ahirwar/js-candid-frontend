@@ -8,7 +8,7 @@ const page = () => {
 return <>
         <Nav />
         <Page1 />
-      </>
+    </>
 }
 
 export default page

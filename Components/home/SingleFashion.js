@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useSelector } from 'react-redux'
-import "@/Components/home/SingleEvent.css"
+import "@/Components/home/SingleFashion.css"
 
 const SingleFashion = () => {
     const { singlefashion } = useSelector((state)=>state.FashionReducer)

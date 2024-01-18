@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect } from 'react'
-import '@/Components/home/Fashion.css'
+import '@/Components/home/Event.css'
+
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncaallevents } from '@/Store/Actions/EventActions'
