@@ -21,7 +21,7 @@ const Prewed = () => {
         <div className='storycontent'>
             {
                 preweddings?.map((prewed)=>(
-                    <Link style={{textDecoration:"none", color:"black"}} href="" className='storyproductdiv'>
+                    <Link  style={{textDecoration:"none", color:"black"}} href={`/Content/singleprewedding/${prewed._id}`} className='storyproductdiv'>
                         <div className='coverimgdiv' >
                             <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${prewed.posterimage}`} alt="" />
                         </div>

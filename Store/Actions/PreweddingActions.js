@@ -12,11 +12,11 @@ export const asyncaallprewedding = () => async(dispatch,getstate)=>{
 }
 
 
-export const asyncaSingleprewedding = (index) => async(dispatch,getstate)=>{
+export const asyncaSingleprewedding = (id) => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post(`/findsinglematernity/:${index}`)
-        dispatch(addsingleprewedding(data.images))
-        console.log(data.images)
+        const { data } = await axios.post(`/findsingleprewedding/${id}`)
+        dispatch(addsingleprewedding(data.singleprewedding))
+        console.log(data.singleprewedding)
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }
