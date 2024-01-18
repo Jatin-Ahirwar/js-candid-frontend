@@ -1,36 +1,33 @@
 "use client"
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import "@/Components/home/Singleimage.css"
+import "@/Components/home/SingleTrailer.css"
 import Link from 'next/link'
 
-const Singleimage = () => {
-    const { singleimages } = useSelector((state)=>state.ImagesReducer)
-    const dispatch = useDispatch()
-    return <>
+const SingleTrailer = () => {
+    const { singletrailer } = useSelector((state)=>state.TrailerReducer)
+    return (
         <div className='singletrailerwrapper'>
             <div className='overlay'>
-            <img className='overlaybgimage' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleimages}`} alt="" />
+            <video className='overlaybgimage' autoPlay muted loop src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singletrailer?.trailervideo}`}></video>            
             <div className='overlaywraper'>
                 <div className='overlaytop'>
+                    <div className='overlayright'></div>
                     <div className='overlayright'>
-                        {/* <div className='overlayleft'>{imageindex + 1}/{images?.length}</div> */}
-                    </div>
-                    <div className='overlayright'>
-                        <Link style={{textDecoration:"none"}} href="/Content/images">
+                        <Link style={{textDecoration:"none"}} href="/Content/trailer">
                             <i  id='cross' style={{fontSize:"4.5vh" , color:"white" , fontWeight:"100"}} class="ri-close-fill"></i>
                         </Link>
                     </div>
                 </div>
                 <div className='overlaymid'>
                     <div className='overlaymidcenter'>
-                        <img className='overlaymidcenterimage' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleimages}`} alt="" />
+                        <video className='overlaymidcenterimage' autoPlay muted loop src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singletrailer?.trailervideo}`}></video>
                     </div>
                 </div>
             </div>
         </div>
         </div>
-    </>
+    )
 }
 
-export default Singleimage
+export default SingleTrailer

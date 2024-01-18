@@ -64,6 +64,7 @@ html,body {
 .overlay{
     position: absolute;
     top: -18.7%;
+    top: -18.7%;
     height: 100%;
     width: 100%;
     display: none;

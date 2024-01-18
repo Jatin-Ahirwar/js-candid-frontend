@@ -18,10 +18,12 @@ const Images = () => {
         dispatch(asyncaSingleImage(index))
         setimageindex(index)
         document.querySelector(".overlay").style.display = "initial"
+        document.body.style.backgroundColor = "blue"
     }
 
     const closingHandler = ()=>{
         document.querySelector(".overlay").style.display = "none"
+        document.body.style.backgroundColor = "red"
     }
 
 
@@ -36,8 +38,8 @@ const Images = () => {
             {
                 images?.map((image , index)=>(
                     // <Link href={"/Content/singleimage/" + index} onClick={()=> indexHandler(index)} key={index} className='imagediv'>
-                    // <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
-                    <Link href="" onClick={()=> indexHandler(index)} key={index} className='imagediv'>
+                    <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
+                    {/* <Link href="" onClick={()=> indexHandler(index)} key={index} className='imagediv'> */}
                         <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt={`Image ${index}`} />
                     </Link>  
                 ))

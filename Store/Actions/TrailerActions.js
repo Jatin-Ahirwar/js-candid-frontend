@@ -11,11 +11,11 @@ export const asyncaalltrailers = () => async(dispatch,getstate)=>{
     }
 }
 
-export const asyncaSingleImages = (index) => async(dispatch,getstate)=>{
+export const asyncaSingleTrailer = (id) => async(dispatch,getstate)=>{
     try {
-        const { data } = await axios.post(`/findsingletrailer/:${index}`)
-        dispatch(addsingletrailer(data.images))
-        console.log(data.images)
+        const { data } = await axios.post(`/findsingletrailer/${id}`)
+        dispatch(addsingletrailer(data.singletrailer))
+        console.log(data.singletrailer)
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }
