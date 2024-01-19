@@ -29,6 +29,7 @@ const Fashion = () => {
                             <h3>SHIVAM & SHRASTI</h3> 
                             <p style={{fontFamily:"times"}}>Jaipur,India</p> 
                             <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More <i class="ri-arrow-right-line"></i></h6> 
+                            {/* <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More</h6>  */}
                         </div>    
                     </Link>
                 ))

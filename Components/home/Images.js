@@ -29,8 +29,8 @@ const Images = () => {
 
     return <> 
     <div className='imagesmaindiv'>
-        <p>{JSON.stringify(images)}</p>
-        <p>{JSON.stringify(singleimages)}</p>
+        {/* <p>{JSON.stringify(images)}</p> */}
+        {/* <p>{JSON.stringify(singleimages)}</p> */}
         <div className='imagetopdiv'>
             <h1 style={{letterSpacing:"5px"}}>IMAGES</h1>
         </div> 

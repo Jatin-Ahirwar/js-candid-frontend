@@ -30,6 +30,7 @@ const Event = () => {
                             <h3 style={{textTransform:"uppercase"}}>{event.modelname}</h3> 
                             <p style={{fontFamily:"times" }}>Jaipur,India</p> 
                             <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase" , fontFamily:"times"}}>checkout <i class="ri-arrow-right-line"></i></h6> 
+                            {/* <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase" , fontFamily:"times"}}>checkout </h6>  */}
                         </div>    
                     </Link>
                 ))

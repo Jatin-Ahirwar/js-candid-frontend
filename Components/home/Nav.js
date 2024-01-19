@@ -15,7 +15,10 @@ const Nav = () => {
           <Link className="link" href="/Content/contact">Contact</Link>
           <Link className="link" href="/Content/aboutus">About us</Link>
           <div className='profilediv'>
-              <p style={{fontSize:"12px",display:"flex",alignItems:"center",cursor:"pointer"}}>MORE <i style={{fontSize:"15px"}} class="ri-arrow-down-s-fill"></i></p>
+              <div id="ptag"> 
+                <p id="pp">MORE</p>
+                <i id="ptagicon" class="ri-arrow-down-s-fill"></i>
+              </div>
                 <div className="hidden-nav">
                     <Link id="hiddenlink"  href="/Content/kids">baby & Kids </Link>
                     {/* <Link id="hiddenlink"  href="/Content/maternity">Maternity</Link> */}
@@ -24,7 +27,12 @@ const Nav = () => {
                     <Link id="hiddenlink"  href="/Content/signin">Sign in</Link>
                 </div>
           </div>
+          <i id="closeicon" class="ri-close-fill"></i>
+          {/* <img className="closingicon" src="../../stockimages/close.png" alt="" />           */}
       </div>
+
+          <img className="menuicon" id="opennavicon" src="../../stockimages/menu.png" alt="" />
+
     </div>
   </>
 }
