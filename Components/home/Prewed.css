@@ -20,7 +20,7 @@ html,body {
 .storytopdiv{
     height: 20vh;
     width: 60%;
-    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+    /* border-bottom: .2px solid rgba(128, 128, 128, 0.212); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +30,7 @@ html,body {
 .bottamline{
     height: 1px;
     width: 60vw;
-    background-color: rgba(128, 128, 128, 0.212);
+    background-color: rgba(128, 128, 128, 0.128);
 }
 .storytopdiv h1{
     text-align: center;

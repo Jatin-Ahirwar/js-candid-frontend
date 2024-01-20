@@ -13,7 +13,7 @@ const Event = () => {
     } , [])
 
   return <>
-        <div className='fashionwrapper'>
+        <div className='eventwrapper'>
             {/* <p>{JSON.stringify(events)}</p> */}
         <div className='fashiontopdiv'>
             <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>Event</h2>
@@ -21,20 +21,24 @@ const Event = () => {
 
         <div className='fashionstorycontent'>
             {
-                events?.map((event)=>(
-                    <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singleevent/${event._id}`} className='fashionproductdiv'>
-                        <div className='productcoverimgdiv' >
-                            <img className='productcoverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${event.posterimage}`} alt="" />
-                        </div>
-                        <div className='productdetailsdiv'>
-                            <h3 style={{textTransform:"uppercase"}}>{event.modelname}</h3> 
-                            <p style={{fontFamily:"times" }}>Jaipur,India</p> 
-                            <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase" , fontFamily:"times"}}>checkout <i class="ri-arrow-right-line"></i></h6> 
-                            {/* <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase" , fontFamily:"times"}}>checkout </h6>  */}
-                        </div>    
-                    </Link>
-                ))
+                events?.length > 0 ?
+                    events?.map((event)=>(
+                        <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singleevent/${event._id}`} className='eventproductdiv'>
+                            <div className='productcoverimgdiv' >
+                                <img className='productcoverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${event.posterimage}`} alt="" />
+                            </div>
+                            <div className='productdetailsdiv'>
+                                <h3 style={{textTransform:"uppercase"}}>{event.modelname}</h3> 
+                                <p style={{fontFamily:"times" }}>Jaipur,India</p> 
+                                <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase" , fontFamily:"times"}}>checkout <i class="ri-arrow-right-line"></i></h6> 
+                                {/* <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase" , fontFamily:"times"}}>checkout </h6>  */}
+                            </div>    
+                        </Link>
+                    ))
+                    :
+                 <h2>nahi hai bhai</h2>
             }
+
         </div>            
     </div>
   </>

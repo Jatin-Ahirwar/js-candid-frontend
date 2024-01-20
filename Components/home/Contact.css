@@ -8,19 +8,17 @@ html,body {
     width: 100%;
 }
 .contactmaindiv{
-    /* min-height: calc(100vh - 22vh); */
-    min-height: 150vh;
-    width: 100%;
+    min-height: 100vh;
+    width: 100vw;
     background-color: #f5ebd99e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 20vh 0;
+    padding: 0 0 10vh 0;
 }
 .contacttopdiv{
     height: 20vh;
-    width: 60%;
-    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+    width: 60vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,52 +29,9 @@ html,body {
     letter-spacing: 2px;
     font-weight: 100;
 }
-.contactgreets{
-    /* background-color: rebeccapurple; */
-    height: 70vh;
-    width: 60%;
-    padding: 8vh 6vw;
-    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
-}
-.para{
-    height: 70%;
-    width: 100%;
-    /* background-color: rosybrown; */
-    display: flex;
-    flex-direction: column;
-    /* justify-content: end; */
-    gap: 10px;
-    text-align: center;
-}
-.para p{
-    color: #919090;
-    font-size: 15px;
-    font-family: bookman old style;
-}
-.ownership{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    justify-content: end;
-    height: calc(100% - 70%);
-    width: 100%;
-    color: #919090;
-    /* background-color: royalblue; */
-}
-.ownership h1{
-    font-weight: 100;
-    font-family: Freestyle Script;
-}
-
-.ownership h6{
-    letter-spacing: 2px;
-    font-weight: 100;
-    font-family: 'Times New Roman', Times, serif;
-}
-
 .contactformdiv{
-    width: 60%;
+    border-top: .2px solid rgba(128, 128, 128, 0.212);
+    width: 60vw;
     padding: 0 3vw 5vh 3vw;
     color: #919090;
     display: flex;
@@ -85,7 +40,7 @@ html,body {
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
 }
 .mandatory{
-    padding: 4vh 0 4vh 0;
+    padding: 4vh 0;
     font-family: 'Times New Roman', Times, serif;
     letter-spacing: 1px;
     font-weight: 100;
@@ -97,7 +52,6 @@ html,body {
     flex-direction: column;
     gap: 4vh;
     align-items: center;
-
 }
 .input-wrapper{
     min-height: 10vh;
@@ -173,7 +127,7 @@ html,body {
 .submitbtn p{
     color: white;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 1rem;
     letter-spacing: 4px;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -181,4 +135,84 @@ html,body {
     background-color: rgb(131, 124, 124);
 }
 
+@media (max-width: 1100px) {
+    .submitbtn{
+        width: 13vw;
+    }
+}
 
+@media (max-width: 1000px) {
+    .submitbtn{
+        width: 15vw;
+    }
+}
+
+@media (max-width: 850px) {
+    .contactformdiv{
+        width: 70vw;
+    }
+    .submitbtn{
+        width: 15vw;
+    }
+}
+@media (max-width: 750px) {
+    .contactformdiv{
+        width: 75vw;
+    }
+    .submitbtn{
+        width: 17vw;
+    }
+}
+@media (max-width: 650px) {
+    .contactformdiv{
+        width: 85vw;
+    }
+    .contacttopdiv{
+        height: 15vh;
+    }
+    .submitbtn{
+        width: 20vw;
+    }
+}
+@media (max-width: 600px) {
+    .contactformdiv{
+        width: 95vw;
+    }
+    .submitbtn{
+        width: 22vw;
+    }
+}
+@media (max-width: 500px) {
+
+    #biglabels{
+        font-size: 14px;
+    }
+    .submitbtn{
+        width: 26vw;
+    }
+    .contacttopdiv{
+        height: 13vh;
+    }
+
+}
+@media (max-width: 440px) {
+    #biglabels{
+        font-size: 12px;
+    }
+    .submitbtn{
+        width: 30vw;
+    }
+}
+@media (max-width: 350px) {
+    #biglabels{
+        font-size: 10px;
+    }
+    .submitbtn{
+        width: 35vw;
+    }
+}
+@media (max-width: 250px) {
+    .submitbtn{
+        width: 80vw;
+    }
+}

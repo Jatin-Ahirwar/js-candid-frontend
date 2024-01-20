@@ -8,7 +8,7 @@ html,body {
     width: 100%;
 }
 .imagesmaindiv{
-    min-height: 100vh;
+    min-height: 50vh;
     width: 100vw;
     background-color: #f5ebd99e;
     display: flex;

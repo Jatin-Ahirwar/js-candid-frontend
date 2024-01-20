@@ -12,13 +12,13 @@ const Contact = () => {
             <h2 className='mandatory'>Mandatory Details</h2>
             <form className='form'>
                 <div className='input-wrapper'>
-                    <label className='label'>YOUR EVENT/WEDDING/FUNCTION DETAILS  <span> (required)</span></label>
+                    <label id='biglabels' className='label'>YOUR EVENT/WEDDING/FUNCTION DETAILS  <span> (required)</span></label>
                     <p style={{fontSize:"10px"}}>What are the tentative events / functions / timings per day </p>
                     <textarea  className='textarea' required  type="text"></textarea>
                 </div>
                 
                 <div className='input-wrapper'>
-                    <label className='label'>YOUR EVENT/WEDDING/FUNCTION DATES  <span> (required)</span></label>
+                    <label id='biglabels' className='label'>YOUR EVENT/WEDDING/FUNCTION DATES  <span> (required)</span></label>
                     <input className='input' required type="text" />
                 </div>
 
