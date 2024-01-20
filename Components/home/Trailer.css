@@ -8,15 +8,12 @@ html,body {
     width: 100%;
 }
 .trailermaindiv{
-    /* min-height: calc(100vh - 20vh); */
     min-height: 100vh;
     width: 100%;
     background-color: #f5ebd99e;
-    /* background-color: #f5ebd9; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 20vh 0;
 }
 .trailertopdiv{
     height: 20vh;
@@ -37,14 +34,13 @@ html,body {
 .trailercontentwrapper{
     /* margin-top: 20px; */
     min-height: calc(100vh - 60vh);
-    width: 60%;
+    width: 60vw;
     gap: 2.2vw;
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
     padding: 9vh 0 9vh 0;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
-    /* background-color: rebeccapurple; */
 }
 .trailerdiv{
     height: 35vh;
@@ -101,6 +97,13 @@ html,body {
     text-transform: uppercase;
     color: #92000A;
     font-weight: 900;
+}
 
+@media (max-width: 500px) {
+    .trailerdiv{
+        height: 50vh; 
+        width: 100vw;
+
+    }
 }
       

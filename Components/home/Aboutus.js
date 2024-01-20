@@ -4,11 +4,11 @@ import "@/Components/home/Aboutus.css"
 
 const Aboutus = () => {
   return <>
-    <div className='contactmaindiv'>
-        <div className='contacttopdiv'>
-            <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>About us</h2>
+    <div className='aboutmaindiv'>
+        <div className='abouttopdiv'>
+            <h2>About us</h2>
         </div>
-        <div className='contactgreets'>
+        <div className='aboutgreets'>
             <div className='para'>
                 <p>We love making films and are honoured to be considered by you to document your wedding story for posterity.</p>
                 <p>This website best showcases our work - every film, every image and every song here represents who we are and what we stand for. </p>
@@ -16,7 +16,7 @@ const Aboutus = () => {
                 <p>Years later, when you see your films & photographs, not only will you begin to relive the priceless moments of these special days but also see how beautifully and gracefully your love has matured. </p>
                 <p>We would love to curate this film for you as nothing gives us greater pleasure than to make these once-in-a-lifetime films from moments that don’t have a second take.</p>
             </div>
-            <div className='ownership'>
+            <div className='aboutownership'>
                 <h1>"Jayant Arya"</h1>
                 <h6>—  FOUNDER,  JS CANDID</h6>
             </div>

@@ -8,9 +8,8 @@ html,body {
     width: 100%;
 }
 .imagesmaindiv{
-    /* min-height: calc(100vh - 20vh); */
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #f5ebd99e;
     display: flex;
     flex-direction: column;
@@ -20,13 +19,12 @@ html,body {
 }
 .imagetopdiv{
     height: 20vh;
-    width: 60%;
-    border-bottom: .2px solid rgba(128, 128, 128, 0.212);
+    width: 60vw;
+    /* border-bottom: .2px solid rgba(128, 128, 128, 0.212); */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
 }
 
 .imagetopdiv h1{
@@ -37,12 +35,13 @@ html,body {
 .imagecontentwrapper{
     /* margin-top: 20px; */
     min-height: calc(100vh - 60vh);
-    width: 60%;
+    width: 60vw;
     gap: 1.29vw;
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
     padding: 9vh 0 9vh 0;
+    border-top: .2px solid rgba(128, 128, 128, 0.212);
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
     /* background-color: rebeccapurple; */
 }
@@ -85,7 +84,6 @@ html,body {
     background-color: rgba(0, 0, 0, 0.331);
     position: absolute;
     top: 0;
-
 }
 .overlaytop{
     height: 100px;
@@ -158,3 +156,66 @@ html,body {
     align-items: center;
     justify-content: center;
 }
+
+
+@media (max-width: 1300px) {
+    .imagediv {
+        height: 44vh;
+        width: 29.35vw;
+    }
+}
+@media (max-width: 1100px) {
+    .imagediv {
+        height: 38vh;
+    }
+}
+@media (max-width: 950px) {
+    .imagediv {
+        height: 36vh;
+        /* width: 29.35vw; */
+    }
+}
+@media (max-width: 800px) {
+    .imagecontentwrapper {
+        width: 80vw;
+    }
+    .imagediv {
+        height: 38vh;
+        width: 39.3vw;
+    }
+}
+@media (max-width: 700px) {
+    .imagediv {
+        height: 35vh;
+        width: 39.3vw;
+    }
+    .imagecontentwrapper{
+        padding: 6vh 0;
+    }
+    .imagetopdiv{
+        height: 15vh;
+    }
+}
+@media (max-width: 600px) {
+    .imagediv {
+        height: 32vh;
+        width: 39.3vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .imagediv {
+        height: 44vh;
+        width: 80vw;
+        margin-bottom: 10px;
+    }
+    .imagecontentwrapper{
+        padding: 5vh 0;
+    }
+    .imagetopdiv{
+        height: 15vh;
+
+    }
+
+}
+

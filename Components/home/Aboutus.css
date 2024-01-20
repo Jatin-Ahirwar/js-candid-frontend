@@ -7,70 +7,75 @@ html,body {
     height: 100%;
     width: 100%;
 }
-.contactmaindiv{
-    /* min-height: calc(100vh - 22vh); */
+.aboutmaindiv{
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #f5ebd99e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 20vh 0;
 }
-.contacttopdiv{
+.abouttopdiv{
     height: 20vh;
-    width: 60%;
+    width: 60vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
 }
-.contacttopdiv h2{
-    letter-spacing: 2px;
+.abouttopdiv h2{
+    letter-spacing: 5px;
     font-weight: 100;
+    text-transform: uppercase;
 }
-.contactgreets{
-    /* background-color: rebeccapurple; */
-    height: 70vh;
-    width: 60%;
-    padding: 8vh 6vw;
+.aboutgreets{
+    min-height: 70vh;
+    width: 100vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
-}
-.para{
-    height: 70%;
-    width: 100%;
-    /* background-color: rosybrown; */
-    display: flex;
-    flex-direction: column;
-    /* justify-content: end; */
-    gap: 10px;
-    text-align: center;
-}
-.para p{
-    color: #919090;
-    font-size: 15px;
-    font-family: bookman old style;
-}
-.ownership{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    justify-content: end;
-    height: calc(100% - 70%);
-    width: 100%;
-    color: #919090;
-    /* background-color: royalblue; */
+    justify-content: space-between;
+    padding: 6vh 0;
 }
-.ownership h1{
+.aboutgreets .para{
+    min-height: 50vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: .99rem;
+    text-align: center;
+}
+.aboutgreets .para p{
+    text-align: center;
+    color: #919090;
+    font-size: .99rem;
+    font-family: bookman old style;
+}
+.aboutownership{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+    justify-content: flex-end;
+    color: #919090;
+    height: 10vh;
+    min-width: 15vw;
+}
+.aboutownership h1{
     font-weight: 100;
     font-family: Freestyle Script;
 }
-
-.ownership h6{
+.aboutownership h6{
     letter-spacing: 2px;
     font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
 }
+
+@media (max-width:500px){
+    .aboutgreets .para{
+        width: 80vw;
+    }
+}
+

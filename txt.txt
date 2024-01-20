@@ -1,0 +1,36 @@
+@media (max-width: 800px) {
+    .aboutgreets .para{
+        height:     60vh;
+        width: 65vw;
+    }
+}
+@media (max-width: 700px) {
+    .aboutgreets .para{
+        height: 65vh;
+        width: 65vw;
+    }
+}
+@media (max-width: 600px) {
+    .aboutgreets .para{
+        height: 65vh;
+        width: 65vw;
+    }
+}
+@media (max-width: 500px) {
+    .aboutgreets .para{
+        height: 80vh;
+        width: 80vw;
+    }
+}
+@media (max-width: 400px) {
+    .aboutgreets .para{
+        /* height: 85vh; */
+        width: 85vw;
+    }
+}
+@media (max-width: 300px) {
+    .aboutgreets .para{
+        /* height: 95vh; */
+        width: 90vw;
+    }
+}

@@ -26,6 +26,7 @@ const Stories = () => {
             <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
             <h3>Delve deeper into our world of story-telling!</h3>
         </div>
+        <div className='bottamline'></div>
         <div className='storycontent'>
             {
                 stories?.map((story)=>(
@@ -33,7 +34,6 @@ const Stories = () => {
                         <div className='coverimgdiv' >
                             {/* <img className='coverimg' src="https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /> */}
                             <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${story.posterimage}`} alt="" />
-                            {/* <img className='coverimg' src={story.posterimage} alt="" /> */}
                         </div>
                         <div className='storydetailsdiv'>
                             <h3 style={{textTransform:"uppercase"}}>{story.groomname} & {story.bridename}</h3> 
