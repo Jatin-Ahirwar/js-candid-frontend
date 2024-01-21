@@ -16,7 +16,7 @@ html,body {
     align-items: center;
     padding: 0 0 10vh 0;
 }
-.fashiontopdiv{
+.eventtopdiv{
     height: 20vh;
     width: 60vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
@@ -26,11 +26,11 @@ html,body {
     justify-content: center;
     gap: 8px;
 }
-.fashiontopdiv h2{
+.eventtopdiv h2{
     letter-spacing: 2px;
     font-weight: 100;
 }
-.fashionstorycontent{
+.eventstorycontent{
     min-height: calc(100vh - 41.6vh);
     width: 100vw;
     gap: 2.5vw;
@@ -42,30 +42,31 @@ html,body {
 }
 .eventproductdiv{
     flex-shrink: 0;
-    height: 60vh;
+    height: 55vh;
     width: 21vw;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     font-weight: 100;
-    gap: 15px;
+    /* gap: 15px; */
     transition: opacity 0.3s ease-in-out;
 }
 .eventproductdiv h3{
     font-weight: 100;
 }
-.productcoverimgdiv{
-    height: 70%;
+.eventcoverimgdiv{
+    height: 78%;
     width: 100%;
 }
-.productcoverimg{
+.eventcoverimg{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
-.productdetailsdiv{
-    height: calc(100% - 80%);
+.eventdetailsdiv{
+    height: calc(100% - 82%);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -75,64 +76,133 @@ html,body {
 }
 
 
-
-
 @media (max-width: 1300px) {
-    .fashionstorycontent{
-        height: 50vh;
-        width: 20vw;
-        margin-left: 5px;
+    .eventproductdiv{
+        height: 43vh;
+        width: 21vw;
+    }
+    .eventdetailsdiv h3{
+        font-size: .9rem;   
+    }
+    .eventdetailsdiv p{
+        font-size: .8rem;   
+    }
+    .eventdetailsdiv h6{
+        font-size: .6rem;   
     }
 }
+
 @media (max-width: 1100px) {
-    .storyproductdiv{
-        height: 50vh;
-        width: 25vw;
-        margin-left: 5px;
+    .eventproductdiv{
+        height: 40vh;
+        width: 21vw;
+    }
+    .eventdetailsdiv h3{
+        font-size: .8rem;   
+    }
+    .eventdetailsdiv p{
+        font-size: .7rem;   
+    }
+    .eventdetailsdiv h6{
+        font-size: .5rem;   
     }
 }
-@media (max-width: 900px) {
-    .storyproductdiv{
+@media (max-width: 1000px) {
+    .eventproductdiv{
         height: 45vh;
-        width: 28vw;
-        margin-left: 5px;
+        width: 29vw;
+    }
+    .eventdetailsdiv h3{
+        font-size: .9rem;   
+    }
+    .eventdetailsdiv p{
+        font-size: .9rem;   
+    }
+    .eventdetailsdiv h6{
+        font-size: .6rem;   
     }
 }
 
-@media (max-width: 800px) {
-    .bottamline{
-        width: 90vw;
+@media (max-width: 850px) {
+    .eventstorycontent{
+        padding: 5vh 8vw;
+        gap: 5vh;
     }
-    .storyproductdiv{
-        height: 52vh;
-        width: 40vw;
-        margin-left: 5px;
-    }
-}
-
-/* @media (max-width: 700px) {
-    .bottamline{
-        width: 90vw;
-    }
-    .storyproductdiv{
-        height: 55vh;
-        width: 40vw;
-        margin-left: 5px;
-    }
-} */
-@media (max-width: 600px) {
-    .storyproductdiv{
+    .eventproductdiv{
         height: 50vh;
-        width: 45vw;
-        margin-left: 5px;
+        width: 39.5vw;
+    }
+}
+@media (max-width: 700px) {
+    .eventstorycontent{
+        padding: 5vh 5vw;
+        gap: 4vh;
+    }
+    .eventproductdiv{
+        height: 45vh;
+        width: 42.5vw;
+    }
+}
+@media (max-width: 600px) {
+    .eventstorycontent{
+        padding: 6vh 7vw;
+        gap: 4vh;
+    }
+    .eventproductdiv{
+        height: 40vh;
+        width: 40vw;
     }
 }
 
-@media (max-width: 500px) {
-    .storyproductdiv{
+@media (max-width: 550px) {
+    .eventtopdiv{
+        height: 15vh;
+    }
+    .eventstorycontent{
+        padding: 8vh 9.5vw;
+        gap: 4vh;
+    }
+    .eventproductdiv{
         height: 70vh;
-        margin-left: 5px;
-        width: 90vw;
-
+        width: 80vw;
+    }
+    .eventdetailsdiv h3{
+        font-size: 1.3rem;   
+    }
+    .eventdetailsdiv p{
+        font-size: 1.2rem;   
+    }
+    .eventdetailsdiv h6{
+        font-size: 1rem;   
+    }
+}
+@media (max-width: 500px) {
+    .eventproductdiv{
+        height: 60vh;
+        width: 80vw;
+    }
+    .eventdetailsdiv h3{
+        font-size: 1.2rem;   
+    }
+    .eventdetailsdiv p{
+        font-size: 1rem;   
+    }
+    .eventdetailsdiv h6{
+        font-size: .9rem;   
+    }
+}
+@media (max-width: 450px) {
+    .eventproductdiv{
+        height: 55vh;
+        width: 80vw;
+    }
+    .eventdetailsdiv h3{
+        font-size: 1.1rem;   
+    }
+    .eventdetailsdiv p{
+        font-size: .9rem;   
+    }
+    .eventdetailsdiv h6{
+        font-size: .8rem;   
     }
 }

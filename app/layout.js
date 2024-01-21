@@ -15,11 +15,11 @@ export default function RootLayout({ children }) {
      <html lang="en">
       <body suppressHydrationWarning>
         <Wrapper>
-        <NextTopLoader color="black" />
+          <NextTopLoader color="black" />
             <SmoothScrolling>
                {children}
             </SmoothScrolling>
-        </Wrapper>
+          </Wrapper>
       </body>
     </html>
   )

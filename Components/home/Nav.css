@@ -110,7 +110,7 @@ html,body {
     visibility: visible;
 }
 #ptagicon{
-    font-size: ".5rem";
+    height: 15px;
 }
 .menuicon{
     padding: 10px;

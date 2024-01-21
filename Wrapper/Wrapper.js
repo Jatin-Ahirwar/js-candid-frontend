@@ -8,11 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Wrapper = ({ children }) => {
   return (
-    <>
         <Provider store={store}>
               {children}
         </Provider>
-    </>
   )
 }
 

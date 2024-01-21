@@ -17,7 +17,8 @@ const Nav = () => {
           <div className='profilediv'>
               <div id="ptag"> 
                 <p id="pp">MORE</p>
-                <i id="ptagicon" class="ri-arrow-down-s-fill"></i>
+                <img id="ptagicon" src="../../stockimages/arrow-down-s-fill.png" alt="" />
+                {/* <i id="ptagicon" class="ri-arrow-down-s-fill"></i> */}
               </div>
                 <div className="hidden-nav">
                     <Link id="hiddenlink"  href="/Content/kids">baby & Kids </Link>
@@ -27,7 +28,9 @@ const Nav = () => {
                     <Link id="hiddenlink"  href="/Content/signin">Sign in</Link>
                 </div>
           </div>
-          <i id="closeicon" class="ri-close-fill"></i>
+
+          {/* <i id="closeicon" class="ri-close-fill"></i> */}
+          
           {/* <img className="closingicon" src="../../stockimages/close.png" alt="" />           */}
       </div>
 
