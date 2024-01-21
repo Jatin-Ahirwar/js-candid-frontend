@@ -7,20 +7,17 @@ html,body {
     height: 100%;
     width: 100%;
 }
-.storiesdiv{
-    /* min-height: calc(100vh - 22vh); */
+.preweddingdiv{
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #f5ebd99e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 20vh 0;
+    padding: 0 0 10vh 0;
 }
-.storytopdiv{
+.preweddingtopdiv{
     height: 20vh;
-    width: 60%;
-    /* border-bottom: .2px solid rgba(128, 128, 128, 0.212); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,41 +27,39 @@ html,body {
 .bottamline{
     height: 1px;
     width: 60vw;
-    background-color: rgba(128, 128, 128, 0.128);
+    background-color: rgba(128, 128, 128, 0.212);
 }
-.storytopdiv h1{
-    text-align: center;
+.preweddingtopdiv h1{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
+    text-align: center;
+
 }
-.storycontent{
+.preweddingcontent{
     min-height: calc(100vh - 41.6vh);
-    /* min-height: calc(100vh - 20vh); */
-    width: 100%;
+    width: 100vw;
     gap: 2.5vw;
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
-    padding: 5vh 4vw 0 4vw;
-    /* padding: 0 4vw 9vh 4vw; */
+    padding: 5vh 4vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
 }
-.storyproductdiv{
+.preweddingproductdiv{
     flex-shrink: 0;
-    height: 60vh;
+    height: 55vh;
     width: 21vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     font-weight: 100;
-    gap: 15px;
     transition: opacity 0.3s ease-in-out;
 }
 .coverimgdiv{
-    height: 70%;
+    height: 78%;
     width: 100%;
-    /* background-color: red; */
 }
 .coverimg{
     width: 100%;
@@ -72,77 +67,171 @@ html,body {
     object-fit: cover;
     object-position: center;
 }
-.storydetailsdiv{
-    /* background-color: aqua; */
-    height: calc(100% - 80%);
+.preweddingdetailsdiv{
+    height: calc(100% - 83%);
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 5px; */
     justify-content: space-between;
 }
-.storyproductdiv h3{
+
+.preweddingproductdiv h3{
+    font-weight: 100;
+    text-transform: uppercase;
     font-weight: 100;
 }
 
-@media (max-width: 1400px) {
-    .storyproductdiv{
-        height: 50vh;
-        width: 20vw;
-        margin-left: 5px;
+.preweddingproductdiv p{
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+
+}
+.preweddingproductdiv h6{
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+@media (max-width: 1300px) {
+    .preweddingproductdiv{
+        height: 43vh;
+        width: 21vw;
+    }
+    .preweddingdetailsdiv h3{
+        font-size: .9rem;   
+    }
+    .preweddingdetailsdiv p{
+        font-size: .8rem;   
+    }
+    .preweddingdetailsdiv h6{
+        font-size: .6rem;   
     }
 }
+
 @media (max-width: 1100px) {
-    .storyproductdiv{
-        height: 50vh;
-        width: 25vw;
-        margin-left: 5px;
+    .preweddingproductdiv{
+        height: 40vh;
+        width: 21vw;
+    }
+    .preweddingdetailsdiv h3{
+        font-size: .8rem;   
+    }
+    .preweddingdetailsdiv p{
+        font-size: .7rem;   
+    }
+    .preweddingdetailsdiv h6{
+        font-size: .5rem;   
     }
 }
-@media (max-width: 900px) {
-    .storyproductdiv{
+@media (max-width: 1000px) {
+    .preweddingproductdiv{
         height: 45vh;
-        width: 28vw;
-        margin-left: 5px;
+        width: 29vw;
+    }
+    .preweddingdetailsdiv h3{
+        font-size: .9rem;   
+    }
+    .preweddingdetailsdiv p{
+        font-size: .9rem;   
+    }
+    .preweddingdetailsdiv h6{
+        font-size: .6rem;   
     }
 }
 
-@media (max-width: 800px) {
-    .bottamline{
-        width: 90vw;
+@media (max-width: 850px) {
+    .preweddingcontent{
+        padding: 8vh 8vw;
+        gap: 5vh;
     }
-    .storyproductdiv{
-        height: 52vh;
-        width: 40vw;
-        margin-left: 5px;
-    }
-}
-
-/* @media (max-width: 700px) {
-    .bottamline{
-        width: 90vw;
-    }
-    .storyproductdiv{
-        height: 55vh;
-        width: 40vw;
-        margin-left: 5px;
-    }
-} */
-@media (max-width: 600px) {
-    .storyproductdiv{
+    .preweddingproductdiv{
         height: 50vh;
-        width: 45vw;
-        margin-left: 5px;
+        width: 39.5vw;
+    }
+}
+@media (max-width: 700px) {
+    .preweddingcontent{
+        padding: 5vh 5vw;
+        gap: 4vh;
+    }
+    .preweddingproductdiv{
+        height: 45vh;
+        width: 42.5vw;
+    }
+}
+@media (max-width: 650px) {
+    .preweddingtopdiv h2{
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 600px) {
+
+    .preweddingcontent{
+        padding: 6vh 7vw;
+        gap: 4vh;
+    }
+    .preweddingproductdiv{
+        height: 40vh;
+        width: 40vw;
     }
 }
 
-@media (max-width: 500px) {
-    .storyproductdiv{
+@media (max-width: 550px) {
+    .preweddingtopdiv{
+        height: 15vh;
+    }
+    .preweddingcontent{
+        padding: 8vh 9.5vw;
+        gap: 4vh;
+    }
+    .preweddingproductdiv{
         height: 70vh;
-        margin-left: 5px;
-        width: 90vw;
-
+        width: 80vw;
+    }
+    .preweddingdetailsdiv{
+        height: 11vh;
+    }
+    .preweddingdetailsdiv h3{
+        font-size: 1.1rem;   
+    }
+    .preweddingdetailsdiv p{
+        font-size: 1rem;   
+    }
+    .preweddingdetailsdiv h6{
+        font-size: .9rem;   
+    }
+}
+@media (max-width: 500px) {
+    .preweddingproductdiv{
+        height: 60vh;
+        width: 80vw;
+    }
+    .preweddingdetailsdiv{
+        height: 10vh;
+    }
+    .preweddingdetailsdiv h3{
+        font-size: 1rem;   
+    }
+    .preweddingdetailsdiv p{
+        font-size: .8rem;   
+    }
+    .preweddingdetailsdiv h6{
+        font-size: .8rem;   
+    }
+}
+@media (max-width: 450px) {
+    .preweddingproductdiv{
+        height: 55vh;
+        width: 80vw;
+    }
+    .preweddingdetailsdiv h3{
+        font-size: 1rem;   
+    }
+    .preweddingdetailsdiv p{
+        font-size: .9rem;   
+    }
+    .preweddingdetailsdiv h6{
+        font-size: 10px;   
     }
 }

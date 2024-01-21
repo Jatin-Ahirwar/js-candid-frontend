@@ -8,19 +8,17 @@ html,body {
     width: 100%;
 }
 .signinmaindiv{
-    /* min-height: calc(100vh - 20vh); */
     min-height: 81.2vh;
-    width: 100%;
+    width: 100vw;
     background-color: #f5ebd99e;
-    /* background-color: yellow; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 20vh 0;
+    padding: 0 0 10vh 0;
 }
 .signintopdiv{
     height: 20vh;
-    width: 60%;
+    width: 60vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
     display: flex;
     flex-direction: column;
@@ -36,8 +34,7 @@ html,body {
 
 .signincontentwrapper{
     height: 50vh;
-    width: 60%;
-    /* background-color: rebeccapurple; */
+    width: 60vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,5 +111,87 @@ html,body {
 .signinbtn:hover{
     background-color: rgb(131, 124, 124);
 }
+@media (max-width:1200px) {
+    .signincontentwrapper{
+        width: 60vw;
+    }
+    .signincontent{
+        width: 40vw;
+    }
+    .signinbtn{
+        width: 11vw;
+    }
+}
+@media (max-width:1000px) {
+    .signincontentwrapper{
+        width: 60vw;
+    }
+    .signincontent{
+        width: 50vw;
+    }
+    .signinbtn{
+        width: 13vw;
+    }
+
+}
+@media (max-width:800px) {
+    .signincontentwrapper{
+        width: 75vw;
+    }
+    .signincontent{
+        width: 55vw;
+    }
+    .signinbtn{
+        width: 16vw;
+    }
+
+}
+@media (max-width:700px) {
+    .signincontentwrapper{
+        width: 75vw;
+    }
+    .signincontent{
+        width: 60vw;
+    }
+    .signinbtn{
+        width: 19vw;
+    }
+}
+@media (max-width:600px) {
+    .signincontentwrapper{
+        width: 85vw;
+    }
+    .signincontent{
+        width: 75vw;
+    }
+    .signinbtn{
+        width: 20vw;
+    }
+}
 
 
+@media (max-width:500px) {
+    .signincontentwrapper{
+        width: 90vw;
+    }
+    .signincontent{
+        width: 80vw;
+        height: 37vh;
+    }
+    .signinbtn{
+        padding: 2vh 0;
+        width: 25vw;
+    }
+}
+@media (max-width:400px) {
+    .signincontentwrapper{
+        width: 100vw;
+    }
+    .signincontent{ 
+        width: 85vw;
+    }
+    .signinbtn{
+        padding: 2vh 0;
+        width: 30vw;
+    }
+}

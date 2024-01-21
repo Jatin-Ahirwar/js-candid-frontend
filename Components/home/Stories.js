@@ -36,9 +36,9 @@ const Stories = () => {
                             <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${story.posterimage}`} alt="" />
                         </div>
                         <div className='storydetailsdiv'>
-                            <h3 style={{textTransform:"uppercase"}}>{story.groomname} & {story.bridename}</h3> 
-                            <h5 style={{fontWeight:"100",letterSpacing:"1px"}}>{story.date}</h5> 
-                            <p style={{fontStyle:"italic",textTransform:"capitalize"}}>{story.venue} , {story.location}</p> 
+                            <h3>{story.groomname} & {story.bridename}</h3> 
+                            <h5>{story.date}</h5> 
+                            <p>{story.venue} , {story.location}</p> 
                         </div>    
                     </Link>
                 ))

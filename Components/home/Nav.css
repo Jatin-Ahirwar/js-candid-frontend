@@ -138,8 +138,26 @@ html,body {
     border: 2px solid #F9F3E7;
     cursor: pointer;
 }
-
-
+@media (max-width:1300px){
+    .hidden-nav{
+        width: 15vw;
+    }
+}
+@media (max-width:1200px){
+    .hidden-nav{
+        width: 18vw;
+    }
+}
+@media (max-width:1000px){
+    .hidden-nav{
+        width: 20vw;
+    }
+}
+@media (max-width:900px){
+    .hidden-nav{
+        width: 23vw;
+    }
+}
 @media ( max-width :780px ){
     .links {
         position: fixed;

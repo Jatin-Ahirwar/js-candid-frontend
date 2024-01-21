@@ -9,16 +9,16 @@ html,body {
 }
 .fashionwrapper{
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #f5ebd99e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 20vh 0;
+    padding: 0 0 10vh 0;
 }
 .fashiontopdiv{
     height: 20vh;
-    width: 60%;
+    width: 60vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
     display: flex;
     flex-direction: column;
@@ -29,37 +29,48 @@ html,body {
 .fashiontopdiv h2{
     letter-spacing: 2px;
     font-weight: 100;
+    text-align: center;
 }
 .fashionstorycontent{
     min-height: calc(100vh - 41.6vh);
-    /* min-height: calc(100vh - 20vh); */
-    width: 100%;
+    width: 100vw;
     gap: 2.5vw;
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill , minmax(100px, 1fr));
-    padding: 5vh 4vw 0 4vw;
-    /* padding: 0 4vw 9vh 4vw; */
+    padding: 5vh 4vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
 }
 .fashionproductdiv{
     flex-shrink: 0;
-    height: 60vh;
+    height: 55vh;
     width: 21vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-weight: 100;
-    gap: 15px;
+    justify-content: space-between;
     transition: opacity 0.3s ease-in-out;
 }
 .fashionproductdiv h3{
+    text-transform: uppercase;
     font-weight: 100;
 }
+
+.productdetailsdiv p{
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+
+}
+.productdetailsdiv h6{
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .productcoverimgdiv{
-    height: 70%;
+    height: 78%;
     width: 100%;
-    /* background-color: red; */
 }
 .productcoverimg{
     width: 100%;
@@ -68,13 +79,153 @@ html,body {
     object-position: center;
 }
 .productdetailsdiv{
-    /* background-color: aqua; */
-    height: calc(100% - 80%);
+    height: calc(100% - 83%);
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 5px; */
     justify-content: space-between;
+}
+@media (max-width: 1300px) {
+    .fashionproductdiv{
+        height: 43vh;
+        width: 21vw;
+    }
+    .productdetailsdiv h3{
+        font-size: .9rem;   
+    }
+    .productdetailsdiv p{
+        font-size: .8rem;   
+    }
+    .productdetailsdiv h6{
+        font-size: .6rem;   
+    }
+}
+
+@media (max-width: 1100px) {
+    .fashionproductdiv{
+        height: 40vh;
+        width: 21vw;
+    }
+    .productdetailsdiv h3{
+        font-size: .8rem;   
+    }
+    .productdetailsdiv p{
+        font-size: .7rem;   
+    }
+    .productdetailsdiv h6{
+        font-size: .5rem;   
+    }
+}
+@media (max-width: 1000px) {
+    .fashionproductdiv{
+        height: 45vh;
+        width: 29vw;
+    }
+    .productdetailsdiv h3{
+        font-size: .9rem;   
+    }
+    .productdetailsdiv p{
+        font-size: .9rem;   
+    }
+    .productdetailsdiv h6{
+        font-size: .6rem;   
+    }
+}
+
+@media (max-width: 850px) {
+    .fashionstorycontent{
+        padding: 8vh 8vw;
+        gap: 5vh;
+    }
+    .fashionproductdiv{
+        height: 50vh;
+        width: 39.5vw;
+    }
+}
+@media (max-width: 700px) {
+    .fashionstorycontent{
+        padding: 5vh 5vw;
+        gap: 4vh;
+    }
+    .fashionproductdiv{
+        height: 45vh;
+        width: 42.5vw;
+    }
+}
+@media (max-width: 650px) {
+    .fashiontopdiv h2{
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 600px) {
+
+    .fashionstorycontent{
+        padding: 6vh 7vw;
+        gap: 4vh;
+    }
+    .fashionproductdiv{
+        height: 40vh;
+        width: 40vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .fashiontopdiv{
+        height: 15vh;
+    }
+    .fashionstorycontent{
+        padding: 8vh 9.5vw;
+        gap: 4vh;
+    }
+    .fashionproductdiv{
+        height: 70vh;
+        width: 80vw;
+    }
+    .productdetailsdiv{
+        height: 11vh;
+    }
+    .productdetailsdiv h3{
+        font-size: 1.1rem;   
+    }
+    .productdetailsdiv p{
+        font-size: 1rem;   
+    }
+    .productdetailsdiv h6{
+        font-size: .9rem;   
+    }
+}
+@media (max-width: 500px) {
+    .fashionproductdiv{
+        height: 60vh;
+        width: 80vw;
+    }
+    .productdetailsdiv{
+        height: 10vh;
+    }
+    .productdetailsdiv h3{
+        font-size: 1rem;   
+    }
+    .productdetailsdiv p{
+        font-size: .8rem;   
+    }
+    .productdetailsdiv h6{
+        font-size: .8rem;   
+    }
+}
+@media (max-width: 450px) {
+    .fashionproductdiv{
+        height: 55vh;
+        width: 80vw;
+    }
+    .productdetailsdiv h3{
+        font-size: 1rem;   
+    }
+    .productdetailsdiv p{
+        font-size: .9rem;   
+    }
+    .productdetailsdiv h6{
+        font-size: 10px;   
+    }
 }

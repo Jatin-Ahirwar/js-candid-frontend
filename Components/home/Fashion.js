@@ -26,9 +26,9 @@ const Fashion = () => {
                             <img className='productcoverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${fashion.posterimage}`} alt="" />
                         </div>
                         <div className='productdetailsdiv'>
-                            <h3>SHIVAM & SHRASTI</h3> 
-                            <p style={{fontFamily:"times"}}>Jaipur,India</p> 
-                            <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More <i class="ri-arrow-right-line"></i></h6> 
+                            <h3>{fashion.modelname}</h3> 
+                            <p>{fashion.location} , {fashion.country}</p> 
+                            <h6>Read More <i class="ri-arrow-right-line"></i></h6> 
                             {/* <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More</h6>  */}
                         </div>    
                     </Link>
