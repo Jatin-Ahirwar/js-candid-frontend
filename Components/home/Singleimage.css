@@ -27,6 +27,8 @@ html,body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    z-index: 999;
+
 }
 .overlaybgimage{
     scale: 1.2;
@@ -94,4 +96,46 @@ html,body {
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+@media (max-width: 1130px) {
+    .overlaymidcenter{
+        width: 80vw;
+    }
+}
+@media (max-width: 1000px) {
+    .overlaymidcenter{
+        height: 60vh;
+        width: 80vw;
+    }
+}
+
+@media (max-width: 850px) {
+    .overlaymidcenter{
+        height: 55vh;
+        width: 80vw;
+    }
+}
+@media (max-width: 750px) {
+    .overlaymidcenter{
+        height: 50vh;
+        width: 85vw;
+    }
+}
+@media (max-width: 650px) {
+    .overlaymidcenter{
+        height: 45vh;
+        width: 85vw;
+    }
+}
+@media (max-width: 550px) {
+    .overlaymidcenter{
+        height: 40vh;
+        width: 87vw;
+    }
+}
+@media (max-width: 450px) {
+    .overlaymidcenter{
+        height: 35vh;
+        width: 87vw;
+    }
 }

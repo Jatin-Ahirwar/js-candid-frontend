@@ -32,7 +32,7 @@ const Images = () => {
         {/* <p>{JSON.stringify(images)}</p> */}
         {/* <p>{JSON.stringify(singleimages)}</p> */}
         <div className='imagetopdiv'>
-            <h1 style={{letterSpacing:"5px"}}>IMAGES</h1>
+            <h1>IMAGES</h1>
         </div> 
         <div className='imagecontentwrapper'>
             {
@@ -45,27 +45,7 @@ const Images = () => {
                 ))
             }
         </div>
-        <div className='overlay'>
-            <img className='overlaybgimage' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleimages}`} alt="" />
-            <div className='overlaywraper'>
-                <div className='overlaytop'>
-                    <div className='overlayleft'>{imageindex + 1}/{images?.length}</div>
-                    <div className='overlayright'><i onClick={closingHandler} id='cross' style={{fontSize:"4.5vh" , color:"white" , fontWeight:"100"}} class="ri-close-fill"></i></div>
-                </div>
-                <div className='overlaymid'>
-                    <div onClick={()=> indexHandler(index)} className='overlaymidleft'>
-                        <i class="ri-arrow-left-s-line"></i>
-                    </div>
-                    <div className='overlaymidcenter'>
-                        <img className='overlaymidcenterimage' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleimages}`} alt="" />
-                    </div>
 
-                    <div onClick={()=> indexHandler(index)} className='overlaymidright'>
-                        <i class="ri-arrow-right-s-line"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
    </>
 }

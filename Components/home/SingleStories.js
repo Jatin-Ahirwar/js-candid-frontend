@@ -9,8 +9,8 @@ const SingleStories = () => {
     <div className='singleitemwrapper'>
         {/* <p>{JSON.stringify(singlestories)}</p> */}
         <div className='storytopdiv'>
-            <h2 >{singlestories?.title}</h2>
-            <h5 >{singlestories?.groomname} & {singlestories?.bridename}</h5>
+            <h2>{singlestories?.title}</h2>
+            <h5>{singlestories?.groomname} & {singlestories?.bridename}</h5>
             <p>{singlestories?.date} | {singlestories?.venue} , {singlestories?.location}</p>
         </div>
         <div className='bestpic'>
