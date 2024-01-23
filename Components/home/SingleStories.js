@@ -18,6 +18,7 @@ const SingleStories = () => {
         </div>
 
         {
+            singlestories?.storiesfunction.length > 0 ?
             singlestories?.storiesfunction.map((storiesfunction)=>(
                 <div className='functionswrapper'>
                     <h3>{storiesfunction.functionname}</h3>
@@ -25,11 +26,16 @@ const SingleStories = () => {
                         <div className='functionimage'>
                             <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt="" />
                         </div>
-                    ))}
+                    ))
                     
+        }            
         </div>
         ))
+        :
+        "NO FUNCTIONS IMAGES FOUND"
         }
+
+        
         {
             singlestories?.teaser.length > 0 ? 
             <>

@@ -18,13 +18,18 @@ const SinglePrewed = () => {
 
         <div className='functionswrapper'>    
                 <h3>IMAGES</h3>
+            
             {
-                singleprewedding?.images.map((image)=>(
-                    <div className='functionimage'>
-                        <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt={`${image}`} />
-                    </div>                    
+               singleprewedding?.images.length > 0 ?
+                
+               singleprewedding?.images.map((image)=>(
+                <div className='functionimage'>
+                    <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt={`${image}`} />
+                </div>                    
                 ))
-            }
+            
+                : "THERE IS NO IMAGES "}
+
         </div>
 
         {
