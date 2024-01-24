@@ -22,6 +22,7 @@ const Prewed = () => {
 
         <div className='preweddingcontent'>
             {
+                preweddings?.length >  0 ?
                 preweddings?.map((prewed)=>(
                     <Link  style={{textDecoration:"none", color:"black"}} href={`/Content/singleprewedding/${prewed._id}`} className='preweddingproductdiv'>
                         <div className='coverimgdiv' >
@@ -35,6 +36,11 @@ const Prewed = () => {
                         </div>    
                     </Link>
                 ))
+
+                :
+                <div className='notfounddiv'>
+                    <h1>there is no prewedding's</h1>
+                </div>
             }
         </div>    
     </div>

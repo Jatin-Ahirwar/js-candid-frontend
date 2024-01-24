@@ -26,4 +26,14 @@ html,body {
   /* margin-bottom: 20px; */
   background-color: rebeccapurple;
 }
-
+.notfounddiv{
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notfounddiv h1{
+  text-transform: capitalize;
+  font-weight: 100;
+}

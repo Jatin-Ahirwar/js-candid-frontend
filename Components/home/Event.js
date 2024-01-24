@@ -36,8 +36,10 @@ const Event = () => {
                         </Link>
                     ))
                     :
-                 <h2>nahi hai bhai</h2>
-            }
+                    <div className='notfounddiv'>
+                        <h1>there is no event's</h1>
+                    </div>
+                }
 
         </div>            
     </div>

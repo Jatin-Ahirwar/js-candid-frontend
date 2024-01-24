@@ -20,6 +20,7 @@ const Fashion = () => {
 
         <div className='fashionstorycontent'>
             {
+               fashions?.length > 0 ?
                 fashions?.map((fashion)=>(
                     <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singlefashion/${fashion._id}`} className='fashionproductdiv'>
                         <div className='productcoverimgdiv' >
@@ -33,10 +34,13 @@ const Fashion = () => {
                         </div>    
                     </Link>
                 ))
+                :
+                <div className='notfounddiv'>
+                    <h1>there is no images</h1>
+                </div>
+
             }
         </div>    
-
-        
     </div>
   </>
 }

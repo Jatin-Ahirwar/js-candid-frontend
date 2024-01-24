@@ -29,6 +29,7 @@ const Stories = () => {
         <div className='bottamline'></div>
         <div className='storycontent'>
             {
+              stories?.length > 0 ?               
                 stories?.map((story)=>(
                     <Link style={{textDecoration:"none", color:"black"}} href={"/Content/singlestories/" + story._id} className='storyproductdiv'>
                         <div className='coverimgdiv' >
@@ -42,6 +43,11 @@ const Stories = () => {
                         </div>    
                     </Link>
                 ))
+                :
+                <div className='notfounddiv'>
+                    <h1>there is no stories's</h1>
+                </div>
+
             }
         </div>    
     </div>

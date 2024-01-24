@@ -55,7 +55,21 @@ html,body {
     object-fit: cover;
     object-position: center;
 }
+#createpost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3vh 0;
+    border: .5px solid gray;
+    border-radius: 10px;
+    cursor: pointer;  
+}
 
+#createpost h2{
+    text-transform: uppercase;
+    color: rgba(128, 128, 128, 0.708);
+}
 
 @media (max-width: 1300px) {
     .imagediv {
