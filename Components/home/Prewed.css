@@ -93,6 +93,156 @@ html,body {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+#createprewedding{
+    height: 30vh;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: .2px solid rgba(128, 128, 128, 0.53);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#createprewedding img{
+    width: 9vw;
+}
+#createprewedding h2{
+    text-transform: uppercase;
+    color: rgba(128, 128, 128, 0.708);
+}
+.preweddingoverlay{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F9F3E7;
+}
+.preweddingformdiv{
+    min-height: 90vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3vw 5vh 3vw;
+    border-radius: 10px;
+    border: .2px solid rgba(128, 128, 128, 0.212);
+}
+.mandatory{
+    padding: 4vh 0;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+.preweddingformdiv .form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.preweddingformdiv .form .input-wrapper{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+.files-wrapper{
+    display: flex;
+    height: 5vh;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.preweddingformdiv .form .bgdiv .label{
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* .preweddingformdiv .form .bgdiv .label span{ */
+.preweddingformdiv .form  .label span{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    text-transform: lowercase;
+    letter-spacing: 0;
+    font-size: 12px;
+}
+.preweddingformdiv .form .input-wrapper .label{
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.preweddingformdiv .form .input-wrapper .label span{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    text-transform: lowercase;
+    letter-spacing: 0;
+    font-size: 12px;
+}
+.preweddingformdiv .form .input{
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: .2px solid #919090;
+    border-radius: 5px;
+}
+.preweddingformdiv .form .input::placeholder{
+    color: #9190909d;
+    text-transform: capitalize;
+}
+.preweddingformdiv .form .bgdiv{
+    min-height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.preweddingformdiv .form .bgdiv .boxes{
+    height: 100%;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.preweddingformdiv .form .submitbtn{
+    cursor: pointer;
+    border-radius: 20px;
+    height: 6vh;
+    width: 8vw;
+    border: none;
+    outline: none;
+    background-color: rgb(96, 93, 93);
+    transition: all ease .5s;
+    margin-top: 10px;
+}
+.submitbtn p{
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.submitbtn:hover{
+    background-color: rgb(131, 124, 124);
+}
+
+
+
 @media (max-width: 1300px) {
     .preweddingproductdiv{
         height: 43vh;
