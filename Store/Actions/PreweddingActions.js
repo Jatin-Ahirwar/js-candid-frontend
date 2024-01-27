@@ -21,3 +21,14 @@ export const asyncaSingleprewedding = (id) => async(dispatch,getstate)=>{
         dispatch(iserror(error.response.data.message))
     }
 }
+
+
+export const asyncaCreateSingleprewedding = (prewedding) => async(dispatch,getstate)=>{
+    try {
+        const { data } = await axios.post(`/createprewedding`, prewedding)
+        dispatch(addpreweddings(data.allprewedding))
+        console.log(data.allprewedding)
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+    }
+}

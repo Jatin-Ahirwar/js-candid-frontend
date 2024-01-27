@@ -17,24 +17,88 @@ const Prewed = () => {
 
     const dispatch = useDispatch()
     const { preweddings } = useSelector((state)=>state.PreweddingReducer)
+    
     useEffect(()=>{
         dispatch(asyncaallprewedding())
     } , [])
 
-    const SubmitHandler = (e)=>{
-        e.preventDefault()
-        const prewedding = {
-            bridename,
-            groomname,
-            date,
-            location,
-            country,
-            images,
-            posterimage,
-            teaser
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+        setposterimage(selectedFile);
+    };
+
+    // const SubmitHandler = (e)=>{
+    //         e.preventDefault();
+    //         const formData = new FormData();
+    //         formData.append('posterimage', posterimage);
+    //         console.log(formData)
+    //     }
+
+        // const SubmitHandler = (e)=>{
+        //     e.preventDefault()
+        //     const prewedding = {
+        //         bridename,
+        //         groomname,
+        //         date,
+        //         location,
+        //         country,
+        //         images,
+        //         teaser
+        //     }
+        //     // const formdata = new FormData(e.target);
+        //     const formdata = new FormData();
+        //     const posterimagefile = e.target.posterimage.files[0] 
+        //     formdata.set("posterimage", posterimagefile);
+        //     console.log(formdata,prewedding)
+        // }
+    
+
+        const SubmitHandler =async (e) => {
+            e.preventDefault();
+
+            const poster = new FormData(e.target);
+            const posterimagefile = e.target.posterimage.files[0];
+            poster.set("posterimage", posterimagefile);
+            poster.forEach((value, key) => {
+                console.log( key, value);
+            })
+            
+            const prewedding = {
+                bridename,
+                groomname,
+                date,
+                location,
+                country,
+                images,
+                teaser,
+                posterimage:poster
+            }
+            
+            await console.log(prewedding);
         }
-        console.log(prewedding)
-    }
+        
+    // const SubmitHandler = (e)=>{
+    //     e.preventDefault()
+    //     const formdata = new FormData(e.target);
+    //     formdata.set("posterimage", e.target.posterimage.files[0]);
+    //     // console.log(e.target.posterimage.files[0])
+    //     console.log(formdata)
+    // }
+
+    // const SubmitHandler = (e)=>{
+    //     e.preventDefault()
+    //     const prewedding = {
+    //         bridename,
+    //         groomname,
+    //         date,
+    //         location,
+    //         country,
+    //         images,
+    //         posterimage,
+    //         teaser
+    //     }
+    //     console.log(prewedding)
+    // }
 
     return <> 
     <div className='preweddingdiv'>
@@ -77,7 +141,7 @@ const Prewed = () => {
             <h2 className='mandatory'>Create Prewedding</h2>
             <form onSubmit={SubmitHandler} encType='multipart/form-data' className='form'>
 
-                <div className='bgdiv'>
+                {/* <div className='bgdiv'>
                     <div className='boxes'>
                     <label id='biglabels' className='label'>Bride Name  <span> (required)</span></label>
                         <input className='input' onChange={(e)=>setbridename(e.target.value)} required type="text" />
@@ -97,27 +161,30 @@ const Prewed = () => {
                 <div className='input-wrapper'>
                     <label className='label'>Country <span> (required)</span></label>
                     <input className='input' onChange={(e)=>setcountry(e.target.value)} required type="text" />
-                </div>
+                </div> */}
 
                 <div className='input-wrapper'>
                     <label className='label'>Date <span> (required)</span></label>
                     <input className='input' onChange={(e)=>setdate(e.target.value)} required type="text" />
                 </div>
 
-                <div className='files-wrapper'>
+                {/* <div className='files-wrapper'>
                     <label className='label'>Teaser  <span> (required)</span></label>
                     <input required onChange={(e)=>setteaser(e.target.value)} type="file" />
                 </div>
-                
+                 */}
+
                 <div className='files-wrapper'>
                     <label className='label'>Poster Image  <span> (required)</span></label>
-                    <input onChange={(e)=>setposterimage(e.target.value)}  required type="file" />
+                    {/* <input onChange={(e)=>setposterimage(e.target.value)}  required type="file" /> */}
+                    {/* <input name='posterimage' onChange={handleFileChange} required type="file" /> */}
+                    <input name='posterimage' required type="file" />
                 </div>
 
-                <div   className='files-wrapper'>
+                {/* <div   className='files-wrapper'>
                     <label className='label'>Images  <span> (required)</span></label>
                     <input  multiple required type="file" />
-                </div>
+                </div> */}
 
                 <button type='submit' className='submitbtn'><p>submit</p></button>       
             </form>

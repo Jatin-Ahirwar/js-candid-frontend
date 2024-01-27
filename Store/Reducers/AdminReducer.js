@@ -12,13 +12,13 @@ export const AdminReducer = createSlice({
  
     reducers: {
     addadmin: (state,action) =>{
-    (state.admin = action.payload),
-    (state.isAuthenticated = true)
+    state.admin = action.payload,
+    state.isAuthenticated = true
     },
 
     removeadmin: (state,action) =>{
-    (state.admin = null),
-    (state.isAuthenticated = false)
+    state.admin = null,
+    state.isAuthenticated = false,
     state.errors = []
     },
 

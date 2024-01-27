@@ -2,21 +2,36 @@
 import React, { useEffect, useState } from 'react'
 import "@/Components/home/Signin.css"
 import Link from 'next/link'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { asyncsigninadmin, asyncsignoutadmin } from '@/Store/Actions/AdminActions'
+import Router, { useRouter } from 'next/navigation'
+
 
 const Signin = () => {
+  const router = useRouter()
+  const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
 
   const dispath = useDispatch()
-  const submitHandler = (e)=>{
+  const submitHandler =(e)=>{
     e.preventDefault()
     const admin = {
-      email,password
+      email,
+      password
     }
-    dispath(asyncsigninadmin(admin))    
+      dispath(asyncsigninadmin(admin))
   }
+
+  useEffect(() => {
+    if(isAuthenticated){
+      router.push("/")
+    }
+    else{
+      alert("please login to access the resource")
+    }
+  },[isAuthenticated])  
+
   return (
     <div className='signinmaindiv'>
         <div className='signintopdiv'>
