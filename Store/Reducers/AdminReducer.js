@@ -9,13 +9,13 @@ const initialState = {
 export const AdminReducer = createSlice({
     name: 'admin',
     initialState,
- 
     reducers: {
+
     addadmin: (state,action) =>{
-    state.admin = action.payload,
+    state.admin = action.payload
     state.isAuthenticated = true
     },
-
+        
     removeadmin: (state,action) =>{
     state.admin = null,
     state.isAuthenticated = false,
@@ -29,9 +29,16 @@ export const AdminReducer = createSlice({
     removeerror: (state,action) =>{
         state.errors = []
     },   
+
   },
+  
 })
 
-export const { addadmin , removeAdmin , iserror , removeerror } = AdminReducer.actions
+export const { 
+    addadmin ,
+    removeAdmin , 
+    iserror , 
+    removeerror 
+} = AdminReducer.actions
 
 export default AdminReducer.reducer

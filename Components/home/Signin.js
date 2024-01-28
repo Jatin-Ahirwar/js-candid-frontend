@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import "@/Components/home/Signin.css"
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncsigninadmin, asyncsignoutadmin } from '@/Store/Actions/AdminActions'
-import Router, { useRouter } from 'next/navigation'
+import { asyncsigninadmin } from '@/Store/Actions/AdminActions'
+import { useRouter } from 'next/navigation'
 
 
 const Signin = () => {
@@ -12,23 +12,21 @@ const Signin = () => {
   const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
+  const dispatch = useDispatch()
 
-  const dispath = useDispatch()
   const submitHandler =(e)=>{
     e.preventDefault()
     const admin = {
       email,
       password
     }
-      dispath(asyncsigninadmin(admin))
+      dispatch(asyncsigninadmin(admin))
   }
 
   useEffect(() => {
     if(isAuthenticated){
-      router.push("/")
-    }
-    else{
-      alert("please login to access the resource")
+      alert("you are logged in !")
+      // router.push("/")
     }
   },[isAuthenticated])  
 
