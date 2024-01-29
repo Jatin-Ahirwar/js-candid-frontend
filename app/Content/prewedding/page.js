@@ -1,7 +1,15 @@
+"use client"
 import Prewed from '@/Components/home/Prewed'
-import React from 'react'
+import { asyncaallprewedding } from '@/Store/Actions/PreweddingActions'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 const Prewedding = () => {
+  const dispatch = useDispatch()
+  // useEffect(()=>{
+  //   dispatch(asyncaallprewedding())
+  // } , [])
+
   return (
     <Prewed />
   )

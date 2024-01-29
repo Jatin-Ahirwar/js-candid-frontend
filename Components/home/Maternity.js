@@ -7,11 +7,8 @@ import { asyncaAllImages } from '@/Store/Actions/MaternityActions'
 
 const Maternity = () => {
   const dispatch = useDispatch()
-  useEffect(()=>{
-      dispatch(asyncaAllImages())
-  },[])
   const { images } = useSelector((state)=>state.MaternityReducer)
-return (
+  return (
     <div className='maternitymaindiv'>
       <p>{JSON.stringify(images)}</p>
         <div className='maternitytopdiv'>

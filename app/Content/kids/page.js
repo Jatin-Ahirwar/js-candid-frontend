@@ -1,7 +1,15 @@
+"use client"
 import Kids from '@/Components/home/Kids'
-import React from 'react'
+import { asyncaAllkidsImages } from '@/Store/Actions/KidsActions'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 const kids = () => {
+  const dispatch = useDispatch()
+  // useEffect(()=>{
+  //     dispatch(asyncaAllkidsImages())
+  // },[])
+
   return (
     <Kids />
   )

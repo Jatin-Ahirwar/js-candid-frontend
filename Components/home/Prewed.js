@@ -18,9 +18,6 @@ const Prewed = () => {
     const dispatch = useDispatch()
     const { preweddings } = useSelector((state)=>state.PreweddingReducer)
     
-    useEffect(()=>{
-        dispatch(asyncaallprewedding())
-    } , [])
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];

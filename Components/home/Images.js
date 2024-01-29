@@ -11,9 +11,6 @@ const Images = () => {
     const dispatch = useDispatch()
     const { images , singleimages } = useSelector((state)=>state.ImagesReducer)
 
-    useEffect(() => {
-      dispatch(asyncaAllImages())
-    }, [])
 
     const indexHandler = (index)=>{
         dispatch(asyncaSingleImage(index))

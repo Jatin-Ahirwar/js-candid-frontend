@@ -4,15 +4,11 @@ import "@/Components/home/Stories.css"
 import Link from 'next/link'
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncaallstories } from '@/Store/Actions/StoriesActions';
 
 
 const Stories = () => {
     const dispatch = useDispatch()
     const { stories } = useSelector((state)=>state.StoriesReducer)
-    useEffect(()=>{
-        dispatch(asyncaallstories())
-    } , [])
 
     const containerVariants = {
         hidden: { opacity: 0 },

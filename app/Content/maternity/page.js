@@ -1,7 +1,15 @@
+"use client"
 import Maternity from '@/Components/home/Maternity'
-import React from 'react'
+import { asyncaAllImages } from '@/Store/Actions/ImagesActions'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 const maternity = () => {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+      dispatch(asyncaAllImages())
+  },[])
+
   return (
     <Maternity />
   )

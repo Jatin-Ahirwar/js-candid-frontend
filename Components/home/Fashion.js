@@ -7,10 +7,6 @@ import { asyncaallfashion } from '@/Store/Actions/FashionActions'
 const Fashion = () => {
     const dispatch = useDispatch()
     const { fashions } = useSelector((state)=>state.FashionReducer)
-    useEffect(()=>{
-        dispatch(asyncaallfashion())
-    } , [])
-
   return <>
         <div className='fashionwrapper'>
             {/* <p>{JSON.stringify(fashions)}</p> */}

@@ -1,7 +1,7 @@
 import axios from "@/utils/axios.js";
 import { addimages, addsingleimage, iserror, removeerror } from "../Reducers/KidsReducer";
 
-export const asyncaAllImages = () => async(dispatch,getstate)=>{
+export const asyncaAllkidsImages = () => async(dispatch,getstate)=>{
     try {
         const {data} = await axios.post("/findallkids")
         dispatch(addimages(data.images))

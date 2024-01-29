@@ -8,11 +8,8 @@ import { asyncaallevents } from '@/Store/Actions/EventActions'
 const Event = () => {
     const dispatch = useDispatch()
     const { events } = useSelector((state)=>state.EventReducer)
-    useEffect(()=>{
-        dispatch(asyncaallevents())
-    } , [])
-
-  return <>
+    
+    return <>
         <div className='eventwrapper'>
             {/* <p>{JSON.stringify(events)}</p> */}
         <div className='eventtopdiv'>

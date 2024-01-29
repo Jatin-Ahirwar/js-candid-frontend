@@ -11,14 +11,6 @@ const Trailer = () => {
 
     const { trailers } = useSelector((state)=>state.TrailerReducer)
 
-    useEffect(() => {
-        try {
-            dispatch(asyncaalltrailers())
-        } catch (error) {
-            console.log(error)
-        }
-    } , [])
-
     return <> 
     <div className='trailermaindiv'>
         {/* <p>{JSON.stringify(trailers)}</p> */}
