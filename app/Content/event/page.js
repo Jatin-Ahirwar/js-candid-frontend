@@ -6,9 +6,9 @@ import { useDispatch } from 'react-redux'
 
 const event = () => {
   const dispatch = useDispatch()
-  // useEffect(()=>{
-  //     dispatch(asyncaallevents())
-  // } , [])
+  useEffect(()=>{
+      dispatch(asyncaallevents())
+  } , [])
 
   return (
     <Event />

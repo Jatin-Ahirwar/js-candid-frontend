@@ -6,9 +6,9 @@ import { useDispatch } from 'react-redux'
 
 const Prewedding = () => {
   const dispatch = useDispatch()
-  // useEffect(()=>{
-  //   dispatch(asyncaallprewedding())
-  // } , [])
+  useEffect(()=>{
+    dispatch(asyncaallprewedding())
+  } , [])
 
   return (
     <Prewed />

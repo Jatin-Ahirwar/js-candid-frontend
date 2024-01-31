@@ -6,9 +6,10 @@ import { useDispatch } from 'react-redux'
 
 const images = () => {
   const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(asyncaAllImages())
-  // }, [])
+  useEffect(() => {
+    dispatch(asyncaAllImages())  
+  }, [])
+  
   return (
     <Images />
   )

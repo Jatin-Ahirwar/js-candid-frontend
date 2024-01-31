@@ -2,6 +2,7 @@ import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 import Wrapper from '@/Wrapper/Wrapper'
 import 'remixicon/fonts/remixicon.css'
+import { Suspense } from 'react'
 
 export const metadata = {
   title: 'JS CANDID - Bhopal',
@@ -15,7 +16,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <Wrapper>
           <NextTopLoader color="black" />
-               {children}
+                {children}
           </Wrapper>
       </body>
     </html>

@@ -6,13 +6,12 @@ import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const Wrapper = ({ children }) => {
   return (
         <Provider store={store}>
-            <SmoothScrolling>
-              {children}
-            </SmoothScrolling>
+              <SmoothScrolling>
+                  {children}
+              </SmoothScrolling>
         </Provider>
   )
 }

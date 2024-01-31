@@ -6,9 +6,9 @@ import { useDispatch } from 'react-redux'
 
 const trailer = () => {
   const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(asyncaalltrailers())
-  // } , [])
+  useEffect(() => {
+    dispatch(asyncaalltrailers())
+  } , [])
 
   return (
     <Trailer />

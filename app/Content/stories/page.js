@@ -6,9 +6,9 @@ import { useDispatch } from 'react-redux'
 
 const stories = () => {
   const dispatch = useDispatch()
-  // useEffect(()=>{
-  //   dispatch(asyncaallstories())
-  // } , [])
+  useEffect(()=>{
+    dispatch(asyncaallstories())
+  } , [])
 
   return <>
     <Stories />

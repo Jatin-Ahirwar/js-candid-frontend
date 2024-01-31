@@ -6,9 +6,9 @@ import { useDispatch } from 'react-redux'
 
 const fashion = () => {
   const dispatch = useDispatch()
-  // useEffect(()=>{
-  //     dispatch(asyncaallfashion())
-  // } , [])
+  useEffect(()=>{
+      dispatch(asyncaallfashion())
+  } , [])
 
   return (
     <Fashion />

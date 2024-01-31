@@ -71,6 +71,10 @@ html,body {
     color: rgba(128, 128, 128, 0.708);
 }
 
+
+
+
+
 @media (max-width: 1300px) {
     .imagediv {
         height: 44vh;

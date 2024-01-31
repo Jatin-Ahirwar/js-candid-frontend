@@ -6,9 +6,9 @@ import { useDispatch } from 'react-redux'
 
 const kids = () => {
   const dispatch = useDispatch()
-  // useEffect(()=>{
-  //     dispatch(asyncaAllkidsImages())
-  // },[])
+  useEffect(()=>{
+      dispatch(asyncaAllkidsImages())
+  },[])
 
   return (
     <Kids />
