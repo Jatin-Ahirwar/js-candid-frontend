@@ -13,7 +13,7 @@ html,body {
 }
 .nav{
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
-    height: 130px;
+    height: 110px;
     width: 100vw;
     background-color: #f5ebd99e;
     padding: 0 6vw;

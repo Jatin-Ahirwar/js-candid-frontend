@@ -9,9 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Wrapper = ({ children }) => {
   return (
         <Provider store={store}>
-              <SmoothScrolling>
+              {/* <SmoothScrolling> */}
                   {children}
-              </SmoothScrolling>
+              {/* </SmoothScrolling> */}
         </Provider>
   )
 }

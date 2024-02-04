@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import "@/Components/home/Stories.css"
 import Link from 'next/link'
 import { motion } from "framer-motion";
@@ -25,25 +25,27 @@ const Stories = () => {
         <div className='bottamline'></div>
         <div className='storycontent'>
             {
-              stories?.length > 0 ?               
+                stories?.length > 0 ?               
                 stories?.map((story)=>(
-                    <Link style={{textDecoration:"none", color:"black"}} href={"/Content/singlestories/" + story._id} className='storyproductdiv'>
-                        <div className='coverimgdiv' >
-                            {/* <img className='coverimg' src="https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /> */}
-                            <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${story.posterimage}`} alt="" />
-                        </div>
-                        <div className='storydetailsdiv'>
-                            <h3>{story.groomname} & {story.bridename}</h3> 
-                            <h5>{story.date}</h5> 
-                            <p>{story.venue} , {story.location}</p> 
-                        </div>    
-                    </Link>
+                    <Suspense fallback={<h1>Loading......</h1>}>
+                        <Link style={{textDecoration:"none", color:"black"}} href={"/Content/singlestories/" + story._id} className='storyproductdiv'>
+                            <div className='coverimgdiv' >
+                                {/* <img className='coverimg' src="https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /> */}
+                                
+                                <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${story.posterimage}`} alt="" />
+                            </div>
+                            <div className='storydetailsdiv'>
+                                <h3>{story.groomname} & {story.bridename}</h3> 
+                                <h5>{story.date}</h5> 
+                                <p>{story.venue} , {story.location}</p> 
+                            </div>    
+                        </Link>
+                </Suspense>
                 ))
                 :
                 <div className='notfounddiv'>
                     <h1>there is no stories's</h1>
                 </div>
-
             }
         </div>    
     </div>
