@@ -19,18 +19,19 @@ const SingleFashion = () => {
           {
             singlefashion?.images.map((image)=>(
               <div className='functionimage'>
-                  <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt="" />
+                  <img src={image.url} alt="" />
               </div>                    
             ))
           }
         </div>
 
         {
-            singlefashion?.teaser?.length > 0 ?
+            // singlefashion?.teaser?.length > 0 ?
+            singlefashion?.teaser ?
             
-            <div className='storiestrailer'>
+            <div style={{marginTop:"20px"}} className='storiestrailer'>
                 <i id='play' class="ri-play-fill"></i>
-                <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singlefashion?.teaser}`}></video>
+                <video src={singlefashion?.teaser.url}></video>
             </div>   
             
             : ""

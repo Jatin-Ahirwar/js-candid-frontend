@@ -20,7 +20,7 @@ const Fashion = () => {
                 fashions?.map((fashion)=>(
                     <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singlefashion/${fashion._id}`} className='fashionproductdiv'>
                         <div className='productcoverimgdiv' >
-                            <img className='productcoverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${fashion.posterimage}`} alt="" />
+                            <img className='productcoverimg' src={fashion.posterimage.url} alt="" />
                         </div>
                         <div className='productdetailsdiv'>
                             <h3>{fashion.modelname}</h3> 

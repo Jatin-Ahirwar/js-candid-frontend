@@ -10,7 +10,7 @@ const Singleimage = () => {
     return <>
         <div className='singletrailerwrapper'>
             <div className='overlay'>
-            <img className='overlaybgimage' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleimages}`} alt="" />
+            <img className='overlaybgimage' src={singleimages?.url} alt="" />
             <div className='overlaywraper'>
                 <div className='overlaytop'>
                     <div className='overlayright'>
@@ -24,7 +24,7 @@ const Singleimage = () => {
                 </div>
                 <div className='overlaymid'>
                     <div className='overlaymidcenter'>
-                        <img className='overlaymidcenterimage' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleimages}`} alt="" />
+                        <img className='overlaymidcenterimage' src={singleimages?.url} alt="" />
                     </div>
                 </div>
             </div>

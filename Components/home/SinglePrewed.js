@@ -24,7 +24,7 @@ const SinglePrewed = () => {
                 
                singleprewedding?.images.map((image)=>(
                 <div className='functionimage'>
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt={`${image}`} />
+                    <img src={image.url} alt={`${image}`} />
                 </div>                    
                 ))
             
@@ -33,12 +33,13 @@ const SinglePrewed = () => {
         </div>
 
         {
-            singleprewedding?.teaser.length > 0 ? 
+            // singleprewedding?.teaser.length > 0 ? 
+            singleprewedding?.teaser ? 
             <>    
             <h3 id='teasername'>TEASER</h3>
             <div style={{margin:"3vh 0"}} className='storiestrailer'>
                 <i id='play' class="ri-play-fill"></i>
-                <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleprewedding?.teaser}`}></video>
+                <video src={singleprewedding?.teaser.url}></video>
             </div>
                
             </>

@@ -22,18 +22,19 @@ const SingleEvent = () => {
           {
             singleevent?.images.map((image)=>(
               <div className='functionimage'>
-                  <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt="" />
+                  <img src={image.url} alt="" />
               </div>                    
             ))
           }
         </div>
 
           {
-            singleevent?.teaser?.length > 0 ? 
+            // singleevent?.teaser?.length > 0 ? 
+            singleevent?.teaser ? 
 
             <div className='storiestrailer'>
                 <i id='play' class="ri-play-fill"></i>
-                <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singleevent?.teaser}`}></video>
+                <video src={singleevent?.teaser.url}></video>
             </div>   
             
             : ""

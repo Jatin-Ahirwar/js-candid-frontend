@@ -22,7 +22,7 @@ const Event = () => {
                     events?.map((event)=>(
                         <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singleevent/${event._id}`} className='eventproductdiv'>
                             <div className='eventcoverimgdiv' >
-                                <img className='eventcoverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${event.posterimage}`} alt="" />
+                                <img className='eventcoverimg' src={event.posterimage.url} alt="" />
                             </div>
                             <div className='eventdetailsdiv'>
                                 <h3 style={{textTransform:"uppercase"}}>{event.modelname}</h3> 

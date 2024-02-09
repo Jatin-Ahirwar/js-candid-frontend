@@ -9,7 +9,7 @@ const SingleTrailer = () => {
     return (
         <div className='singletrailerwrapper'>
             <div className='overlay'>
-            <video className='overlaybgimage' autoPlay muted loop src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singletrailer?.trailervideo}`}></video>            
+            <video className='overlaybgimage' autoPlay muted loop src={singletrailer?.trailervideo.url}></video>            
             <div className='overlaywraper'>
                 <div className='overlaytop'>
                     <div className='overlayright'></div>
@@ -21,7 +21,7 @@ const SingleTrailer = () => {
                 </div>
                 <div className='overlaymid'>
                     <div className='overlaymidcenter'>
-                        <video className='overlaymidcenterimage' autoPlay muted loop src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singletrailer?.trailervideo}`}></video>
+                        <video className='overlaymidcenterimage' autoPlay muted loop src={singletrailer?.trailervideo.url}></video>
                     </div>
                 </div>
             </div>

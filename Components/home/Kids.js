@@ -20,7 +20,7 @@ const Kids = () => {
                 images?.length > 0 ?
                 images?.map((image)=>(
                     <Link href="" className='imagediv'>
-                        <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt="" />
+                        <img className='coverimg' src={image.url} alt="" />
                     </Link>  
                 ))                
                 :                

@@ -18,13 +18,14 @@ const SingleStories = () => {
         </div>
 
         {
-            singlestories?.storiesfunction.length > 0 ?
+            // singlestories?.storiesfunction.length > 0 ?
+            singlestories?.storiesfunction ?
             singlestories?.storiesfunction.map((storiesfunction)=>(
                 <div className='functionswrapper'>
                     <h3>{storiesfunction.functionname}</h3>
                     {storiesfunction.images.map((image)=>(
                         <div className='functionimage'>
-                            <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt="" />
+                            <img src={image.url} alt="" />
                         </div>
                     ))
                     
@@ -37,12 +38,13 @@ const SingleStories = () => {
 
         
         {
-            singlestories?.teaser.length > 0 ? 
+            // singlestories?.teaser.length > 0 ? 
+            singlestories?.teaser ? 
             <>
             <h3 style={{marginBottom:"4vh"}} id='teasername'>TEASER</h3>
             <div className='storiestrailer'>
                 <i id='play' class="ri-play-fill"></i>
-                <video src={`${process.env.NEXT_PUBLIC_BASE_URL}/${singlestories?.teaser}`}></video>
+                <video src={singlestories?.teaser.url}></video>
             </div> 
             </>
             : ""  

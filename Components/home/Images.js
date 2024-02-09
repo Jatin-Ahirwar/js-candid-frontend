@@ -58,7 +58,7 @@ const Images = () => {
                 images?.map((image , index)=>(
                     <Suspense fallback={<h3>Loading........</h3>}>
                             <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
-                            <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${image}`} alt={`Image ${index}`} />
+                            <img className='coverimg' src={image.url} alt={`Image ${index}`} />
                         </Link>   
                     </Suspense>
                 ))

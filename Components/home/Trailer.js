@@ -24,8 +24,7 @@ const Trailer = () => {
                 
                 trailers?.map((trailer)=>(
                     <Link href={`/Content/singletrailer/${trailer._id}`} className='trailerdiv'>
-                        {/* <img className='coverimg' src="https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /> */}
-                        <img className='coverimg' src={`${process.env.NEXT_PUBLIC_BASE_URL}/${trailer.trailerposter}`} alt="" />
+                        <img className='coverimg' src={trailer.trailerposter.url} alt="" />
                         <i id='play' class="ri-play-mini-fill"></i>
                         <div className='pattern'>
                             <h2>{trailer.groomname} & {trailer.bridename}</h2>
