@@ -1,9 +1,18 @@
 "use client"
 import "@/Components/home/Nav.css"
+import { asyncsignoutadmin } from "@/Store/Actions/AdminActions"
 import Link from "next/link"
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 
 const Nav = () => {
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+    const dispatch = useDispatch()
+    
+    const signout = async (e) =>{
+      await dispatch(asyncsignoutadmin())
+    }
+    
     const [navbar, setnavbar] = useState(true)
     
     const OpenNavHandler = (e)=>{

@@ -1,5 +1,6 @@
 import axios from "@/utils/axios";
 import { addadmin , removeAdmin , iserror , removeerror } from "../Reducers/AdminReducer";
+import { asyncaAllImages } from "./ImagesActions";
 
 
 
@@ -43,10 +44,11 @@ export const asyncsignoutadmin = (admin) => async(dispatch,getstate) =>{
     }
 }
 
-export const asyncuploadimages = (images) => async(dispatch,getstate) =>{
+export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
-        const { data } = await axios.post("/createImages" , images)
+        const { data } = await axios.post("/createImages" , Images)
         dispatch(asynccurrentadmin())
+        dispatch(asyncaAllImages())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }

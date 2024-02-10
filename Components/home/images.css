@@ -63,13 +63,16 @@ html,body {
     padding: 3vh 0;
     border: .5px solid gray;
     border-radius: 10px;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
 #createpost h2{
     text-transform: uppercase;
     color: rgba(128, 128, 128, 0.708);
 }
+
+
+
 
 
 

@@ -8,7 +8,7 @@ html,body {
     width: 100%;
 }
 .signinmaindiv{
-    min-height: 81.2vh;
+    min-height: 90vh;
     width: 100vw;
     background-color: #f5ebd99e;
     display: flex;

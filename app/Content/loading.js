@@ -1,3 +1,5 @@
 export default function Loading() {
-    return <h1>Loading...</h1>
+    return <div className="lodingwrapper">
+                <div className="lds-facebook"><div></div><div></div><div></div></div>
+           </div>
 }

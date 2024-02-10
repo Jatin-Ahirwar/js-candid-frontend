@@ -5,8 +5,13 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncaAllImages, asyncaSingleImage } from '@/Store/Actions/ImagesActions'
 import { asyncuploadimages } from '@/Store/Actions/AdminActions'
+import { addimages } from '@/Store/Reducers/ImagesReducer'
+import Spinner from './Spin'
+import Loading from '@/app/Content/loading'
+import Spin from './Spin'
 
 const Images = () => {
+    const [loading, setLoading] = useState(false);
     const [files, setfiles] = useState([])
     const [imageindex, setimageindex] = useState("")
     const dispatch = useDispatch()
@@ -28,23 +33,34 @@ const Images = () => {
     }
 
     const handleFileChange = (e) => {
-        setfiles([...e.target.files]);
+        const files = e.target.files;
+        setfiles(files);
     };
 
-    const ImagesUpload = (e) => {
-        e.preventDefault();
-        
-        const images = new FormData(e.target);
-        const files = e.target.images.files[0];
-    
-        for (let i = 0; i < files?.length; i++) {
-            images.append("images", files[i]);
+    const ImagesUpload = async (e) =>{
+        try {
+            e.preventDefault()
+            if (!files) {
+                alert('Please select files to upload.');
+                return;
+            }
+          
+              const Images = new FormData();
+              for (const file of files) {
+                Images.append('images', file);
+            }
+            setLoading(true);
+            // console.log([...Images.entries()])
+            await dispatch(asyncuploadimages(Images))
+            
+        } catch (error) {
+            console.log(error)
         }
-
-        dispatch(asyncuploadimages(images))
-        // console.log([...formdata.entries()])
-    };
-    
+        finally{
+            setLoading(false);
+            document.getElementById('fileInputtt').value = '';
+        }
+    }
 
 
     return <> 
@@ -56,7 +72,7 @@ const Images = () => {
             {
                 images?.length > 0 ? 
                 images?.map((image , index)=>(
-                    <Suspense fallback={<h3>Loading........</h3>}>
+                    <Suspense fallback={<h3>Loading........</h3>} key={image._id}>
                             <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
                             <img className='coverimg' src={image.url} alt={`Image ${index}`} />
                         </Link>   
@@ -78,11 +94,25 @@ const Images = () => {
                 ""
             }
             
-            {/* <form style={{display:"none"}} onSubmit={ImagesUpload}  encType="multipart/form-data" > */}
-            <form onSubmit={ImagesUpload}  encType="multipart/form-data" >
-                <input onClick={handleFileChange} id='fileinput' type="file" name='images' multiple />
-                <input type="submit" />
-            </form>
+            {
+                isAuthenticated ? 
+                    // <div>
+                    //     <input onChange={handleFileChange} id='fileinput' type="file" name='images' multiple />
+                    //     <input onClick={ImagesUpload} type="submit" />
+                    // </div>              
+                    <div className='uploading'>
+                        <input type="file" id="fileInputtt" onChange={handleFileChange} multiple />
+                        <button onClick={ImagesUpload} disabled={loading}>
+                        {loading ? 'Uploading...' : 'Upload Images'}
+                        </button>
+                        {loading && (
+                            <Spin/>
+                        )}
+
+                    </div>
+                :
+                ""
+            }
 
             
         </div>
