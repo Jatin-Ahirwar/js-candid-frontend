@@ -3,6 +3,7 @@ import './globals.css'
 import Wrapper from '@/Wrapper/Wrapper'
 import 'remixicon/fonts/remixicon.css'
 import { Suspense } from 'react'
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: 'JS CANDID - Bhopal',

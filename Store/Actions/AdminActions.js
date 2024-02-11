@@ -34,15 +34,25 @@ export const asyncsigninadmin = (admin) => async(dispatch,getstate) =>{
     }
 }
 
-
 export const asyncsignoutadmin = (admin) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.get("/signout" , admin)
+        console.log(data,admin)
         dispatch(removeAdmin())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }
 }
+
+
+// export const asyncsignoutadmin = (admin) => async(dispatch,getstate) =>{
+//     try {
+//         const { data } = await axios.get("/signout" , admin)
+//         dispatch(removeAdmin())
+//     } catch (error) {
+//         dispatch(iserror(error.response.data.message))
+//     }
+// }
 
 export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {

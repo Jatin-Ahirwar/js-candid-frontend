@@ -1,16 +1,16 @@
 "use client"
 import "@/Components/home/Nav.css"
-import { asyncsignoutadmin } from "@/Store/Actions/AdminActions"
+import { asynccurrentadmin, asyncsignoutadmin } from "@/Store/Actions/AdminActions"
 import Link from "next/link"
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 
 const Nav = () => {
-    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+    const { admin , isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const dispatch = useDispatch()
     
-    const signout = async (e) =>{
-      await dispatch(asyncsignoutadmin())
+    const SignOutHandler = () =>{
+      dispatch(asyncsignoutadmin())
     }
     
     const [navbar, setnavbar] = useState(true)
@@ -44,14 +44,20 @@ const Nav = () => {
           <div id="ptag"> 
             <p id="pp">MORE</p>
             <img id="ptagicon" src="../../stockimages/down-arrow.png" alt="" />
-            {/* <i id="ptagicon" class="ri-arrow-down-s-fill"></i> */}
           </div>
             <div className="hidden-nav">
                 <Link id="hiddenlink"  href="/Content/kids">baby & Kids </Link>
                 {/* <Link id="hiddenlink"  href="/Content/maternity">Maternity</Link> */}
                 <Link id="hiddenlink"  href="/Content/event">Events</Link>
                 <Link id="hiddenlink"  href="/Content/fashion">Fashion & Commercial</Link>
-                <Link id="hiddenlink"  href="/Content/signin">Sign in</Link>
+                
+                {
+                  isAuthenticated && isAuthenticated  ?
+                    <Link id="hiddenlink" onClick={SignOutHandler} href="">Sign Out</Link>
+                  :
+                  <Link id="hiddenlink"  href="/Content/signin">Sign in</Link>
+                }
+
             </div>
         </div>
         <img className="closingicon" onClick={CloseNavHandler}  id="closenavicon"  src="../../stockimages/creame close.png" alt="" />                    

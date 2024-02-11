@@ -11,6 +11,8 @@ const Wrapper = ({ children }) => {
         <Provider store={store}>
               {/* <SmoothScrolling> */}
                   {children}
+                  <ToastContainer />
+
               {/* </SmoothScrolling> */}
         </Provider>
   )

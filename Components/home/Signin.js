@@ -5,29 +5,45 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncsigninadmin } from '@/Store/Actions/AdminActions'
 import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
+import { removeerror } from '@/Store/Reducers/AdminReducer'
 
 
 const Signin = () => {
   const router = useRouter()
-  const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+  const { admin , isAuthenticated , errors } = useSelector((state)=>state.AdminReducer)
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
   const dispatch = useDispatch()
 
-  const submitHandler =(e)=>{
+  const submitHandler =async (e)=>{
     e.preventDefault()
+    await dispatch(removeerror())
     const admin = {
       email,
       password
     }
-    dispatch(asyncsigninadmin(admin))
+    await dispatch(asyncsigninadmin(admin))
+    document.querySelector(".signinput").value = ""
+    document.querySelector("#pass").value = ""
     
+    if (errors && errors.length > 0) {
+      // await toast.error(`Error: ${errors[errors.length - 1]}`);
+      await toast.error(`Error: ${errors[errors.length - 1]}`);
+    } 
+    else {
+      await toast.success('Logged In Successfully');
+    } 
   }
+
+
+
+
 
   useEffect(() => {
     if(isAuthenticated){
-      alert("you are logged in !")
-      // router.push("/")
+      // alert("you are logged in !")
+      router.push("/Content/stories")
     }
   },[isAuthenticated])  
 
@@ -46,7 +62,7 @@ const Signin = () => {
 
                   <div className='signinput-wrapper'>
                         <label className='signinlabel'>PASSWORD<span> (required)</span></label>
-                        <input className='signinput'  onChange={(e)=> setpassword(e.target.value)} required type="password" />
+                        <input className='signinput' id='pass'  onChange={(e)=> setpassword(e.target.value)} required type="password" />
                   </div>
 
                   <button type='submit' className='signinbtn'><p>submit</p></button>       
