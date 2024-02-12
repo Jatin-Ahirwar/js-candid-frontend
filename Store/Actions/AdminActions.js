@@ -43,9 +43,8 @@ export const asyncsignoutadmin = (admin) => async(dispatch,getstate) =>{
         dispatch(removeadmin())
         toast.success("Successfully Sign Out. ") 
     } catch (error) {
-        // console.log("Error during signout:", error);
-        // dispatch(iserror(error.response ? error.response.data.message : "Unknown error"));
         dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message);
     }
 }
 
@@ -53,11 +52,20 @@ export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createImages" , Images)
         dispatch(asynccurrentadmin())
+        // console.log(data)
         dispatch(asyncaAllImages())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
     }
 }
 
-
-
+export const asyncmail = (client) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/sendmail" , client)
+        dispatch(asynccurrentadmin())
+        // toast.success("Mail Sended Successfully.") 
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        // toast.error(error.response.data.message);
+    }
+}
