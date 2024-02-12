@@ -76,6 +76,13 @@ html,body {
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
 }
+.createicon{
+    height: 10vh;
+    transform: rotate(45deg);
+}
+.uploading{
+    display: none;
+}
 
 @media (max-width: 1300px) {
     .imagediv {

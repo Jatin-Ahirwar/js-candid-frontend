@@ -2,6 +2,7 @@ import axios from "@/utils/axios";
 import { addadmin  , iserror , removeerror, removeadmin } from "../Reducers/AdminReducer";
 import { asyncaAllImages } from "./ImagesActions";
 import { toast } from "react-toastify";
+import { asyncaAllkidsImages } from "./KidsActions";
 
 
 
@@ -52,10 +53,31 @@ export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createImages" , Images)
         dispatch(asynccurrentadmin())
-        // console.log(data)
-        dispatch(asyncaAllImages())
+        const imagelength = [...Images.entries()]
+        const successMessage = imagelength.length === 1
+            ? "Image Uploaded Successfully."
+            : "Images Uploaded Successfully.";
+        toast.success(successMessage)
+        dispatch(asyncaAllkidsImages())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncuploadkidsimages = (Images) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createkids" , Images)
+        dispatch(asynccurrentadmin())
+        const imagelength = [...Images.entries()]
+        const successMessage = imagelength.length === 1
+            ? "Image Uploaded Successfully."
+            : "Images Uploaded Successfully.";
+        toast.success(successMessage)
+        dispatch(asyncaAllkidsImages())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
     }
 }
 
@@ -63,9 +85,9 @@ export const asyncmail = (client) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/sendmail" , client)
         dispatch(asynccurrentadmin())
-        await toast.success("Mail Sended Successfully.") 
+        toast.success("Mail Sended Successfully.") 
     } catch (error) {
         dispatch(iserror(error.response.data.message))
-        await toast.error(error.response.data.message);
+        toast.error(error.response.data.message);
     }
 }

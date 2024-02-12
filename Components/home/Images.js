@@ -35,7 +35,6 @@ const Images = () => {
     };
 
     const ImagesUpload = async (e) =>{
-        try {
             e.preventDefault()
             if (!files) {
                 alert('Please select files to upload.');
@@ -49,15 +48,9 @@ const Images = () => {
             setLoading(true);
             // console.log([...Images.entries()])
             await dispatch(asyncuploadimages(Images))
-            
-        } catch (error) {
-            console.log(error)
-        }
-        finally{
             setLoading(false);
-            document.getElementById('fileInputtt').value = '';
+            document.getElementById('fileInputtt').value = '';   
         }
-    }
 
 
     return <> 
@@ -93,10 +86,6 @@ const Images = () => {
             
             {
                 isAuthenticated ? 
-                    // <div>
-                    //     <input onChange={handleFileChange} id='fileinput' type="file" name='images' multiple />
-                    //     <input onClick={ImagesUpload} type="submit" />
-                    // </div>              
                     <div className='uploading'>
                         <input type="file" id="fileInputtt" onChange={handleFileChange} multiple />
                         <button onClick={ImagesUpload} disabled={loading}>

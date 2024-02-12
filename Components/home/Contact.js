@@ -98,11 +98,6 @@ const Contact = () => {
                     <input onChange={(e)=>{setvenue(e.target.value)}} className='input' required type="text" />
                 </div>
 
-                {/* <div className='input-wrapper'>
-                    <label className='label'>CONTACT NUMBER  <span> (required)</span></label>
-                    <input onChange={(e)=>{setcontact(e.target.value)}} className='input' required type="text" />
-                </div> */}
-
                 <div className="input-wrapper">
                     <label className="label">
                         CONTACT NUMBER <span> (required)</span>
