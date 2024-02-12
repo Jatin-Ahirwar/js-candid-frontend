@@ -19,41 +19,54 @@ const Contact = () => {
     const [groomname, setgroomname] = useState("")
     const dispatch = useDispatch()
     
-    const ClientSubmitHandler = async (e) =>{
-        try {
-            e.preventDefault()
-            const clientdetails = {
-                eventdetails,
-                eventtype,
-                dates,
-                venue,
-                contact,
-                email:email.toLowerCase(),
-                applicantname,
-                bridename,
-                groomname
-            }
-            setLoading(true)
-            await dispatch(asyncmail(clientdetails))
-        } 
-        catch (error) {
-            toast.error(error)
+    const validateContact = (contactNumber) => {
+        // Validate contact number format (10 digits)
+        const contactRegex = /^\d{10}$/;
+        return contactRegex.test(contactNumber);
+    };
+
+    const ClientSubmitHandler = async (e) => {
+          e.preventDefault();
+          if (!validateContact(contact)) {
+            toast.error("Please enter a valid 10-digit contact number");
+            return;
+          }
+          // Email validation regex
+          const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+          // Validate email format
+          if (!emailRegex.test(email)) {
+            await toast.error("Please enter a valid email address");
+            return;
+          }
+          const clientdetails = {
+            eventdetails,
+            eventtype,
+            dates,
+            venue,
+            contact: contact.replace(/\D/g, ''),
+            email: email.toLowerCase(),
+            applicantname,
+            bridename,
+            groomname,
+          };
+          console.log(clientdetails)
+          setLoading(true);
+          await dispatch(asyncmail(clientdetails));
+          setLoading(false)
+          // Clearing textareas
+          const textareas = document.getElementsByClassName('textarea');
+          for (const textarea of textareas) {
+            textarea.value = '';
         }
-        finally{
-            setLoading(false)
-            toast.success("Mail Send Successfully")
-            const textareas = document.getElementsByClassName('textarea');
-            for (const textarea of textareas) {
-              textarea.value = '';
-            }
-          
-            // Clearing input values
-            const inputs = document.getElementsByClassName('input');
-            for (const input of inputs) {
-              input.value = '';
-            }        
+      
+          // Clearing inputs
+          const inputs = document.getElementsByClassName('input');
+          for (const input of inputs) {
+            input.value = '';
+          }
+          setcontact("")
         }
-    }
+
     return <>
     <div className='contactmaindiv'>
         <div className='contacttopdiv'>
@@ -85,10 +98,30 @@ const Contact = () => {
                     <input onChange={(e)=>{setvenue(e.target.value)}} className='input' required type="text" />
                 </div>
 
-                <div className='input-wrapper'>
+                {/* <div className='input-wrapper'>
                     <label className='label'>CONTACT NUMBER  <span> (required)</span></label>
                     <input onChange={(e)=>{setcontact(e.target.value)}} className='input' required type="text" />
+                </div> */}
+
+                <div className="input-wrapper">
+                    <label className="label">
+                        CONTACT NUMBER <span> (required)</span>
+                    </label>
+                    <input
+                        onChange={(e) => {
+                        // Allow only digits and limit to 10 characters
+                        const sanitizedContact = e.target.value.replace(/\D/g, "").substring(0, 10);
+                        setcontact(sanitizedContact);
+                        }}
+                        className="input"
+                        required
+                        type="text"
+                        value={contact}
+                        maxLength={10}
+                        minLength={10}
+                    />
                 </div>
+
 
                 <div className='input-wrapper'>
                     <label className='label'>your email address  <span> (required)</span></label>
@@ -112,14 +145,11 @@ const Contact = () => {
                     </div>  
                 </div> 
 
-                {/* <button type='submit' className='submitbtn'><p>submit</p></button>  */}
-                <button type='submit' className='submitbtn' disabled={loading}>
-                {loading ? <p>Sending...</p> : <p>submit</p>}
-                </button> 
-                {loading && (
-                    <Spin/>
-                )}
-
+                <button type="submit" className="submitbtn" disabled={loading}>
+                    {loading ? <p>Sending...</p> : <p>submit</p>}
+                </button>
+                {/* Display loading spinner if sending */}
+                {loading && <Spin />}
                       
             </form>
             

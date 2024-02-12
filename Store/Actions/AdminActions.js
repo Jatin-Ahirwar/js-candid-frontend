@@ -63,9 +63,9 @@ export const asyncmail = (client) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/sendmail" , client)
         dispatch(asynccurrentadmin())
-        // toast.success("Mail Sended Successfully.") 
+        await toast.success("Mail Sended Successfully.") 
     } catch (error) {
         dispatch(iserror(error.response.data.message))
-        // toast.error(error.response.data.message);
+        await toast.error(error.response.data.message);
     }
 }
