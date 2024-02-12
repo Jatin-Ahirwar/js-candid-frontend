@@ -36,7 +36,7 @@ export const AdminReducer = createSlice({
 
 export const { 
     addadmin ,
-    removeAdmin , 
+    removeadmin , 
     iserror , 
     removeerror 
 } = AdminReducer.actions

@@ -18,22 +18,13 @@ const Signin = () => {
 
   const submitHandler =async (e)=>{
     e.preventDefault()
-    await dispatch(removeerror())
     const admin = {
       email,
       password
     }
-    await dispatch(asyncsigninadmin(admin))
     document.querySelector(".signinput").value = ""
     document.querySelector("#pass").value = ""
-    
-    if (errors && errors.length > 0) {
-      // await toast.error(`Error: ${errors[errors.length - 1]}`);
-      await toast.error(`Error: ${errors[errors.length - 1]}`);
-    } 
-    else {
-      await toast.success('Logged In Successfully');
-    } 
+    await dispatch(asyncsigninadmin(admin))
   }
 
 

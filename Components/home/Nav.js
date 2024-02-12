@@ -10,7 +10,7 @@ const Nav = () => {
     const dispatch = useDispatch()
     
     const SignOutHandler = () =>{
-      dispatch(asyncsignoutadmin())
+      dispatch(asyncsignoutadmin(admin))
     }
     
     const [navbar, setnavbar] = useState(true)
