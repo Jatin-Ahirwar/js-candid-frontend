@@ -10,6 +10,7 @@ import UploadPost from './UploadPost'
 
 const Kids = () => {
     const [Loading, setLoading] = useState(false)
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
     const [files, setfiles] = useState("")
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const dispatch = useDispatch()
@@ -37,10 +38,13 @@ const Kids = () => {
         document.getElementById('fileInputtt').value = '';   
     }
 
+    const handleCreateIconClick = () => {
+        setUploadPostVisible(prevValue => !prevValue);
+    };
+
     return <>
     <div className='kidswrapper'>
-        <UploadPost/>
-
+        {UploadPostVisible && <UploadPost />} 
         {/* <p>{JSON.stringify(images)}</p> */}
         <div className='kidstopdiv'>
             <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>baby & kids</h2>
@@ -63,18 +67,14 @@ const Kids = () => {
             }
 
             {
-                !isAuthenticated ?
-                    <div className='imagediv' style={{justifyContent:"center"}}>
-                        <img className='createicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                isAuthenticated ?
+                    <div className='imagediv' style={{justifyContent:"center",cursor:"default"}}>
+                        <img className='createicon' style={{cursor:"pointer"}} onClick={handleCreateIconClick} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                     </div>                
                 :
-                
-                ""
-            
+                ""            
             } 
-
-            {/* <UploadPost/> */}
-            {
+            {/* {
                 isAuthenticated ? 
                     <div className='uploading'>
                         <input type="file" id="fileInputtt" onChange={handleFileChange} multiple />
@@ -88,7 +88,7 @@ const Kids = () => {
                     </div>
                 :
                 ""
-            }
+            } */}
         </div>
     </div>
   </>

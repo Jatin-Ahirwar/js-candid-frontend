@@ -1,38 +1,136 @@
 "use client"
-import React from 'react'
-import "@/Components/home/UploadPost.css"
+import React, { useRef, useState } from 'react';
+import "@/Components/home/UploadPost.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { toast } from 'react-toastify';
+import Spin from './Spin';
 
 const UploadPost = () => {
-  return <>
-    <div className="overlayy">
-        <div className='boxx'>
-            <div className='closingwrapper'>
-                <img  className='closeeicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-            </div>
-            <div className='boxxmain'>
-                <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-                <h3>Upload Images</h3>
-            </div>
-            <div className='btmline'></div>
-            <div className='filesdiv'>
-              
-                <div className='files'>
-                    <h3>IMG.filename.jpg</h3>
-                    <img className='removefile' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-                </div>
+    const [Loading, setLoading] = useState(false);
+    const [IsVisible, setIsVisible] = useState(true);
+    const [selectedfiles, setselectedfiles] = useState([]);
+    const { isAuthenticated } = useSelector((state) => state.AdminReducer);
+    const fileInputRef = useRef(null);
+    const dispatch = useDispatch();
+    // const { images } = useSelector((state) => state.KidsReducer);
 
-                <div className='files'>
-                    <h3>IMG.filename.jpg</h3>
-                    <img className='removefile' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-                </div>
+    const handleFileChange = (e) => {
+        const newFiles = e.target.files;
+        setselectedfiles((prevFiles) => [...prevFiles, ...Array.from(newFiles)]);
+    };
+    
+    const handleBoxMainClick = () => {
+        if (fileInputRef && fileInputRef.current) {
+            fileInputRef && fileInputRef.current.click();
+        }
+    };
 
+    const handleRemoveFile = (index) => {
+        const updatedFiles = [...selectedfiles];
+        updatedFiles.splice(index, 1);
+        setselectedfiles(updatedFiles);
+    };
+
+    const ImagesUpload = async (e) => {
+        e.preventDefault();
+        if (!selectedfiles.length) {
+            alert('Please select files to upload.');
+            return;
+        }
+
+        const Images = new FormData();
+        for (const file of selectedfiles) {
+            Images.append('images', file);
+        }
+
+        setLoading(true);
+        // Assuming asyncuploadkidsimages is a placeholder for your actual action
+        if(isAuthenticated){
+            await dispatch(asyncuploadkidsimages(Images));
+        }
+        else{
+            toast.error("Please log in to access the resource !")
+        }
+        setLoading(false);
+        // Clear the selected files and reset the file input
+        setselectedfiles([]);
+        fileInputRef.current.value = '';
+        setIsVisible(false);
+    };
+
+    const handleClose = () => {
+        // Hide the component and clear selected files
+        setIsVisible(false);
+        setselectedfiles([]);
+    };
+
+    if (!IsVisible) {
+        return null; // Render nothing when the component is not visible
+    }
+
+    return (
+        <>
+            <div className="overlayy">
+                <div className='boxx'>
+                    <div className='closingwrapper'>
+                        <img className='closeeicon' onClick={handleClose} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                    </div>
+                    <div className='boxxmain' onClick={handleBoxMainClick}>
+                        <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                        <h3>Upload Images</h3>
+                    </div>                  
+                    <div className='btmline'></div>
+                    <div className='filesdiv'>
+                        {
+                            selectedfiles?.map((file, index) => (
+                                <div className='files' key={index}>
+                                    <h3 style={{fontWeight:"500"}}>{file.name}</h3>
+                                    <img
+                                        className='removefile'
+                                        src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png"
+                                        alt=""
+                                        onClick={() => handleRemoveFile(index)}
+                                    />
+                                </div>
+                            ))
+                        }
+                        {
+                            selectedfiles.length === 0 ? 
+                                <div className='files'>
+                                    <h3 style={{fontWeight:"500"}}>No Images Selected</h3>
+                                </div>
+                            
+                            : 
+                            ""
+                        }
+                        
+                    </div>
+                    {
+                        isAuthenticated && (
+                            <div  className='uploading'>
+                                <input type="file" id="fileInputtt" onChange={handleFileChange} multiple ref={fileInputRef} style={{ display: 'none' }} />
+                            </div>
+                        )
+                    }
+                    <div className='btn'>
+                        <button onClick={ImagesUpload} disabled={Loading}>
+                            {Loading ? 'Uploading...' : 'Upload'}
+                        </button>
+                        {Loading && (
+                            <Spin/>
+                        )}
+                    </div>
+                </div>
             </div>
-            <div className='btn'>
-                <button type='submit'>Upload</button>
-            </div>
-        </div>
-    </div>
-    </>
+        </>
+    );
 }
 
-export default UploadPost
+export default UploadPost;
+
+
+
+
+
+

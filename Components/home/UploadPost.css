@@ -56,9 +56,9 @@ body {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    /* border: 2px dotted gray; */
     border: 2px dotted rgba(128, 128, 128, 0.422);
     cursor: pointer;
+    flex-shrink: 0;
 
 }
 .boxxmain .uploadicon{
@@ -74,13 +74,14 @@ body {
 .filesdiv{
     min-height: 29vh;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     border-top: 1px solid  rgba(128, 128, 128, 0.422);
 }
 .files{
+    flex-shrink: 0;
     height: 50px;
     width: 100%;
     border-bottom: 1px solid  rgba(128, 128, 128, 0.422);
@@ -91,16 +92,19 @@ body {
 }
 .removefile{
     height: 3vh;
+    cursor: pointer;
 }
 .btn{
+    flex-shrink: 0;
     width: 100%;
-    height: 6vh;
+    height: 6.5vh;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 .btn button{
-    height: 100%;
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 90%;
     width: 7vw;
     border-radius: 20px;
     outline: none;

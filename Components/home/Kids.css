@@ -51,6 +51,7 @@ html,body {
     text-decoration: none;
     color: black;
     transition: all ease .5s;
+    cursor: pointer;
 }
 .imagediv:hover{
     scale: 1.05;
