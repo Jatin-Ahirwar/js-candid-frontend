@@ -58,7 +58,7 @@ export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
             ? "Image Uploaded Successfully."
             : "Images Uploaded Successfully.";
         toast.success(successMessage)
-        dispatch(asyncaAllkidsImages())
+        dispatch(asyncaAllImages())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)

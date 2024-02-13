@@ -1,12 +1,12 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/UploadPost.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
-const UploadPost = () => {
+const UploadPost = ({imageType}) => {
     const [Loading, setLoading] = useState(false);
     const [IsVisible, setIsVisible] = useState(true);
     const [selectedfiles, setselectedfiles] = useState([]);
@@ -14,7 +14,9 @@ const UploadPost = () => {
     const fileInputRef = useRef(null);
     const dispatch = useDispatch();
     // const { images } = useSelector((state) => state.KidsReducer);
-
+    useEffect(()=>{
+        console.log(imageType)
+    },[])
     const handleFileChange = (e) => {
         const newFiles = e.target.files;
         setselectedfiles((prevFiles) => [...prevFiles, ...Array.from(newFiles)]);
@@ -46,11 +48,14 @@ const UploadPost = () => {
 
         setLoading(true);
         // Assuming asyncuploadkidsimages is a placeholder for your actual action
-        if(isAuthenticated){
-            await dispatch(asyncuploadkidsimages(Images));
-        }
-        else{
-            toast.error("Please log in to access the resource !")
+        if (isAuthenticated) {
+            if (imageType === 'kids') {
+                await dispatch(asyncuploadkidsimages(Images));
+            } else if (imageType === 'images') {
+                await dispatch(asyncuploadimages(Images));
+            }
+        } else {
+            toast.error("Please log in to access the resource !");
         }
         setLoading(false);
         // Clear the selected files and reset the file input
