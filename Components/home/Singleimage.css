@@ -28,7 +28,6 @@ html,body {
     width: 100%;
     overflow: hidden;
     z-index: 999;
-
 }
 .overlaybgimage{
     scale: 1.2;
@@ -93,7 +92,7 @@ html,body {
 }
 .overlaymidcenterimage{
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     object-fit: cover;
     object-position: center;
 }

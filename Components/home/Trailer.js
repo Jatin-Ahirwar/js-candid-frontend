@@ -1,19 +1,25 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "@/Components/home/Trailer.css"
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncaalltrailers } from '@/Store/Actions/TrailerActions'
+import Upload from './Upload'
 
 
 const Trailer = () => {
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
     const dispatch = useDispatch()
-
     const { trailers } = useSelector((state)=>state.TrailerReducer)
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+       
+    const handleCreateIconClick = () => {
+        setUploadPostVisible(prevValue => !prevValue);
+    };
 
     return <> 
     <div className='trailermaindiv'>
         {/* <p>{JSON.stringify(trailers)}</p> */}
+        {UploadPostVisible && <Upload imageType="trailer"/>} 
 
         <div className='trailertopdiv'>
             <h1 style={{letterSpacing:"5px"}}>TRAILERS</h1>
@@ -38,6 +44,15 @@ const Trailer = () => {
                     <h1>there is no trailer's</h1>
                 </div>
             }
+            {
+                isAuthenticated ?
+                    <div className='trailerdiv'>
+                            <img className='createicon' style={{cursor:"pointer",height:"10vh",transform:"rotate(45deg)"}} onClick={handleCreateIconClick} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                    </div>
+                :
+                ""
+            }
+
         </div>
     </div>
    </>

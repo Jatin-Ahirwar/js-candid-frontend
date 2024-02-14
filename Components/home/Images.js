@@ -24,12 +24,19 @@ const Images = () => {
         <div className='imagetopdiv'>
             <h1>IMAGES</h1>
         </div> 
+
         <div className='imagecontentwrapper'>
             {
                 images?.length > 0 ? 
                 images?.map((image , index)=>(
-                    <Suspense fallback={<h3>Loading........</h3>} key={image._id}>
-                            <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
+                    <Suspense  fallback={<h3>Loading........</h3>} key={image._id}>
+                        <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
+                            {
+                                isAuthenticated ? 
+                                    <img className='deleteicon' src="https://cdn.iconscout.com/icon/free/png-256/free-delete-892-1167842.png" alt="no delete" />
+                                :
+                                ""
+                            }
                             <img className='coverimg' src={image.url} alt={`Image ${index}`} />
                         </Link>   
                     </Suspense>

@@ -11,7 +11,9 @@ const Wrapper = ({ children }) => {
         <Provider store={store}>
               {/* <SmoothScrolling> */}
                   {children}
-                  <ToastContainer />
+                  <ToastContainer
+                  style={{zIndex:"999999"}}
+                  />
 
               {/* </SmoothScrolling> */}
         </Provider>

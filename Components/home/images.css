@@ -45,10 +45,25 @@ html,body {
     height: 31vh;
     width: 31vh;
     transition: all ease .5s;
+    position: relative;
 }
 .imagediv:hover{
     scale: 1.05;
 }
+.deleteicon{
+    position: absolute;
+    height: 3vh;
+    left: 86%;
+    top: 5%;
+    z-index: 999;
+    display: none;
+    transition: all ease .5s;
+}
+.imagediv:hover .deleteicon{
+    display: initial;
+}
+
+
 .coverimg{
     width: 100%;
     height: 100%;

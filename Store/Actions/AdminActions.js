@@ -3,8 +3,7 @@ import { addadmin  , iserror , removeerror, removeadmin } from "../Reducers/Admi
 import { asyncaAllImages } from "./ImagesActions";
 import { toast } from "react-toastify";
 import { asyncaAllkidsImages } from "./KidsActions";
-
-
+import { asyncaalltrailers } from "./TrailerActions";
 
 
 export const asynccurrentadmin = () => async(dispatch,getstate) =>{
@@ -49,6 +48,19 @@ export const asyncsignoutadmin = (admin) => async(dispatch,getstate) =>{
     }
 }
 
+export const asyncmail = (client) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/sendmail" , client)
+        dispatch(asynccurrentadmin())
+        toast.success("Mail Sended Successfully.") 
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message);
+    }
+}
+
+
+
 export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createImages" , Images)
@@ -81,13 +93,15 @@ export const asyncuploadkidsimages = (Images) => async(dispatch,getstate) =>{
     }
 }
 
-export const asyncmail = (client) => async(dispatch,getstate) =>{
+export const asyncCreateTrailer = (content) => async(dispatch,getstate) =>{
     try {
-        const { data } = await axios.post("/sendmail" , client)
+        const { data } = await axios.post("/createtrailer" , content)
         dispatch(asynccurrentadmin())
-        toast.success("Mail Sended Successfully.") 
+        toast.success("Trailer Uploaded Successfully.")
+        dispatch(asyncaalltrailers())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
-        toast.error(error.response.data.message);
+        toast.error(error.response.data.message)
     }
 }
+
