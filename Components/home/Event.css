@@ -40,6 +40,15 @@ html,body {
     padding: 5vh 4vw 0 4vw;
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
 }
+.createediv{
+    flex-shrink: 0;
+    height: 55vh;
+    width: 21vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;        
+}
 .eventproductdiv{
     flex-shrink: 0;
     height: 55vh;

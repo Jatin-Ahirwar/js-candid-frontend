@@ -52,6 +52,16 @@ html,body {
     justify-content: space-between;
     transition: opacity 0.3s ease-in-out;
 }
+.createediv{
+    flex-shrink: 0;
+    height: 55vh;
+    width: 21vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;        
+}
+
 .fashionproductdiv h3{
     text-transform: uppercase;
     font-weight: 100;

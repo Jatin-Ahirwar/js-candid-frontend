@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/Upload.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncCreatePrewedding, asyncCreateTrailer, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreateEvent, asyncCreateFashion, asyncCreatePrewedding, asyncCreateTrailer, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
@@ -10,6 +10,7 @@ const Upload = ({imageType}) => {
     const [Loading, setLoading] = useState(false);
     const [bridename, setbridename] = useState("");
     const [groomname, setgroomname] = useState("");
+    const [modelname, setmodelname] = useState("");
     const [date, setdate] = useState("");
     const [location, setlocation] = useState("");
     const [country, setcountry] = useState("");
@@ -239,7 +240,7 @@ const Upload = ({imageType}) => {
         }
 
         if (!trailervideo.length) {
-            toast.error('Please select  trailervideo to upload.');
+            toast.error('Please select teaser to upload.');
             return;
         }
         if (!selectedfiles.length) {
@@ -291,7 +292,66 @@ const Upload = ({imageType}) => {
         setIsVisible(false);
     };
 
+    const FashionEventHandler = async (e) => {
+        e.preventDefault();
+
+        if (!trailerposter.length ) {
+            toast.error('Please select poster to upload.');
+            return;
+        }
+
+        if (!trailervideo.length) {
+            toast.error('Please select teaser to upload.');
+            return;
+        }
+
+        if (!selectedfiles.length) {
+            toast.error('Please select images to upload.');
+            return;
+        }
     
+        const content = {
+            modelname,
+            country,
+            location,
+        };
+    
+        setLoading(true);
+    
+        if (isAuthenticated) {
+            const formData = new FormData();
+    
+            // Append text data to formData
+            Object.entries(content).forEach(([key, value]) => {
+                formData.append(key, value);
+            });
+    
+            // Append files to formData
+            formData.append('posterimage', trailerposter[0]);
+            formData.append('teaser', trailervideo[0]);
+            for (const file of selectedfiles) {
+                formData.append('images', file);
+            }    
+
+            if (imageType === 'event') {
+                await dispatch(asyncCreateEvent(formData));
+            }
+            else if (imageType === 'fashion') {
+                await dispatch(asyncCreateFashion(formData));
+            }
+            // Add other conditions for different image types if needed
+        } else {
+            toast.error("Please log in to access the resource !");
+        }
+    
+        setLoading(false);
+    
+        // Clear the selected files and reset the file input
+        setselectedfiles([]);
+        fileInputRef.current.value = '';
+        setIsVisible(false);
+    };
+
     const handleClose = () => {
         // Hide the component and clear selected files
         setIsVisible(false);
@@ -314,13 +374,16 @@ const Upload = ({imageType}) => {
                             imageType === "trailer" ?
                             <h3>Create Trailer</h3>
                             :
-                            ""
-                        }
-                        {
                             imageType === "prewedding" ?
                             <h3>Create Pre-Wedding</h3>
                             :
-                            ""
+                            imageType === "event" ?
+                            <h3>Create Event</h3>
+                            :
+                            imageType === "fashion" ?
+                            <h3>Create Fashion</h3>
+                            :
+                            null
                         }
                         <img className='closeeicon' onClick={handleClose} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                     </div>
@@ -328,21 +391,41 @@ const Upload = ({imageType}) => {
                     <div className='uploadcenterdiv'>                        
                         
                         <div className="uploadleft">
+
+                            {
+                                imageType === "trailer" || imageType === "prewedding" ?
+                                
+                                <>
+                                <div className='upload-input-wrapper'>
+                                    <label className='label'>Groom Name<span> (required)</span></label>
+                                    <input onChange={(e)=>{setgroomname(e.target.value)}} className='input' required type="email" />
+                                </div>
+
+                                <div className='upload-input-wrapper'>
+                                    <label className='label'>bride Name<span> (required)</span></label>
+                                    <input onChange={(e)=>{setbridename(e.target.value)}} className='input' required type="email" />
+                                </div>
+
+                                <div className='upload-input-wrapper'>
+                                    <label className='label'>Date<span> (required)</span></label>
+                                    <input onChange={(e)=>{setdate(e.target.value)}} className='input' required type="email" />
+                                </div>
+                                </>
+
+                                :
+                                
+                                imageType === "event" || imageType === "fashion" ?
+                                <div className='upload-input-wrapper'>
+                                    <label className='label'>Model Name<span> (required)</span></label>
+                                    <input onChange={(e)=>{setmodelname(e.target.value)}} className='input' required type="text" />
+                                </div>
+                                :
+
+                                null
+                                
                             
-                            <div className='upload-input-wrapper'>
-                                <label className='label'>Groom Name<span> (required)</span></label>
-                                <input onChange={(e)=>{setgroomname(e.target.value)}} className='input' required type="email" />
-                            </div>
-
-                            <div className='upload-input-wrapper'>
-                                <label className='label'>bride Name<span> (required)</span></label>
-                                <input onChange={(e)=>{setbridename(e.target.value)}} className='input' required type="email" />
-                            </div>
-
-                            <div className='upload-input-wrapper'>
-                                <label className='label'>Date<span> (required)</span></label>
-                                <input onChange={(e)=>{setdate(e.target.value)}} className='input' required type="email" />
-                            </div>
+                            }
+                                                        
 
                             <div className='upload-input-wrapper'>
                                 <label className='label'>location<span> (required)</span></label>
@@ -448,6 +531,7 @@ const Upload = ({imageType}) => {
                             }
                   
                         </div>
+
                         {
                             isAuthenticated && (
                                 <div  className='uploading'>
@@ -471,28 +555,27 @@ const Upload = ({imageType}) => {
                                 </div>
                             )
                         }
+
                     </div>
                     
                     <div className='btn'>
-                            {/* <button onClick={UploadContent} disabled={Loading}>
-                                {Loading ? 'Uploading...' : 'upload'}
-                            </button>
- */}
                         {
                             imageType === "prewedding" ?
-                                <button onClick={PreweddingHandler} disabled={Loading}>
-                                    {Loading ? 'Uploading...' : 'Upload'}
-                                </button>
+                            <button onClick={PreweddingHandler} disabled={Loading}>
+                                {Loading ? 'Uploading...' : 'Upload'}
+                            </button>
                             :
-                            ""
-                        }
-                        {
                             imageType === "trailer" ?
-                                <button onClick={UploadContent} disabled={Loading}>
-                                    {Loading ? 'Uploading...' : 'upload'}
-                                </button>
+                            <button onClick={UploadContent} disabled={Loading}>
+                                {Loading ? 'Uploading...' : 'Upload'}
+                            </button>
                             :
-                            ""
+                            imageType === "event" || imageType === "fashion"  ?
+                            <button onClick={FashionEventHandler} disabled={Loading}>
+                                {Loading ? 'Uploading...' : 'Upload'}
+                            </button>
+                            :
+                            null
                         }
                         {Loading && (
                             <Spin/>

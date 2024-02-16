@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import { asyncaAllkidsImages } from "./KidsActions";
 import { asyncaalltrailers } from "./TrailerActions";
 import { asyncaallprewedding } from "./PreweddingActions";
+import { asyncaallevents } from "./EventActions";
+import { asyncaallfashion } from "./FashionActions";
 
 
 export const asynccurrentadmin = () => async(dispatch,getstate) =>{
@@ -60,8 +62,6 @@ export const asyncmail = (client) => async(dispatch,getstate) =>{
     }
 }
 
-
-
 export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createImages" , Images)
@@ -112,6 +112,30 @@ export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
         dispatch(asynccurrentadmin())
         toast.success("Prewedding Created Successfully.")
         dispatch(asyncaallprewedding())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncCreateEvent = (content) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createevent" , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Event Created Successfully.")
+        dispatch(asyncaallevents())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncCreateFashion = (content) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createfashion" , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Fashion Created Successfully.")
+        dispatch(asyncaallfashion())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)

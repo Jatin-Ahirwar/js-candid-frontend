@@ -1,14 +1,28 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '@/Components/home/Fashion.css'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncaallfashion } from '@/Store/Actions/FashionActions'
+import Upload from './Upload'
 const Fashion = () => {
     const dispatch = useDispatch()
     const { fashions } = useSelector((state)=>state.FashionReducer)
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+    const handleCreateIconClick = () => {
+        setUploadPostVisible(prevValue => !prevValue);
+    };
+
+
+
+
+
+
   return <>
         <div className='fashionwrapper'>
+            {UploadPostVisible && <Upload imageType="fashion"/>} 
+
             {/* <p>{JSON.stringify(fashions)}</p> */}
         <div className='fashiontopdiv'>
             <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>fashion & commercial</h2>
@@ -34,8 +48,15 @@ const Fashion = () => {
                 <div className='notfounddiv'>
                     <h1>there is no images</h1>
                 </div>
-
             }
+            {
+                    isAuthenticated ?
+                        <div className='createediv'>
+                                <img className='createicon' style={{cursor:"pointer",height:"10vh",transform:"rotate(45deg)"}} onClick={handleCreateIconClick} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                        </div>
+                    :
+                    ""
+                }
         </div>    
     </div>
   </>
