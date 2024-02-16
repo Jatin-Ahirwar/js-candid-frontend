@@ -30,12 +30,45 @@ const Upload = ({imageType}) => {
     },[])
     
     const handleFileChange = (e) => {
-        const newFiles = e.target.files;
-        setselectedfiles((prevFiles) => [...prevFiles, ...Array.from(newFiles)]);
+        const newFiles = Array.from(e.target.files);
+    
+        // Check if any file is selected
+        if (newFiles.length === 0) {
+            setselectedfiles((prevFiles) => [...prevFiles]);
+            return;
+        }
+    
+        // Check the validity of each file individually
+        const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml', 'image/avif', 'image/webp'];        
+        const invalidFiles = [];
+    
+        newFiles.forEach((file) => {
+            if (!allowedTypes.includes(file.type)) {
+                invalidFiles.push(file.name);
+            }
+        });
+    
+        if (invalidFiles.length > 0) {
+            toast.error(`Invalid file type. Please select valid file types for: ${invalidFiles.join(', ')}.`);
+            setselectedfiles((prevFiles) => [...prevFiles]);
+            return;
+        }
+    
+        setselectedfiles((prevFiles) => [...prevFiles, ...newFiles]);
     };
-
+            
     const handlePosterChange = (e) => {
         const files = e.target.files;
+
+        const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/svg+xml', 'image/avif', 'image/webp'];
+        const isImageFile = allowedTypes.includes(files[0].type);
+
+        if (!isImageFile) {
+            toast.error("Invalid file type. Please select a valid Image file type PNG , JPG , JPEG , SVG , AVIF , WEBP.");
+            setselectedteaser("");
+            return;
+        }
+
         setselectedposter(files);
     };
 
@@ -153,7 +186,7 @@ const Upload = ({imageType}) => {
 
     const UploadContent = async (e) => {
         e.preventDefault();
-    
+
         if (!trailerposter.length || !trailervideo.length) {
             toast.error('Please select poster and teaser to upload.');
             return;
@@ -199,7 +232,7 @@ const Upload = ({imageType}) => {
     
     const PreweddingHandler = async (e) => {
         e.preventDefault();
-    
+
         if (!trailerposter.length ) {
             toast.error('Please select poster to upload.');
             return;
@@ -258,6 +291,7 @@ const Upload = ({imageType}) => {
         setIsVisible(false);
     };
 
+    
     const handleClose = () => {
         // Hide the component and clear selected files
         setIsVisible(false);
