@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/Upload.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncCreateTrailer, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreatePrewedding, asyncCreateTrailer, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
@@ -100,7 +100,7 @@ const Upload = ({imageType}) => {
         setselectedfiles(updatedFiles);
     };
 
-    const UploadContent = async (e) => {
+    const UploadConten = async (e) => {
         e.preventDefault();
         // if (!selectedfiles.length) {
         //     toast.error('Please select files to upload.');
@@ -129,12 +129,11 @@ const Upload = ({imageType}) => {
             trailerposter,
             trailervideo
         }
-
+        console.log(Content)
         setLoading(true);
 
         if (isAuthenticated) {
             if (imageType === 'trailer') {
-                console.log(Content)
                 await dispatch(asyncCreateTrailer(Content));
             }
             // else if (imageType === 'prewedding') {
@@ -146,6 +145,113 @@ const Upload = ({imageType}) => {
             }
 
         setLoading(false);
+        // Clear the selected files and reset the file input
+        setselectedfiles([]);
+        fileInputRef.current.value = '';
+        setIsVisible(false);
+    };
+
+    const UploadContent = async (e) => {
+        e.preventDefault();
+    
+        if (!trailerposter.length || !trailervideo.length) {
+            toast.error('Please select poster and teaser to upload.');
+            return;
+        }
+    
+        const content = {
+            groomname,
+            bridename,
+            date,
+            country,
+            location,
+        };
+    
+        setLoading(true);
+    
+        if (isAuthenticated) {
+            const formData = new FormData();
+    
+            // Append text data to formData
+            Object.entries(content).forEach(([key, value]) => {
+                formData.append(key, value);
+            });
+    
+            // Append files to formData
+            formData.append('trailerposter', trailerposter[0]);
+            formData.append('trailervideo', trailervideo[0]);
+    
+            if (imageType === 'trailer') {
+                await dispatch(asyncCreateTrailer(formData));
+            }
+            // Add other conditions for different image types if needed
+        } else {
+            toast.error("Please log in to access the resource !");
+        }
+    
+        setLoading(false);
+    
+        // Clear the selected files and reset the file input
+        setselectedfiles([]);
+        fileInputRef.current.value = '';
+        setIsVisible(false);
+    };
+    
+    const PreweddingHandler = async (e) => {
+        e.preventDefault();
+    
+        if (!trailerposter.length ) {
+            toast.error('Please select poster to upload.');
+            return;
+        }
+
+        if (!trailervideo.length) {
+            toast.error('Please select  trailervideo to upload.');
+            return;
+        }
+        if (!selectedfiles.length) {
+            toast.error('Please select images to upload.');
+            return;
+        }
+    
+        const content = {
+            groomname,
+            bridename,
+            date,
+            country,
+            location,
+        };
+    
+        setLoading(true);
+    
+        if (isAuthenticated) {
+            const formData = new FormData();
+    
+            // Append text data to formData
+            Object.entries(content).forEach(([key, value]) => {
+                formData.append(key, value);
+            });
+    
+            // Append files to formData
+            formData.append('posterimage', trailerposter[0]);
+            formData.append('teaser', trailervideo[0]);
+            for (const file of selectedfiles) {
+                formData.append('images', file);
+            }    
+
+            if (imageType === 'trailer') {
+                await dispatch(asyncCreateTrailer(formData));
+            }
+            else if (imageType === 'prewedding') {
+                await dispatch(asyncCreatePrewedding(formData));
+            }
+            // Add other conditions for different image types if needed
+        } else {
+            toast.error("Please log in to access the resource !");
+        }
+    
+        setLoading(false);
+    
         // Clear the selected files and reset the file input
         setselectedfiles([]);
         fileInputRef.current.value = '';
@@ -172,7 +278,13 @@ const Upload = ({imageType}) => {
                     <div className='closingwrapper'>
                         {
                             imageType === "trailer" ?
-                            <h3>Upload Trailer</h3>
+                            <h3>Create Trailer</h3>
+                            :
+                            ""
+                        }
+                        {
+                            imageType === "prewedding" ?
+                            <h3>Create Pre-Wedding</h3>
                             :
                             ""
                         }
@@ -328,9 +440,26 @@ const Upload = ({imageType}) => {
                     </div>
                     
                     <div className='btn'>
-                        <button onClick={UploadContent} disabled={Loading}>
-                            {Loading ? 'Uploading...' : 'Upload'}
-                        </button>
+                            {/* <button onClick={UploadContent} disabled={Loading}>
+                                {Loading ? 'Uploading...' : 'upload'}
+                            </button>
+ */}
+                        {
+                            imageType === "prewedding" ?
+                                <button onClick={PreweddingHandler} disabled={Loading}>
+                                    {Loading ? 'Uploading...' : 'Upload'}
+                                </button>
+                            :
+                            ""
+                        }
+                        {
+                            imageType === "trailer" ?
+                                <button onClick={UploadContent} disabled={Loading}>
+                                    {Loading ? 'Uploading...' : 'upload'}
+                                </button>
+                            :
+                            ""
+                        }
                         {Loading && (
                             <Spin/>
                         )}

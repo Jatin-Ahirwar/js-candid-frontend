@@ -26,11 +26,7 @@ const Signin = () => {
     document.querySelector("#pass").value = ""
     await dispatch(asyncsigninadmin(admin))
   }
-
-
-
-
-
+  
   useEffect(() => {
     if(isAuthenticated){
       // alert("you are logged in !")

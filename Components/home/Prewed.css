@@ -241,7 +241,16 @@ html,body {
 .submitbtn:hover{
     background-color: rgb(131, 124, 124);
 }
-
+.createediv{
+    flex-shrink: 0;
+    height: 55vh;
+    width: 21vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    transition: opacity 0.3s ease-in-out;
+}
 
 
 @media (max-width: 1300px) {

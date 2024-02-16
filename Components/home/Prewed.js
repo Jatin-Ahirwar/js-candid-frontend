@@ -4,6 +4,7 @@ import "@/Components/home/Prewed.css"
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncaallprewedding } from '@/Store/Actions/PreweddingActions'
+import Upload from './Upload'
 
 const Prewed = () => {
     const [bridename, setbridename] = useState("")
@@ -14,11 +15,17 @@ const Prewed = () => {
     const [posterimage, setposterimage] = useState("")
     const [teaser, setteaser] = useState("")
     const [images, setimages] = useState([])
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+
+    const handleCreateIconClick = () => {
+        setUploadPostVisible(prevValue => !prevValue);
+    };
+
 
     const dispatch = useDispatch()
     const { preweddings } = useSelector((state)=>state.PreweddingReducer)
     
-
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setposterimage(selectedFile);
@@ -99,6 +106,7 @@ const Prewed = () => {
 
     return <> 
     <div className='preweddingdiv'>
+        {UploadPostVisible && <Upload imageType="prewedding"/>} 
         {/* <p>{JSON.stringify(preweddings)}</p> */}
         <div className='preweddingtopdiv'>
             <h1 style={{letterSpacing:"5px"}}>Pre-Weddings</h1>
@@ -127,10 +135,15 @@ const Prewed = () => {
                 </div>
             }
             {/* <div id='createprewedding' className='preweddingproductdiv'> */}
-            <div id='createprewedding' >
-                <img src="../../stockimages/create.png" alt="" />
-                <h2>Create Prewedding</h2>
-            </div>
+            {
+                isAuthenticated ?
+                    <div className='createediv'>
+                            <img className='createicon' style={{cursor:"pointer",height:"10vh",transform:"rotate(45deg)"}} onClick={handleCreateIconClick} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                    </div>
+                :
+                ""
+            }
+
         </div>    
 
         <div className='preweddingoverlay'>

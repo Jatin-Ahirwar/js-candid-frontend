@@ -4,6 +4,7 @@ import { asyncaAllImages } from "./ImagesActions";
 import { toast } from "react-toastify";
 import { asyncaAllkidsImages } from "./KidsActions";
 import { asyncaalltrailers } from "./TrailerActions";
+import { asyncaallprewedding } from "./PreweddingActions";
 
 
 export const asynccurrentadmin = () => async(dispatch,getstate) =>{
@@ -99,6 +100,18 @@ export const asyncCreateTrailer = (content) => async(dispatch,getstate) =>{
         dispatch(asynccurrentadmin())
         toast.success("Trailer Uploaded Successfully.")
         dispatch(asyncaalltrailers())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createprewedding" , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Prewedding Created Successfully.")
+        dispatch(asyncaallprewedding())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)
