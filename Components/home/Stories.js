@@ -57,10 +57,19 @@ import "@/Components/home/Stories.css";
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
+import Upload from './Upload';
 
 const Stories = () => {
     const dispatch = useDispatch();
     const { stories } = useSelector((state)=>state.StoriesReducer);
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer);
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
+
+
+    const handleCreateIconClick = () => {
+        setUploadPostVisible(prevValue => !prevValue);
+    };
+    
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -76,6 +85,8 @@ const Stories = () => {
     return (
         <>
             <div className='storiesdiv'>
+                {UploadPostVisible && <Upload imageType="stories"/>} 
+
                 <div className='storytopdiv'>
                     <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
                     <h3>Delve deeper into our world of story-telling!</h3>
@@ -108,6 +119,15 @@ const Stories = () => {
                             <h1>There are no stories.</h1>
                         </div>
                     }
+                    {
+                        isAuthenticated ?
+                            <div className='createediv'>
+                                    <img className='createicon' style={{cursor:"pointer",height:"10vh",transform:"rotate(45deg)"}} onClick={handleCreateIconClick} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                            </div>
+                        :
+                        ""
+                    }
+
                 </div>    
             </div>
         </>
