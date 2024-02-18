@@ -7,6 +7,7 @@ import { asyncaalltrailers } from "./TrailerActions";
 import { asyncaallprewedding } from "./PreweddingActions";
 import { asyncaallevents } from "./EventActions";
 import { asyncaallfashion } from "./FashionActions";
+import { asyncaallstories } from "./StoriesActions";
 
 
 export const asynccurrentadmin = () => async(dispatch,getstate) =>{
@@ -136,6 +137,19 @@ export const asyncCreateFashion = (content) => async(dispatch,getstate) =>{
         dispatch(asynccurrentadmin())
         toast.success("Fashion Created Successfully.")
         dispatch(asyncaallfashion())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+
+export const asyncCreateStories = (content) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createStories" , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Story Created Successfully.")
+        dispatch(asyncaallstories())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)

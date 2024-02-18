@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/Upload.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncCreateEvent, asyncCreateFashion, asyncCreatePrewedding, asyncCreateTrailer, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreateEvent, asyncCreateFashion, asyncCreatePrewedding, asyncCreateStories, asyncCreateTrailer, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
@@ -191,8 +191,12 @@ const Upload = ({imageType}) => {
     const TrailerHandler = async (e) => {
         e.preventDefault();
 
-        if (!trailerposter.length || !trailervideo.length) {
-            toast.error('Please select poster and teaser to upload.');
+        if (!trailerposter.length) {
+            toast.error('Please select poster to upload.');
+            return;
+        }
+        if (!trailervideo.length) {
+            toast.error('Please select teaser to upload.');
             return;
         }
     
@@ -202,8 +206,10 @@ const Upload = ({imageType}) => {
             date,
             country,
             location,
+            venue,
+            title
         };
-    
+        
         setLoading(true);
     
         if (isAuthenticated) {
@@ -215,19 +221,27 @@ const Upload = ({imageType}) => {
             });
     
             // Append files to formData
-            formData.append('trailerposter', trailerposter[0]);
-            formData.append('trailervideo', trailervideo[0]);
+            if(imageType === 'trailer'){
+                formData.append('trailerposter', trailerposter[0]);
+                formData.append('trailervideo', trailervideo[0]);
+            }
+            else if(imageType === "stories"){
+                formData.append('posterimage', trailerposter[0]);
+                formData.append('teaser', trailervideo[0]);
+            }
     
             if (imageType === 'trailer') {
                 await dispatch(asyncCreateTrailer(formData));
             }
-            // Add other conditions for different image types if needed
-        } else {
+            else if(imageType === "stories"){
+                await dispatch(asyncCreateStories(formData));
+            }
+
+        } 
+        else {
             toast.error("Please log in to access the resource !");
         }
-    
         setLoading(false);
-    
         // Clear the selected files and reset the file input
         setselectedfiles([]);
         fileInputRef.current.value = '';
@@ -235,67 +249,6 @@ const Upload = ({imageType}) => {
     };
     
     const PreweddingHandler = async (e) => {
-        e.preventDefault();
-
-        if (!trailerposter.length ) {
-            toast.error('Please select poster to upload.');
-            return;
-        }
-
-        if (!trailervideo.length) {
-            toast.error('Please select teaser to upload.');
-            return;
-        }
-        if (!selectedfiles.length) {
-            toast.error('Please select images to upload.');
-            return;
-        }
-    
-        const content = {
-            groomname,
-            bridename,
-            date,
-            country,
-            location,
-        };
-    
-        setLoading(true);
-    
-        if (isAuthenticated) {
-            const formData = new FormData();
-    
-            // Append text data to formData
-            Object.entries(content).forEach(([key, value]) => {
-                formData.append(key, value);
-            });
-    
-            // Append files to formData
-            formData.append('posterimage', trailerposter[0]);
-            formData.append('teaser', trailervideo[0]);
-            for (const file of selectedfiles) {
-                formData.append('images', file);
-            }    
-
-            if (imageType === 'trailer') {
-                await dispatch(asyncCreateTrailer(formData));
-            }
-            else if (imageType === 'prewedding') {
-                await dispatch(asyncCreatePrewedding(formData));
-            }
-            // Add other conditions for different image types if needed
-        } else {
-            toast.error("Please log in to access the resource !");
-        }
-    
-        setLoading(false);
-    
-        // Clear the selected files and reset the file input
-        setselectedfiles([]);
-        fileInputRef.current.value = '';
-        setIsVisible(false);
-    };
-
-    const StoriesHandler = async (e) => {
         e.preventDefault();
 
         if (!trailerposter.length ) {
@@ -415,96 +368,6 @@ const Upload = ({imageType}) => {
         fileInputRef.current.value = '';
         setIsVisible(false);
     };
-
-// __________________neww
-
-    const [showInput, setShowInput] = useState(false);
-    const [textValue, setTextValue] = useState('');
-    const [selectedImages, setSelectedImages] = useState([]);
-  
-    const handlePosterClick = () => {
-      setShowInput(true);
-    };
-  
-    const handleTextSubmit = () => {
-      // Process the text input (e.g., store it or display it)
-      console.log('Typed Text:', textValue);
-      // Show file input after submitting text
-      setShowInput(false);
-      setSelectedImages([]);
-    };
-  
-    const handleFileSelectOptionClick = () => {
-        // Toggle the visibility of the file select option
-        setShowFileSelect((prev) => !prev);
-    
-        // Focus on the file input (adjust the ref according to your file input)
-        if (fileInputRef.current) {
-          fileInputRef.current.click();
-        }
-    };
-    const handleImageChange = (e) => {
-      // Process selected images (e.g., store them or display them)
-      const images = Array.from(e.target.files);
-      setSelectedImages(images);
-    };
-  
-// __________________neww
-
-
-
-    const [showFunctionInput, setShowFunctionInput] = useState(false);
-    const [functionName, setFunctionName] = useState('');
-    const [functionImages, setFunctionImages] = useState([]);
-    const [showFileSelect, setShowFileSelect] = useState(false);
-    const functionNameInputRef = useRef(null);
-    const handleFunctionClick = () => {
-        setShowFunctionInput(true);
-    };
-
-    const handleFunctionNameKeyPress = (e) => {
-        if (e.key === 'Enter') {
-          // Display the entered function name
-          console.log('Typed Function Name:', functionName);
-    
-          // Clear the input
-          setFunctionName('');
-    
-          // Show the file select option
-          setShowFileSelect(true);
-    
-          // Focus on the file input (adjust the ref according to your file input)
-          if (fileInputRef.current) {
-            fileInputRef.current.click();
-          }
-        }
-    };
-    // Function to handle the submission of function details
-    const handleFunctionSubmit = () => {
-        // Process function details (e.g., store or display them)
-        console.log('Function Name:', functionName);
-        console.log('Function Images:', functionImages);
-        // Reset function state
-        setFunctionName('');
-        setFunctionImages([]);
-        // Hide the function input section
-        setShowFunctionInput(false);
-    };
-
-    // Function to handle image selection for functions
-    const handleFunctionImageChange = (e) => {
-        const images = Array.from(e.target.files);
-        setFunctionImages(images);
-    };
-
-
-
-
-
-
-
-
-
 
     const handleClose = () => {
         // Hide the component and clear selected files
@@ -676,85 +539,6 @@ const Upload = ({imageType}) => {
                                 ""
                             }
                             
-                            {
-                                imageType === "stories"   ?
-                                <>
-                                    <div className="uploadmain" onClick={handleFunctionClick} >
-                                        <img className="uploadicon" src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-                                        <h3>Create Functions</h3>
-                                    </div>
-                            
-                                    {showFunctionInput && (
-                                    <>
-                                        <div className="upload-input-wrapper">
-                                        <label className="label">Function Name<span> (required)</span></label>
-                                        <input
-                                            ref={functionNameInputRef}
-                                            type="text"
-                                            className="input"
-                                            value={functionName}
-                                            onChange={(e) => setFunctionName(e.target.value)}
-                                            onKeyPress={handleFunctionNameKeyPress}
-                                            required
-                                        />
-                                        </div>
-                            
-                                        <div className="upload-input-wrapper">
-                                        <label className="label">Select Images for Function<span> (required)</span></label>
-                                        <input type="file" onChange={handleFunctionImageChange} multiple style={{ display: 'block' }} />
-                                        </div>
-                            
-                                        {/* Display selected images for the function */}
-                                        <div className="filesdiv">
-                                        {functionImages.map((file, index) => (
-                                            <div className="files" key={index}>
-                                            <h3 style={{ fontWeight: '500' }}>{file.name}</h3>
-                                            <img
-                                                className="removefile"
-                                                src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png"
-                                                alt=""
-                                                onClick={() => setFunctionImages((prevImages) => prevImages.filter((img, i) => i !== index))}
-                                            />
-                                            </div>
-                                        ))}
-                                        {functionImages.length === 0 && <div className="files"><h3 style={{ fontWeight: '500' }}>No Images Selected</h3></div>}
-                                        </div>
-                            
-                                        {/* Button to submit function details */}
-                                        <button   onClick={handleFunctionSubmit}>Create Function</button>
-                                  </>
-                                )}                          
-                              </>
-                                :
-                                null
-                            }
-                            {/* {
-                                imageType === "stories"   ?
-                                <>
-                                <div className='uploadmain' onClick={handlePosterClick}>
-                                    <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-                                    <h3>Create Functions</h3>
-                                </div>
-                                {showInput && (
-                                    <>
-                                    <div className='upload-input-wrapper'>
-                                        <label className='label'>Function Name<span> (required)</span></label>
-                                        <input 
-                                            type="text" 
-                                            className='input' 
-                                            value={textValue}
-                                            onChange={(e)=>{setTextValue(e.target.value)}} 
-                                            required 
-                                        />
-                                    </div>
-                                    
-                                    </>
-                                )}
-                                </>
-                                :
-                                null
-                            } */}
-
                         </div>
 
                         {
@@ -790,7 +574,7 @@ const Upload = ({imageType}) => {
                                 {Loading ? 'Uploading...' : 'Upload'}
                             </button>
                             :
-                            imageType === "trailer" ?
+                            imageType === "trailer" || imageType === "stories"?
                             <button onClick={TrailerHandler} disabled={Loading}>
                                 {Loading ? 'Uploading...' : 'Upload'}
                             </button>

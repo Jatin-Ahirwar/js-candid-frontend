@@ -1,12 +1,23 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import "@/Components/home/SingleStories.css"
+import UploadPost from './UploadPost'
 
 const SingleStories = () => {
     const { singlestories } = useSelector((state)=>state.StoriesReducer)
-  return (
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
+    const handleCreateIconClick = () => {
+        setUploadPostVisible(prevValue => !prevValue);
+    };
+
+
+    return (
     <div className='singleitemwrapper'>
+        
+        {UploadPostVisible && <UploadPost imageType={"storyfunction"}/>}
+        
         {/* <p>{JSON.stringify(singlestories)}</p> */}
         <div className='storytopdiv'>
             <h2>{singlestories?.title}</h2>
@@ -18,7 +29,6 @@ const SingleStories = () => {
         </div>
 
         {
-            // singlestories?.storiesfunction.length > 0 ?
             singlestories?.storiesfunction ?
             singlestories?.storiesfunction.map((storiesfunction)=>(
                 <div className='functionswrapper'>
@@ -27,8 +37,7 @@ const SingleStories = () => {
                         <div className='functionimage'>
                             <img src={image.url} alt="" />
                         </div>
-                    ))
-                    
+                    ))       
         }            
         </div>
         ))
@@ -36,9 +45,27 @@ const SingleStories = () => {
         "NO FUNCTIONS IMAGES FOUND"
         }
 
-        
         {
-            // singlestories?.teaser.length > 0 ? 
+            isAuthenticated ?
+                <>
+            {/* <div className='boxxmain' onClick={handleBoxMainClick}> */}
+            <div className='createfunctiondiv' onClick={handleCreateIconClick}>
+                    <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                    <h3>Upload Images</h3>
+            </div>
+            </>                  
+            :
+            ""            
+        }   
+
+
+
+
+
+
+
+
+        {
             singlestories?.teaser ? 
             <>
             <h3 style={{marginBottom:"4vh"}} id='teasername'>TEASER</h3>

@@ -3,14 +3,11 @@ import React, { Suspense, useEffect, useState } from 'react'
 import "@/Components/home/images.css"
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncaSingleImage } from '@/Store/Actions/ImagesActions'
-import { asyncuploadimages } from '@/Store/Actions/AdminActions'
-import Spin from './Spin'
 import UploadPost from './UploadPost'
 
 const Images = () => {
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
-    const { images , singleimages } = useSelector((state)=>state.ImagesReducer)
+    const { images  } = useSelector((state)=>state.ImagesReducer)
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
    
     const handleCreateIconClick = () => {
@@ -56,24 +53,6 @@ const Images = () => {
                 ""            
             } 
 
-
-            {/* {
-                isAuthenticated ? 
-                    <div className='uploading'>
-                        <input type="file" id="fileInputtt" onChange={handleFileChange} multiple />
-                        <button onClick={ImagesUpload} disabled={loading}>
-                        {loading ? 'Uploading...' : 'Upload Images'}
-                        </button>
-                        {loading && (
-                            <Spin/>
-                        )}
-
-                    </div>
-                :
-                ""
-            } */}
-
-            
         </div>
     </div>
    </>
