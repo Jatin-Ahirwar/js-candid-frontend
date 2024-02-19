@@ -79,7 +79,7 @@ export const asyncCreateStoriesFunction = (content,storyId) => async(dispatch,ge
     try {
         const { data } = await axios.post(`/createStoriesfunction/` + storyId , content)
         dispatch(asynccurrentadmin())
-        toast.success("Story Created Successfully.")
+        toast.success("Story Function Created Successfully.")
         dispatch(asyncaSinglestories(storyId))
     } catch (error) {
         dispatch(iserror(error.response.data.message))
@@ -87,11 +87,15 @@ export const asyncCreateStoriesFunction = (content,storyId) => async(dispatch,ge
     }
 }
 
-export const asyncUpdateStoriesFunction = (content,storyId) => async(dispatch,getstate) =>{
+export const asyncUpdateStoriesFunction = (content,functionId,storyId) => async(dispatch,getstate) =>{
     try {
-        const { data } = await axios.post(`/createStoriesfunction/` + storyId , content)
+        const { data } = await axios.post(`/updateStoriesfunction/` + functionId , content)
         dispatch(asynccurrentadmin())
-        toast.success("Story Created Successfully.")
+        const imagelength = [...content.entries()]
+        const successMessage = imagelength.length === 1
+            ? "Story Function Image Uploaded Successfully."
+            : "Story Function Images Uploaded Successfully.";
+        toast.success(successMessage)
         dispatch(asyncaSinglestories(storyId))
     } catch (error) {
         dispatch(iserror(error.response.data.message))

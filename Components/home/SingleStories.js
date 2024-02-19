@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import "@/Components/home/SingleStories.css"
 import UploadPost from './UploadPost'
@@ -8,15 +8,19 @@ const SingleStories = () => {
     const { singlestories } = useSelector((state)=>state.StoriesReducer)
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
-    const handleCreateIconClick = () => {
+    const [imageType, setimageType] = useState("")
+    const [functionId, setfunctionId] = useState("")
+    
+    const handleCreateIconClick = (functionId,imageType) => {
         setUploadPostVisible(prevValue => !prevValue);
+        setimageType(imageType)
+        setfunctionId(functionId)
     };
-
 
     return (
     <div className='singleitemwrapper'>
         
-        {UploadPostVisible && <UploadPost imageType={"storyfunction"} storyId={singlestories._id}/>}
+        {UploadPostVisible && <UploadPost imageType={imageType} functionId={functionId} storyId={singlestories?._id}/>}
         
         {/* <p>{JSON.stringify(singlestories)}</p> */}
         <div className='storytopdiv'>
@@ -38,18 +42,29 @@ const SingleStories = () => {
                             <img src={image.url} alt="" />
                         </div>
                     ))       
-        }            
-        </div>
-        ))
+                    }  
+
+                {
+                    isAuthenticated ?
+                        <div className='createfunctiondiv' style={{width:"22vw",border:"none"}} onClick={() => handleCreateIconClick(storiesfunction._id,"functionimages")}>
+                            <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                            <h3>Upload More {storiesfunction.functionname} Images</h3>
+                        </div>
+                    :
+                    null
+                }    
+
+                </div>
+                ))
         :
-        "NO FUNCTIONS IMAGES FOUND"
+                "NO FUNCTIONS IMAGES FOUND"
         }
 
         {
             isAuthenticated ?
                 <>
             {/* <div className='boxxmain' onClick={handleBoxMainClick}> */}
-            <div className='createfunctiondiv' onClick={handleCreateIconClick}>
+            <div className='createfunctiondiv' onClick={() => handleCreateIconClick("storyfunction")}>
                     <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                     <h3>Create Function</h3>
             </div>

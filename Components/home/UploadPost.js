@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/UploadPost.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncCreateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreateStoriesFunction, asyncUpdateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
-const UploadPost = ({imageType,storyId}) => {
+const UploadPost = ({imageType,storyId,functionId}) => {
     const { isAuthenticated } = useSelector((state) => state.AdminReducer);
     const [functionname, setfunctionName] = useState("");
     const [isFunctionNameVisible, setIsFunctionNameVisible] = useState(false);
@@ -18,7 +18,7 @@ const UploadPost = ({imageType,storyId}) => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        console.log(imageType,storyId)
+        console.log(imageType,storyId,functionId)
     },[])
 
     const HandlerFunctionName = (e) => {
@@ -83,8 +83,11 @@ const UploadPost = ({imageType,storyId}) => {
                 await dispatch(asyncuploadimages(Images));
             }
             else if (imageType === 'storyfunction') {
-                console.log(...Images.entries())
                 await dispatch(asyncCreateStoriesFunction(Images,storyId));
+            }
+            else if (imageType === 'functionimages') {
+                // console.log(...Images.entries())
+                await dispatch(asyncUpdateStoriesFunction(Images,functionId,storyId));
             }
         } else {
             toast.error("Please log in to access the resource !");
