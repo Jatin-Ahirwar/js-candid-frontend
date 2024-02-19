@@ -121,7 +121,7 @@ const UploadPost = ({imageType,storyId,functionId,preweddingId}) => {
                         <img className='closeeicon' onClick={handleClose} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                     </div>
 
-            {imageType === "storyfunction" && !isFunctionNameVisible && !isEditMode ? (
+                    {imageType === "storyfunction" && !isFunctionNameVisible && !isEditMode ? (
                         <div className="stories-input-wrapper">
                         <label className="label">
                             Function Name<span> (required)</span>

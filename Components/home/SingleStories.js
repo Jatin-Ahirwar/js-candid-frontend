@@ -11,7 +11,7 @@ const SingleStories = () => {
     const [imageType, setimageType] = useState("")
     const [functionId, setfunctionId] = useState("")
     
-    const handleCreateIconClick = (functionId,imageType) => {
+    const handleCreateIconClick = (imageType,functionId) => {
         setUploadPostVisible(prevValue => !prevValue);
         setimageType(imageType)
         setfunctionId(functionId)
@@ -46,7 +46,7 @@ const SingleStories = () => {
 
                 {
                     isAuthenticated ?
-                        <div className='createfunctiondiv' style={{width:"22vw",border:"none"}} onClick={() => handleCreateIconClick(storiesfunction._id,"functionimages")}>
+                        <div className='createfunctiondiv' style={{width:"22vw",border:"none"}} onClick={() => handleCreateIconClick("functionimages",storiesfunction._id)}>
                             <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                             <h3>Upload More {storiesfunction.functionname} Images</h3>
                         </div>
