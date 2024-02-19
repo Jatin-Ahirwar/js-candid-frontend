@@ -4,7 +4,7 @@ import { asyncaAllImages } from "./ImagesActions";
 import { toast } from "react-toastify";
 import { asyncaAllkidsImages } from "./KidsActions";
 import { asyncaalltrailers } from "./TrailerActions";
-import { asyncaallprewedding } from "./PreweddingActions";
+import { asyncaSingleprewedding, asyncaallprewedding } from "./PreweddingActions";
 import { asyncaallevents } from "./EventActions";
 import { asyncaallfashion } from "./FashionActions";
 import { asyncaSinglestories, asyncaallstories } from "./StoriesActions";
@@ -92,9 +92,11 @@ export const asyncUpdateStoriesFunction = (content,functionId,storyId) => async(
         const { data } = await axios.post(`/updateStoriesfunction/` + functionId , content)
         dispatch(asynccurrentadmin())
         const imagelength = [...content.entries()]
-        const successMessage = imagelength.length === 1
-            ? "Story Function Image Uploaded Successfully."
-            : "Story Function Images Uploaded Successfully.";
+        const successMessage =  imagelength.length === 1
+        ? "Story Function Image Uploaded Successfully."
+        : imagelength.length > 1
+        ? "Story Function Images Uploaded Successfully."
+        : "Story Function Updated Successfully.";
         toast.success(successMessage)
         dispatch(asyncaSinglestories(storyId))
     } catch (error) {
@@ -108,7 +110,6 @@ export const asyncUpdateStoriesFunction = (content,functionId,storyId) => async(
 
 
 // ------------------------------------------ Images Opening ---------------------------------------
-
 
 export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
@@ -159,6 +160,24 @@ export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
         dispatch(asynccurrentadmin())
         toast.success("Prewedding Created Successfully.")
         dispatch(asyncaallprewedding())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncUpdatePrewedding = (content,preweddingId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/updateprewedding/" + preweddingId , content)
+        dispatch(asynccurrentadmin())
+        const imagelength = [...content.entries()]
+        const successMessage =  imagelength.length === 1
+        ? "Pre-Wedding Image Uploaded Successfully."
+        : imagelength.length > 1
+        ? "Pre-Wedding Images Uploaded Successfully."
+        : "Pre-Wedding Updated Successfully.";
+        toast.success(successMessage)
+        dispatch(asyncaSingleprewedding(preweddingId))
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)

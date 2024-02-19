@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/UploadPost.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncCreateStoriesFunction, asyncUpdateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreateStoriesFunction, asyncUpdatePrewedding, asyncUpdateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
-const UploadPost = ({imageType,storyId,functionId}) => {
+const UploadPost = ({imageType,storyId,functionId,preweddingId}) => {
     const { isAuthenticated } = useSelector((state) => state.AdminReducer);
     const [functionname, setfunctionName] = useState("");
     const [isFunctionNameVisible, setIsFunctionNameVisible] = useState(false);
@@ -18,7 +18,7 @@ const UploadPost = ({imageType,storyId,functionId}) => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        console.log(imageType,storyId,functionId)
+        console.log(imageType,storyId,functionId,preweddingId)
     },[])
 
     const HandlerFunctionName = (e) => {
@@ -88,6 +88,10 @@ const UploadPost = ({imageType,storyId,functionId}) => {
             else if (imageType === 'functionimages') {
                 // console.log(...Images.entries())
                 await dispatch(asyncUpdateStoriesFunction(Images,functionId,storyId));
+            }
+            else if (imageType === 'singleprewedimages') {
+                // console.log(...Images.entries())
+                await dispatch(asyncUpdatePrewedding(Images,preweddingId));
             }
         } else {
             toast.error("Please log in to access the resource !");
