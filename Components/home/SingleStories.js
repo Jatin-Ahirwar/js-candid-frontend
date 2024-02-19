@@ -16,7 +16,7 @@ const SingleStories = () => {
     return (
     <div className='singleitemwrapper'>
         
-        {UploadPostVisible && <UploadPost imageType={"storyfunction"}/>}
+        {UploadPostVisible && <UploadPost imageType={"storyfunction"} storyId={singlestories._id}/>}
         
         {/* <p>{JSON.stringify(singlestories)}</p> */}
         <div className='storytopdiv'>
@@ -51,7 +51,7 @@ const SingleStories = () => {
             {/* <div className='boxxmain' onClick={handleBoxMainClick}> */}
             <div className='createfunctiondiv' onClick={handleCreateIconClick}>
                     <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
-                    <h3>Upload Images</h3>
+                    <h3>Create Function</h3>
             </div>
             </>                  
             :

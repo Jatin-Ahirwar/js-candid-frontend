@@ -7,7 +7,7 @@ import { asyncaalltrailers } from "./TrailerActions";
 import { asyncaallprewedding } from "./PreweddingActions";
 import { asyncaallevents } from "./EventActions";
 import { asyncaallfashion } from "./FashionActions";
-import { asyncaallstories } from "./StoriesActions";
+import { asyncaSinglestories, asyncaallstories } from "./StoriesActions";
 
 
 export const asynccurrentadmin = () => async(dispatch,getstate) =>{
@@ -19,7 +19,6 @@ export const asynccurrentadmin = () => async(dispatch,getstate) =>{
     }
 }
 
-
 export const asyncsignupadmin = (admin) => async(dispatch,getstate) =>{
         try {
             const { data } = await axios.post("/signup", admin )
@@ -28,7 +27,6 @@ export const asyncsignupadmin = (admin) => async(dispatch,getstate) =>{
             dispatch(iserror(error.response.data.message))
         }
 }
-
 
 export const asyncsigninadmin = (admin) => async(dispatch,getstate) =>{
     try {
@@ -63,6 +61,51 @@ export const asyncmail = (client) => async(dispatch,getstate) =>{
     }
 }
 
+// ------------------------------------------ Stories Opening ---------------------------------------
+
+export const asyncCreateStories = (content) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createStories" , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Story Created Successfully.")
+        dispatch(asyncaallstories())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncCreateStoriesFunction = (content,storyId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/createStoriesfunction/` + storyId , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Story Created Successfully.")
+        dispatch(asyncaSinglestories(storyId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncUpdateStoriesFunction = (content,storyId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/createStoriesfunction/` + storyId , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Story Created Successfully.")
+        dispatch(asyncaSinglestories(storyId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+
+// ------------------------------------------ Stories Closing ---------------------------------------
+
+
+// ------------------------------------------ Images Opening ---------------------------------------
+
+
 export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createImages" , Images)
@@ -78,6 +121,12 @@ export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
         toast.error(error.response.data.message)
     }
 }
+
+// ------------------------------------------ Images Closing ---------------------------------------
+
+
+// ------------------------------------------ Kids Opening ---------------------------------------
+
 
 export const asyncuploadkidsimages = (Images) => async(dispatch,getstate) =>{
     try {
@@ -95,17 +144,10 @@ export const asyncuploadkidsimages = (Images) => async(dispatch,getstate) =>{
     }
 }
 
-export const asyncCreateTrailer = (content) => async(dispatch,getstate) =>{
-    try {
-        const { data } = await axios.post("/createtrailer" , content)
-        dispatch(asynccurrentadmin())
-        toast.success("Trailer Uploaded Successfully.")
-        dispatch(asyncaalltrailers())
-    } catch (error) {
-        dispatch(iserror(error.response.data.message))
-        toast.error(error.response.data.message)
-    }
-}
+// ------------------------------------------ Kids Closing ---------------------------------------
+
+
+// ------------------------------------------ Pre-wedding Opening ---------------------------------------
 
 export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
     try {
@@ -119,6 +161,31 @@ export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
     }
 }
 
+// ------------------------------------------ Pre-wedding Closing ---------------------------------------
+
+
+
+
+// ------------------------------------------ Trailer Opening ---------------------------------------
+
+export const asyncCreateTrailer = (content) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/createtrailer" , content)
+        dispatch(asynccurrentadmin())
+        toast.success("Trailer Uploaded Successfully.")
+        dispatch(asyncaalltrailers())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+// ------------------------------------------ Trailer Closing ---------------------------------------
+
+
+
+// ------------------------------------------ Event Opening ---------------------------------------
+
 export const asyncCreateEvent = (content) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createevent" , content)
@@ -130,6 +197,12 @@ export const asyncCreateEvent = (content) => async(dispatch,getstate) =>{
         toast.error(error.response.data.message)
     }
 }
+
+// ------------------------------------------ Event Closing ---------------------------------------
+
+
+
+// ------------------------------------------ Fashion Opening ---------------------------------------
 
 export const asyncCreateFashion = (content) => async(dispatch,getstate) =>{
     try {
@@ -143,16 +216,5 @@ export const asyncCreateFashion = (content) => async(dispatch,getstate) =>{
     }
 }
 
-
-export const asyncCreateStories = (content) => async(dispatch,getstate) =>{
-    try {
-        const { data } = await axios.post("/createStories" , content)
-        dispatch(asynccurrentadmin())
-        toast.success("Story Created Successfully.")
-        dispatch(asyncaallstories())
-    } catch (error) {
-        dispatch(iserror(error.response.data.message))
-        toast.error(error.response.data.message)
-    }
-}
+// ------------------------------------------ Fashion Closing ---------------------------------------
 

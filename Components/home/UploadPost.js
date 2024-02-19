@@ -2,21 +2,37 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/UploadPost.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
-const UploadPost = ({imageType}) => {
+const UploadPost = ({imageType,storyId}) => {
+    const { isAuthenticated } = useSelector((state) => state.AdminReducer);
+    const [functionname, setfunctionName] = useState("");
+    const [isFunctionNameVisible, setIsFunctionNameVisible] = useState(false);
+    const [isEditMode, setIsEditMode] = useState(false);
     const [Loading, setLoading] = useState(false);
     const [IsVisible, setIsVisible] = useState(true);
     const [selectedfiles, setselectedfiles] = useState([]);
-    const { isAuthenticated } = useSelector((state) => state.AdminReducer);
     const fileInputRef = useRef(null);
     const dispatch = useDispatch();
-    // const { images } = useSelector((state) => state.KidsReducer);
+
     useEffect(()=>{
-        console.log(imageType)
+        console.log(imageType,storyId)
     },[])
+
+    const HandlerFunctionName = (e) => {
+        if (e.key === "Enter" && functionname.trim() !== "") {
+          setIsFunctionNameVisible(true);
+          setIsEditMode(false);
+        }
+    };
+
+    const handleEditClick = () => {
+        setIsEditMode(true);
+        setIsFunctionNameVisible(false);
+    };
+
     const handleFileChange = (e) => {
         const newFiles = e.target.files;
         setselectedfiles((prevFiles) => [...prevFiles, ...Array.from(newFiles)]);
@@ -41,18 +57,34 @@ const UploadPost = ({imageType}) => {
             return;
         }
 
+        const content = {
+            functionname
+        };
+
         const Images = new FormData();
+        
+        if(imageType === "storyfunction"){
+            Object.entries(content).forEach(([key, value]) => {
+                Images.append(key, value);
+            });
+        }
+        
         for (const file of selectedfiles) {
             Images.append('images', file);
         }
-
+        
         setLoading(true);
         // Assuming asyncuploadkidsimages is a placeholder for your actual action
         if (isAuthenticated) {
             if (imageType === 'kids') {
                 await dispatch(asyncuploadkidsimages(Images));
-            } else if (imageType === 'images') {
+            } 
+            else if (imageType === 'images') {
                 await dispatch(asyncuploadimages(Images));
+            }
+            else if (imageType === 'storyfunction') {
+                console.log(...Images.entries())
+                await dispatch(asyncCreateStoriesFunction(Images,storyId));
             }
         } else {
             toast.error("Please log in to access the resource !");
@@ -81,6 +113,53 @@ const UploadPost = ({imageType}) => {
                     <div className='closingwrapper'>
                         <img className='closeeicon' onClick={handleClose} src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                     </div>
+
+            {imageType === "storyfunction" && !isFunctionNameVisible && !isEditMode ? (
+                        <div className="stories-input-wrapper">
+                        <label className="label">
+                            Function Name<span> (required)</span>
+                        </label>
+                        <input
+                            onKeyDown={HandlerFunctionName}
+                            onChange={(e) => {
+                            setfunctionName(e.target.value);
+                            }}
+                            className="input"
+                            required
+                            type="text"
+                        />
+                        </div>
+                    ) : null}
+
+                    {isFunctionNameVisible && !isEditMode ? (
+                        <>
+                        <h2 className="functionname">{functionname}</h2>
+                        <span onClick={handleEditClick} style={{cursor:"pointer"}} className="edit-option">
+                            Edit
+                        </span>
+                        </>
+                    ) : (
+                        null
+                    )}
+
+                    {isEditMode && (
+                        <div className="stories-input-wrapper">
+                        <label className="label">
+                            Function Name<span> (required)</span>
+                        </label>
+                        <input
+                            onKeyDown={HandlerFunctionName}
+                            onChange={(e) => {
+                            setfunctionName(e.target.value);
+                            }}
+                            value={functionname}
+                            className="input"
+                            required
+                            type="text"
+                        />
+                        </div>
+                    )}                    
+                    
                     <div className='boxxmain' onClick={handleBoxMainClick}>
                         <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
                         <h3>Upload Images</h3>
