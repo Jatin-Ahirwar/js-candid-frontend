@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@/Components/home/UploadPost.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncCreateStoriesFunction, asyncUpdatePrewedding, asyncUpdateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
+import { asyncCreateStoriesFunction, asyncUpdateEvent, asyncUpdateFashion, asyncUpdatePrewedding, asyncUpdateStoriesFunction, asyncuploadimages, asyncuploadkidsimages } from '@/Store/Actions/AdminActions';
 import { toast } from 'react-toastify';
 import Spin from './Spin';
 
-const UploadPost = ({imageType,storyId,functionId,preweddingId}) => {
+const UploadPost = ({imageType,storyId,functionId,preweddingId,eventId,fashionId}) => {
     const { isAuthenticated } = useSelector((state) => state.AdminReducer);
     const [functionname, setfunctionName] = useState("");
     const [isFunctionNameVisible, setIsFunctionNameVisible] = useState(false);
@@ -18,7 +18,7 @@ const UploadPost = ({imageType,storyId,functionId,preweddingId}) => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        console.log(imageType,storyId,functionId,preweddingId)
+        console.log(imageType,storyId,functionId,preweddingId,eventId,fashionId)
     },[])
 
     const HandlerFunctionName = (e) => {
@@ -92,6 +92,14 @@ const UploadPost = ({imageType,storyId,functionId,preweddingId}) => {
             else if (imageType === 'singleprewedimages') {
                 // console.log(...Images.entries())
                 await dispatch(asyncUpdatePrewedding(Images,preweddingId));
+            }
+            else if (imageType === 'singleeventimages') {
+                // console.log(...Images.entries())
+                await dispatch(asyncUpdateEvent(Images,eventId));
+            }
+            else if (imageType === 'singlefashionimages') {
+                // console.log(...Images.entries())
+                await dispatch(asyncUpdateFashion(Images,fashionId));
             }
         } else {
             toast.error("Please log in to access the resource !");

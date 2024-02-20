@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 import { asyncaAllkidsImages } from "./KidsActions";
 import { asyncaalltrailers } from "./TrailerActions";
 import { asyncaSingleprewedding, asyncaallprewedding } from "./PreweddingActions";
-import { asyncaallevents } from "./EventActions";
-import { asyncaallfashion } from "./FashionActions";
+import { asyncaSingleevent, asyncaallevents } from "./EventActions";
+import { asyncaSinglefashion, asyncaallfashion } from "./FashionActions";
 import { asyncaSinglestories, asyncaallstories } from "./StoriesActions";
 
 
@@ -221,6 +221,25 @@ export const asyncCreateEvent = (content) => async(dispatch,getstate) =>{
     }
 }
 
+export const asyncUpdateEvent = (content,eventId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/updateevent/" + eventId , content)
+        dispatch(asynccurrentadmin())
+        const imagelength = [...content.entries()]
+        const successMessage =  imagelength.length === 1
+        ? "Event Image Uploaded Successfully."
+        : imagelength.length > 1
+        ? "Event Images Uploaded Successfully."
+        : "Event Updated Successfully.";
+        toast.success(successMessage)
+        dispatch(asyncaSingleevent(eventId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+
 // ------------------------------------------ Event Closing ---------------------------------------
 
 
@@ -233,6 +252,24 @@ export const asyncCreateFashion = (content) => async(dispatch,getstate) =>{
         dispatch(asynccurrentadmin())
         toast.success("Fashion Created Successfully.")
         dispatch(asyncaallfashion())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncUpdateFashion = (content,fashionId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post("/updatefashion/" + fashionId , content)
+        dispatch(asynccurrentadmin())
+        const imagelength = [...content.entries()]
+        const successMessage =  imagelength.length === 1
+        ? "Fashion Image Uploaded Successfully."
+        : imagelength.length > 1
+        ? "Fashion Images Uploaded Successfully."
+        : "Fashion Updated Successfully.";
+        toast.success(successMessage)
+        dispatch(asyncaSinglefashion(fashionId))
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)

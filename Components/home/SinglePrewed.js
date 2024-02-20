@@ -39,8 +39,8 @@ const SinglePrewed = () => {
                 </div>                    
                 ))
                 
-                : "THERE IS NO IMAGES "}
-
+                : "THERE IS NO IMAGES "
+            }
         </div>
         {
                     isAuthenticated ?

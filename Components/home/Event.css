@@ -42,7 +42,7 @@ html,body {
 }
 .createediv{
     flex-shrink: 0;
-    height: 55vh;
+    height: 43vh;
     width: 21vw;
     display: flex;
     justify-content: center;

@@ -1,12 +1,23 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import "@/Components/home/SingleFashion.css"
+import UploadPost from './UploadPost'
 
 const SingleFashion = () => {
     const { singlefashion } = useSelector((state)=>state.FashionReducer)
+    const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+    const [UploadPostVisible, setUploadPostVisible] = useState(false)
+    const [imageType, setimageType] = useState("")
+    const handleCreateIconClick = (imageType) => {
+        setUploadPostVisible(prevValue => !prevValue);
+        setimageType(imageType)
+    };
+
   return (
     <div className='singleitemwrapper'>
+        {UploadPostVisible && <UploadPost imageType={imageType} fashionId={singlefashion?._id}/>}
+
         {/* <p>{JSON.stringify(singlefashion)}</p> */}
         <div className='storytopdiv'>
             <h2 >{singlefashion?.modelname}</h2>
@@ -23,6 +34,18 @@ const SingleFashion = () => {
               </div>                    
             ))
           }
+
+          {
+              isAuthenticated ?
+                  // <div className='createfunctiondiv' style={{width:"22vw",border:"none"}} onClick={() => handleCreateIconClick(storiesfunction._id,"functionimages")}>
+                  <div className='createfunctiondiv' style={{width:"22vw",border:"none"}} onClick={() => handleCreateIconClick("singlefashionimages")}>
+                      <img className='uploadicon' src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" alt="" />
+                      <h3>Upload More Images</h3>
+                  </div>
+              :
+              null
+          }    
+
         </div>
 
         {
