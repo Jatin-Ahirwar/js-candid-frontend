@@ -26,10 +26,10 @@ const SingleEvent = () => {
             {/* <p>{singleevent?.date} | {singleevent?.venue} , {singleevent?.location}</p> */}
         </div>
         <div className='bestpic'>
-            <img src="https://images.unsplash.com/photo-1580824456624-90e7ebe08d4b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+          <img src={singleevent?.posterimage.url} alt="" />
         </div>  
         <h3 id='teasername'>PICTURES</h3>
-        <div className='functionswrapper' style={{backgroundColor:"rebeccapurple"}}>
+        <div className='functionswrapper'>
           {
             singleevent?.images.map((image)=>(
               <div className='functionimage'>
@@ -51,6 +51,7 @@ const SingleEvent = () => {
 
         </div>
         
+        <h3 id='teasername'>TEASER</h3>
 
         {
           singleevent?.teaser ? 

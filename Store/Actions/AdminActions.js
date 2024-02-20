@@ -184,6 +184,18 @@ export const asyncUpdatePrewedding = (content,preweddingId) => async(dispatch,ge
     }
 }
 
+export const asyncDeletePreweddingImage = (preweddingId,imageIndex) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesinglepreweddingimage/${preweddingId}/${imageIndex}` )
+        // dispatch(asynccurrentadmin())
+        toast.success("Image Deleted Successfully.")
+        dispatch(asyncaSingleprewedding(preweddingId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
 // ------------------------------------------ Pre-wedding Closing ---------------------------------------
 
 

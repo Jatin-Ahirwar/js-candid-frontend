@@ -22,6 +22,7 @@ html,body {
     /* gap: 45vw; */
     justify-content: space-between;
     font-weight: 400;
+    z-index: 999999;
 }
 .nav h1{
     text-transform: capitalize;
@@ -70,8 +71,6 @@ html,body {
     position: absolute;
     top: 100%;
     right: 0%;
-    /* background-color: #f5ebd9; */
-    /* background-color: #f5ebd99e; */
     background-color: #F9F3E7;
     opacity: 0;
     visibility: hidden;
@@ -82,6 +81,7 @@ html,body {
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    z-index: 9;
 }
 #hiddenlink{
     font-size: 12px;

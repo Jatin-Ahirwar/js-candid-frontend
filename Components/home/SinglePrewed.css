@@ -86,6 +86,7 @@ html,body {
     text-transform: uppercase;
 }
 .functionimage{
+    position: relative;
     height: 70vh;
     width: 60vw;
     display: flex;
@@ -152,6 +153,21 @@ html,body {
     transform: rotate(45deg);
     height: 7vh;
 }
+.deletewrapper{
+    position: absolute;
+    top: 3%;
+    right: 1.5%;
+    height: 6vh;
+    width: 6vh;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 2vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
+}
+
 
 
 

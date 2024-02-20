@@ -53,7 +53,7 @@ html,body {
     object-position: center;
 }
 .functionswrapper{
-    min-height: 100vh;
+    min-height: 70vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
