@@ -41,9 +41,9 @@ const Nav = () => {
       <Link className="link" href="/Content/contact">Contact</Link>
       <Link className="link" href="/Content/aboutus">About us</Link>
       <div className='profilediv'>
-          <div id="ptag"> 
-            <p id="pp">MORE</p>
-            <img id="ptagicon" src="../../stockimages/down-arrow.png" alt="" />
+          <div id="ptag">
+          MORE 
+            {/* <p id="pp">MORE</p> */}
           </div>
             <div className="hidden-nav">
                 <Link id="hiddenlink"  href="/Content/kids">baby & Kids </Link>

@@ -78,7 +78,6 @@ p {
 }
 
 @media screen and (max-width: 500px) {
-
   .confirmation-modal {
     padding: 10vw; /* Adjust based on your preference */
   }

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { asyncDeleteImage } from '@/Store/Actions/AdminActions'; // Replace with your actual delete action
 import Spin from './Spin';
 import "@/Components/home/Confirmation.css"
-import { asyncDeletePreweddingImage } from '@/Store/Actions/AdminActions';
+import { asyncDeletePreweddingImage, asyncdeleteimages, asyncdeletekidsimages } from '@/Store/Actions/AdminActions';
 
 const ConfirmationModal = ({ imageType, preweddingId, imageIndex }) => {
     const { isAuthenticated } = useSelector((state) => state.AdminReducer);
@@ -26,6 +26,12 @@ const ConfirmationModal = ({ imageType, preweddingId, imageIndex }) => {
         if (isAuthenticated) {
             if(imageType === "deletepreweddingimage"){
                 await dispatch(asyncDeletePreweddingImage(preweddingId,imageIndex));
+            }
+            else if(imageType === "deleteimage"){
+                await dispatch(asyncdeleteimages(imageIndex));
+            }
+            else if(imageType === "deletekidsimage"){
+                await dispatch(asyncdeletekidsimages(imageIndex));
             }
         }
 

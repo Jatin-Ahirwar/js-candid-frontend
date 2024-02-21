@@ -30,7 +30,7 @@ html,body {
     font-weight: 100;
     text-align: center;
 }
-.imagecontentwrapper{
+.kidsimagecontentwrapper{
     min-height: calc(100vh - 60vh);
     width: 80vw;
     gap: 10px;
@@ -42,7 +42,7 @@ html,body {
     border-bottom: .2px solid rgba(128, 128, 128, 0.212);
 }
 
-.imagediv{
+.kidsimagediv{
     height: 35vh;
     width: 26.2vw;
     display: flex;
@@ -52,25 +52,26 @@ html,body {
     color: black;
     transition: all ease .5s;
     cursor: pointer;
+    position: relative;
 }
-.imagediv:hover{
+.kidsimagediv:hover{
     scale: 1.05;
 }
 
-.coverimg{
+.kidscoverimg{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
-.imagediv h4{
+.kidsimagediv h4{
     letter-spacing: 2px;
     font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
     padding: 10px 0 7px 0;
 }
-.imagediv h6{
+.kidsimagediv h6{
     font-size: 8px;
     letter-spacing: 2px;
     font-weight: 100;
@@ -84,36 +85,63 @@ html,body {
 .uploading{
     display: none;
 }
+.deleteicon{
+    position: absolute;
+    height: 3vh;
+    left: 86%;
+    top: 5%;
+    z-index: 999;
+    display: none;
+    transition: all ease .5s;
+}
+.imagediv:hover .deleteicon{
+    display: initial;
+}
+.deletewrapper{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    height: 3vh;
+    width: 3vh;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 3vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
+}
+
 
 @media (max-width: 1300px) {
-    .imagediv {
+    .kidsimagediv {
         height: 32vh;
         width: 26.1vw;
     }
 }
 @media (max-width: 1180px) {
-    .imagediv {
+    .kidsimagediv {
         height: 28vh;
         width: 26vw;
     }
 }
 @media (max-width: 1000px) {
-    .imagediv {
+    .kidsimagediv {
         height: 25vh;
         width: 25.9vw;
     }
 }
 @media (max-width: 860px) {
-    .imagediv {
+    .kidsimagediv {
         height: 23vh;
         width: 25.8vw;
     }
 }
 @media (max-width: 800px) {
-    .imagecontentwrapper {
+    .kidsimagecontentwrapper {
         width: 90vw;
     }
-    .imagediv {
+    .kidsimagediv {
         height: 26vh;
         width: 29.1vw;
     }
@@ -122,17 +150,17 @@ html,body {
     }
 }
 @media (max-width: 750px) {
-    .imagediv {
+    .kidsimagediv {
         height: 32vh;
         width: 44.3vw;
     }
-    .imagecontentwrapper{
+    .kidsimagecontentwrapper{
         padding: 5vh 0;
     }
 }
 
 @media (max-width: 715px) {
-    .imagediv {
+    .kidsimagediv {
         height: 40vh;
         width: 90vw;
         margin-bottom: 10px;
@@ -140,7 +168,7 @@ html,body {
 }
 
 @media (max-width: 500px) {
-    .imagediv {
+    .kidsimagediv {
         height: 35vh;
         width: 90vw;
     }

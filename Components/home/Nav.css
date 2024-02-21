@@ -40,7 +40,6 @@ html,body {
 }
 .links{
     height: 100%;
-    /* width: 35vw; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,6 +81,7 @@ html,body {
     justify-content: space-between;
     padding: 20px;
     z-index: 9;
+    
 }
 #hiddenlink{
     font-size: 12px;
@@ -93,10 +93,11 @@ html,body {
 .profilediv #ptag{
     font-size: .75rem;
     display: flex;
-    align-items: center;
-    margin-top: 18px;
     color: gray;
+    margin-top: 17px;
     transition: all ease .5s;
+    cursor: pointer;
+    /* background-color: rebeccapurple; */
 }
 .profilediv p:hover{
     color: black;
@@ -110,7 +111,8 @@ html,body {
     visibility: visible;
 }
 #ptagicon{
-    height: 15px;
+    color: black;
+    /* height: 15px; */
 }
 .menuicon{
     padding: 10px;

@@ -127,6 +127,16 @@ export const asyncuploadimages = (Images) => async(dispatch,getstate) =>{
     }
 }
 
+export const asyncdeleteimages = (imageIndex) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesingleImages/${imageIndex}` )
+        toast.success("Image Deleted Successfully.")
+        dispatch(asyncaAllImages())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
 // ------------------------------------------ Images Closing ---------------------------------------
 
 
@@ -142,6 +152,17 @@ export const asyncuploadkidsimages = (Images) => async(dispatch,getstate) =>{
             ? "Image Uploaded Successfully."
             : "Images Uploaded Successfully.";
         toast.success(successMessage)
+        dispatch(asyncaAllkidsImages())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncdeletekidsimages = (imageIndex) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesinglekidsimages/${imageIndex}` )
+        toast.success("Image Deleted Successfully.")
         dispatch(asyncaAllkidsImages())
     } catch (error) {
         dispatch(iserror(error.response.data.message))

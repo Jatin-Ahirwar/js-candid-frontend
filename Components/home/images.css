@@ -50,6 +50,8 @@ html,body {
 .imagediv:hover{
     scale: 1.05;
 }
+
+
 .deleteicon{
     position: absolute;
     height: 3vh;
@@ -61,6 +63,20 @@ html,body {
 }
 .imagediv:hover .deleteicon{
     display: initial;
+}
+.deletewrapper{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    height: 3vh;
+    width: 3vh;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 3vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
 }
 
 
