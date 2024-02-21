@@ -4,16 +4,26 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { asyncDeleteImage } from '@/Store/Actions/AdminActions'; // Replace with your actual delete action
 import Spin from './Spin';
 import "@/Components/home/Confirmation.css"
-import { asyncDeletePreweddingImage, asyncdeleteevent, asyncdeleteeventimage, asyncdeletefashion, asyncdeletefashionimage, asyncdeleteimages, asyncdeletekidsimages, asyncdeleteprewedding, asyncdeletetrailer } from '@/Store/Actions/AdminActions';
+import { asyncDeletePreweddingImage, asyncDeleteStories, asyncDeleteStoriesFunction, asyncDeleteStoriesFunctionImage, asyncDeleteStoryFunction, asyncdeleteevent, asyncdeleteeventimage, asyncdeletefashion, asyncdeletefashionimage, asyncdeleteimages, asyncdeletekidsimages, asyncdeleteprewedding, asyncdeletetrailer } from '@/Store/Actions/AdminActions';
 
-const ConfirmationModal = ({ imageType , imageIndex , preweddingId,  trailerId , eventId , fashionId }) => {
+const ConfirmationModal = ({ 
+    imageType, 
+    imageIndex, 
+    preweddingId,
+    trailerId, 
+    eventId, 
+    fashionId, 
+    functionId, 
+    storyId, 
+    }) => {
+    
     const { isAuthenticated } = useSelector((state) => state.AdminReducer);
     const [IsVisible, setIsVisible] = useState(true);
-    
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
+    
     useEffect(() => {
-        console.log(imageType,imageIndex,trailerId,preweddingId,eventId,fashionId)
+        console.log(imageType,imageIndex,trailerId,preweddingId,eventId,fashionId,functionId,storyId)
     }, [])
     
     const handleClose = () => {
@@ -51,8 +61,18 @@ const ConfirmationModal = ({ imageType , imageIndex , preweddingId,  trailerId ,
             else if(imageType === "deletefashion"){
                 await dispatch(asyncdeletefashion(fashionId));
             }
-
-
+            else if(imageType === "deletefunctionimage"){
+                await dispatch(asyncDeleteStoriesFunctionImage(functionId,imageIndex,storyId));
+            }
+            else if(imageType === "deletefunction"){
+                await dispatch(asyncDeleteStoriesFunction(functionId,storyId));
+            }
+            else if(imageType === "deletestories"){
+                await dispatch(asyncDeleteStories(storyId));
+            }
+        }
+        else{
+            alert("invalid Imagetype")
         }
 
         setLoading(false);

@@ -4,12 +4,22 @@ import "@/Components/home/Stories.css";
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import Upload from './Upload';
+import ConfirmationModal from './Confirmation';
 
 const Stories = () => {
     const dispatch = useDispatch();
     const { stories } = useSelector((state)=>state.StoriesReducer);
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer);
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
+    const [DeleteImageVisible, setDeleteImageVisible] = useState(false)
+    const [imageType, setimageType] = useState("")
+    const [storyId, setstoryId] = useState("")
+    
+    const handleDeleteIconClick = (storyId,imageType) => {
+        setDeleteImageVisible(prevValue => !prevValue);
+        setimageType(imageType)
+        setstoryId(storyId)
+    };
 
     const handleCreateIconClick = () => {
         setUploadPostVisible(prevValue => !prevValue);
@@ -25,6 +35,7 @@ const Stories = () => {
         <>
             <div className='storiesdiv'>
                 {UploadPostVisible && <Upload imageType="stories"/>} 
+                {DeleteImageVisible && <ConfirmationModal  imageType={imageType} storyId={storyId} />}
 
                 <div className='storytopdiv'>
                     <h2 style={{letterSpacing:"5px"}}>STORIES</h2>
@@ -34,24 +45,39 @@ const Stories = () => {
                 <div className='storycontent'>
                     {stories?.length > 0 ?               
                         stories?.map((story) => (
-                            <Suspense fallback={<h1>Loading......</h1>} key={story._id}>
-                                <Link style={{textDecoration:"none", color:"black"}} href={"/Content/singlestories/" + story._id} className='storyproductdiv'>
-                                    <div className='coverimgdiv'>
-                                        {imageError ? (
-                                            <div className='spinner-div'>
-                                                <p>Image not loaded properly. Please try again.</p>
+                                <div className="storyproductdiv" key={story._id}>
+                                    <Link style={{textDecoration:"none", color:"black"}} href={"/Content/singlestories/" + story._id} className='storyproductdiv'>
+                                        <div className='coverimgdiv'>
+                                            {imageError ? (
+                                                <div className='spinner-div'>
+                                                    <p>Image not loaded properly. Please try again.</p>
+                                                </div>
+                                            ) : (
+                                                <img className='coverimg' src={story.posterimage.url} alt="" onError={handleImageError} />
+                                            )}
+                                        </div>
+                                        <div className='storydetailsdiv'>
+                                            <h3>{story.groomname} & {story.bridename}</h3> 
+                                            <h5>{story.date}</h5> 
+                                            <p>{story.venue} , {story.location}</p> 
+                                        </div>    
+                                    </Link>
+                                    {isAuthenticated ? 
+                                            <div className='deletewrapper'>
+                                            <img 
+                                                onClick={() => {
+                                                handleDeleteIconClick(story._id, "deletestories");
+                                                }} 
+                                                className='deleteimageicon' 
+                                                src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" 
+                                                alt="" 
+                                                
+                                            />
                                             </div>
-                                        ) : (
-                                            <img className='coverimg' src={story.posterimage.url} alt="" onError={handleImageError} />
-                                        )}
-                                    </div>
-                                    <div className='storydetailsdiv'>
-                                        <h3>{story.groomname} & {story.bridename}</h3> 
-                                        <h5>{story.date}</h5> 
-                                        <p>{story.venue} , {story.location}</p> 
-                                    </div>    
-                                </Link>
-                            </Suspense>
+                                        : 
+                                        null
+                                    }
+                                </div>
                         ))
                         :
                         <div className='notfounddiv'>

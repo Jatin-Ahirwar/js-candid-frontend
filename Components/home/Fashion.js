@@ -19,7 +19,6 @@ const Fashion = () => {
         setDeleteImageVisible(prevValue => !prevValue);
         setimageType(imageType)
         setfashionId(fashionId)
-        console.log(fashionId,imageType)
     };
 
     const handleCreateIconClick = () => {

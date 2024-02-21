@@ -105,6 +105,39 @@ export const asyncUpdateStoriesFunction = (content,functionId,storyId) => async(
     }
 }
 
+export const asyncDeleteStoriesFunctionImage = (functionId,imageIndex,storyId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesinglestoriesfunctionimage/${functionId}/${imageIndex}`  )
+        toast.success("Image Deleted Successfully.")
+        dispatch(asyncaSinglestories(storyId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncDeleteStoriesFunction = (functionId,storyId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesingleStoriesfunction/${storyId}/${functionId}`  )
+        toast.success("Story Function Deleted Successfully.")
+        dispatch(asyncaSinglestories(storyId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+export const asyncDeleteStories = (storyId) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesinglestories/${storyId}`  )
+        toast.success("Story Deleted Successfully.")
+        dispatch(asyncaallstories())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+
 
 // ------------------------------------------ Stories Closing ---------------------------------------
 
@@ -372,5 +405,6 @@ export const asyncdeletefashion = (id) => async(dispatch,getstate) =>{
         toast.error(error.response.data.message)
     }
 }
+
 // ------------------------------------------ Fashion Closing ---------------------------------------
 

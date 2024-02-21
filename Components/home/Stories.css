@@ -61,6 +61,7 @@ html,body {
     justify-content: space-between;
     font-weight: 100;
     transition: opacity 0.3s ease-in-out;
+    position: relative;
 }
 .coverimgdiv{
     height: 78%;
@@ -111,6 +112,37 @@ html,body {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+.deleteicon{
+    position: absolute;
+    height: 3vh;
+    left: 86%;
+    top: 5%;
+    z-index: 999;
+    display: none;
+    transition: all ease .5s;
+}
+.imagediv:hover .deleteicon{
+    display: initial;
+}
+.deletewrapper{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    height: 4vh;
+    width: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 3.5vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
+}
+
+
 @media (max-width: 1300px) {
     .storyproductdiv{
         height: 43vh;
