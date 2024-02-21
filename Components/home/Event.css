@@ -58,7 +58,7 @@ html,body {
     justify-content: space-between;
     align-items: center;
     font-weight: 100;
-    /* gap: 15px; */
+    position: relative;
     transition: opacity 0.3s ease-in-out;
 }
 .eventproductdiv h3{
@@ -95,6 +95,37 @@ html,body {
     text-transform: capitalize;
     font-weight: 100;
 } */
+
+.deleteicon{
+    position: absolute;
+    height: 3vh;
+    left: 86%;
+    top: 5%;
+    z-index: 999;
+    display: none;
+    transition: all ease .5s;
+}
+.imagediv:hover .deleteicon{
+    display: initial;
+}
+.deletewrapper{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    height: 4vh;
+    width: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 3.5vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
+}
+
 
 
 

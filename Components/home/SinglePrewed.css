@@ -157,8 +157,8 @@ html,body {
     position: absolute;
     top: 3%;
     right: 1.5%;
-    height: 6vh;
-    width: 6vh;
+    height: 5vh;
+    width: 5vh;
 }
 .deleteimageicon{
     cursor: pointer;

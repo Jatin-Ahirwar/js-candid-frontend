@@ -19,6 +19,7 @@ const SinglePrewed = () => {
         setUploadPostVisible(prevValue => !prevValue);
         setimageType(imageType)
     };
+
     const handleDeleteIconClick = (index,imageType) => {
         setDeleteImageVisible(prevValue => !prevValue);
         setimageType(imageType)
@@ -26,12 +27,6 @@ const SinglePrewed = () => {
         console.log(index,imageType)
     };
     
-    const handleImageClick = (imageIndex) => {
-        setSelectedimageIndex(imageIndex);
-        console.log(imageIndex)
-        openConfirmationModal();
-    };
-
     return (
     <div className='singleitemwrapper'>
         {UploadPostVisible && <UploadPost imageType={imageType} preweddingId={singleprewedding?._id}/>}
@@ -54,18 +49,18 @@ const SinglePrewed = () => {
                 
                 singleprewedding?.images.map((image, index) => (
                     <div className='functionimage' key={index}>
-                    {isAuthenticated ? 
-                        <div className='deletewrapper'>
-                        <img 
-                            onClick={() => handleDeleteIconClick(index,"deletepreweddingimage")} 
-                            className='deleteimageicon' 
-                            src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" 
-                            alt="" 
-                        />
-                        </div>
-                        : null
-                    }
-                    <img src={image.url} alt={`${image}`} />
+                        {isAuthenticated ? 
+                            <div className='deletewrapper'>
+                            <img 
+                                onClick={() => handleDeleteIconClick(index,"deletepreweddingimage")} 
+                                className='deleteimageicon' 
+                                src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" 
+                                alt="" 
+                            />
+                            </div>
+                            : null
+                        }
+                        <img src={image.url} alt={`${image}`} />
                     </div>
                 ))                
                 : "THERE IS NO IMAGES "

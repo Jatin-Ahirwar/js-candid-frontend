@@ -5,23 +5,31 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncaallfashion } from '@/Store/Actions/FashionActions'
 import Upload from './Upload'
+import ConfirmationModal from './Confirmation'
 const Fashion = () => {
     const dispatch = useDispatch()
     const { fashions } = useSelector((state)=>state.FashionReducer)
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
+    const [DeleteImageVisible, setDeleteImageVisible] = useState(false)
+    const [imageType, setimageType] = useState("")
+    const [fashionId, setfashionId] = useState("")
+    
+    const handleDeleteIconClick = (fashionId,imageType) => {
+        setDeleteImageVisible(prevValue => !prevValue);
+        setimageType(imageType)
+        setfashionId(fashionId)
+        console.log(fashionId,imageType)
+    };
+
     const handleCreateIconClick = () => {
         setUploadPostVisible(prevValue => !prevValue);
     };
 
-
-
-
-
-
-  return <>
+    return <>
         <div className='fashionwrapper'>
             {UploadPostVisible && <Upload imageType="fashion"/>} 
+            {DeleteImageVisible && <ConfirmationModal  imageType={imageType} fashionId={fashionId} />}
 
             {/* <p>{JSON.stringify(fashions)}</p> */}
         <div className='fashiontopdiv'>
@@ -32,17 +40,35 @@ const Fashion = () => {
             {
                fashions?.length > 0 ?
                 fashions?.map((fashion)=>(
-                    <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singlefashion/${fashion._id}`} className='fashionproductdiv'>
-                        <div className='productcoverimgdiv' >
-                            <img className='productcoverimg' src={fashion.posterimage.url} alt="" />
-                        </div>
-                        <div className='productdetailsdiv'>
-                            <h3>{fashion.modelname}</h3> 
-                            <p>{fashion.location} , {fashion.country}</p> 
-                            <h6>Read More <i class="ri-arrow-right-line"></i></h6> 
-                            {/* <h6 style={{fontWeight:"500",letterSpacing:"2px",textTransform:"uppercase"}}>Read More</h6>  */}
-                        </div>    
-                    </Link>
+                    <div className="fashionproductdiv">
+                        <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singlefashion/${fashion._id}`} className='fashionproductdiv'>
+                            <div className='productcoverimgdiv' >
+                                <img className='productcoverimg' src={fashion.posterimage.url} alt="" />
+                            </div>
+                            <div className='productdetailsdiv'>
+                                <h3>{fashion.modelname}</h3> 
+                                <p>{fashion.location} , {fashion.country}</p> 
+                                <h6>Read More <i class="ri-arrow-right-line"></i></h6> 
+                            </div>    
+                        </Link>
+                        {isAuthenticated ? 
+                                <div className='deletewrapper'>
+                                <img 
+                                    onClick={() => {
+                                    handleDeleteIconClick(fashion._id, "deletefashion");
+                                    }} 
+                                    className='deleteimageicon' 
+                                    src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" 
+                                    alt="" 
+                                    
+                                />
+                                </div>
+                            : 
+                            null
+                        }
+
+
+                    </div>
                 ))
                 :
                 <div className='notfounddiv'>

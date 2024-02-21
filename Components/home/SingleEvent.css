@@ -66,6 +66,7 @@ html,body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     /* background-color: aqua; */
 }
 .functionimage img{
@@ -127,6 +128,23 @@ html,body {
     transform: rotate(45deg);
     height: 7vh;
 }
+.deletewrapper{
+    position: absolute;
+    top: 3%;
+    right: 1.5%;
+    height: 5vh;
+    width: 5vh;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 2vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
+}
+
+
+
 
 @media (max-width: 1300px) {
     .bestpic{

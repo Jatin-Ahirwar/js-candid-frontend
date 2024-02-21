@@ -3,20 +3,33 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import "@/Components/home/SingleFashion.css"
 import UploadPost from './UploadPost'
+import ConfirmationModal from './Confirmation'
 
 const SingleFashion = () => {
     const { singlefashion } = useSelector((state)=>state.FashionReducer)
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
+    const [DeleteImageVisible, setDeleteImageVisible] = useState(false)
     const [imageType, setimageType] = useState("")
+    const [imageIndex, setimageIndex] = useState("")
+
     const handleCreateIconClick = (imageType) => {
         setUploadPostVisible(prevValue => !prevValue);
         setimageType(imageType)
     };
 
+    const handleDeleteIconClick = (index,imageType) => {
+        setDeleteImageVisible(prevValue => !prevValue);
+        setimageType(imageType)
+        setimageIndex(index)
+        console.log(index,imageType)
+    };
+
   return (
     <div className='singleitemwrapper'>
         {UploadPostVisible && <UploadPost imageType={imageType} fashionId={singlefashion?._id}/>}
+        {DeleteImageVisible && <ConfirmationModal  imageType={imageType} fashionId={singlefashion?._id} imageIndex={imageIndex} />}
+        
 
         {/* <p>{JSON.stringify(singlefashion)}</p> */}
         <div className='storytopdiv'>
@@ -28,8 +41,20 @@ const SingleFashion = () => {
         <h3 id='teasername'>PICTURES</h3>
         <div className='functionswrapper'>
           {
-            singlefashion?.images.map((image)=>(
-              <div className='functionimage'>
+            singlefashion?.images.map((image,index)=>(
+              <div className='functionimage' key={image._id}>
+                    {isAuthenticated ? 
+                      <div className='deletewrapper'>
+                      <img 
+                          onClick={() => handleDeleteIconClick(index,"deletefashionimage")} 
+                          className='deleteimageicon' 
+                          src="https://cdn-icons-png.flaticon.com/512/2920/2920658.png" 
+                          alt="" 
+                      />
+                      </div>
+                      : null
+                    }
+
                   <img src={image.url} alt="" />
               </div>                    
             ))

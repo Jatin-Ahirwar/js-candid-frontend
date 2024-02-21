@@ -137,6 +137,7 @@ export const asyncdeleteimages = (imageIndex) => async(dispatch,getstate) =>{
         toast.error(error.response.data.message)
     }
 }
+
 // ------------------------------------------ Images Closing ---------------------------------------
 
 
@@ -178,7 +179,6 @@ export const asyncdeletekidsimages = (imageIndex) => async(dispatch,getstate) =>
 export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/createprewedding" , content)
-        dispatch(asynccurrentadmin())
         toast.success("Prewedding Created Successfully.")
         dispatch(asyncaallprewedding())
     } catch (error) {
@@ -190,7 +190,6 @@ export const asyncCreatePrewedding = (content) => async(dispatch,getstate) =>{
 export const asyncUpdatePrewedding = (content,preweddingId) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.post("/updateprewedding/" + preweddingId , content)
-        dispatch(asynccurrentadmin())
         const imagelength = [...content.entries()]
         const successMessage =  imagelength.length === 1
         ? "Pre-Wedding Image Uploaded Successfully."
@@ -217,6 +216,17 @@ export const asyncDeletePreweddingImage = (preweddingId,imageIndex) => async(dis
     }
 }
 
+export const asyncdeleteprewedding = (id) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesingleprewedding/${id}` )
+        toast.success("Pre-Wedding Deleted Successfully.")
+        dispatch(asyncaallprewedding())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
 // ------------------------------------------ Pre-wedding Closing ---------------------------------------
 
 
@@ -236,6 +246,16 @@ export const asyncCreateTrailer = (content) => async(dispatch,getstate) =>{
     }
 }
 
+export const asyncdeletetrailer = (id) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesingletrailer/${id}` )
+        toast.success("Trailer Deleted Successfully.")
+        dispatch(asyncaalltrailers())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
 // ------------------------------------------ Trailer Closing ---------------------------------------
 
 
@@ -266,6 +286,28 @@ export const asyncUpdateEvent = (content,eventId) => async(dispatch,getstate) =>
         : "Event Updated Successfully.";
         toast.success(successMessage)
         dispatch(asyncaSingleevent(eventId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncdeleteeventimage = (EventId,imageIndex) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesingleeventimage/${EventId}/${imageIndex}` )
+        toast.success("Image Deleted Successfully.")
+        dispatch(asyncaSingleevent(EventId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncdeleteevent = (id) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesingleevent/${id}` )
+        toast.success("Event Deleted Successfully.")
+        dispatch(asyncaallevents())
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message)
@@ -309,5 +351,26 @@ export const asyncUpdateFashion = (content,fashionId) => async(dispatch,getstate
     }
 }
 
+export const asyncdeletefashionimage = (FashionId,imageIndex) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesinglefashionimage/${FashionId}/${imageIndex}` )
+        toast.success("Image Deleted Successfully.")
+        dispatch(asyncaSinglefashion(FashionId))
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
+
+export const asyncdeletefashion = (id) => async(dispatch,getstate) =>{
+    try {
+        const { data } = await axios.post(`/deletesinglefashion/${id}` )
+        toast.success("Fashion Deleted Successfully.")
+        dispatch(asyncaallfashion())
+    } catch (error) {
+        dispatch(iserror(error.response.data.message))
+        toast.error(error.response.data.message)
+    }
+}
 // ------------------------------------------ Fashion Closing ---------------------------------------
 

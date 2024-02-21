@@ -51,6 +51,7 @@ html,body {
     font-weight: 100;
     justify-content: space-between;
     transition: opacity 0.3s ease-in-out;
+    position: relative;
 }
 .createediv{
     flex-shrink: 0;
@@ -97,6 +98,39 @@ html,body {
     align-items: center;
     justify-content: space-between;
 }
+
+.deleteicon{
+    position: absolute;
+    height: 3vh;
+    left: 86%;
+    top: 5%;
+    z-index: 999;
+    display: none;
+    transition: all ease .5s;
+}
+.imagediv:hover .deleteicon{
+    display: initial;
+}
+.deletewrapper{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    height: 4vh;
+    width: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deleteimageicon{
+    cursor: pointer;
+    height: 3.5vh;
+}
+.deleteimageicon:hover{
+    transition: all ease 1s;
+}
+
+
+
 @media (max-width: 1300px) {
     .fashionproductdiv{
         height: 43vh;
