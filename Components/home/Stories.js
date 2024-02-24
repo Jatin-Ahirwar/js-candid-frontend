@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import Upload from './Upload';
 import ConfirmationModal from './Confirmation';
+import Spin from './Spin';
 
 const Stories = () => {
     const dispatch = useDispatch();

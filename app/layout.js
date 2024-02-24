@@ -1,4 +1,5 @@
 import NextTopLoader from 'nextjs-toploader'
+import 'animate.css';
 import './globals.css'
 import Wrapper from '@/Wrapper/Wrapper'
 import 'remixicon/fonts/remixicon.css'
@@ -15,9 +16,9 @@ export default function RootLayout({ children }) {
   return (
      <html lang="en">
       <body suppressHydrationWarning>
-        <Wrapper>
+          <Wrapper>
           <NextTopLoader color="black" />
-                {children}
+              {children}
           </Wrapper>
       </body>
     </html>

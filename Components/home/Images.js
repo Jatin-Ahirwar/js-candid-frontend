@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import UploadPost from './UploadPost'
 import ConfirmationModal from './Confirmation'
+import Spin from './Spin'
 
 const Images = () => {
     const { images  } = useSelector((state)=>state.ImagesReducer)
@@ -38,7 +39,7 @@ const Images = () => {
             {
             images?.length > 0 ? 
                 images?.map((image, index) => (
-                    <div className='imagediv' key={image._id}>
+                    <div className='animate__animated animate__fadeIn animate__slow imagediv ' key={image._id}>
                     <Link href={"/Content/singleimage/" + index} key={index} className='imagediv'>
                         <img className='coverimg' src={image.url} alt={`Image ${index}`} />
                     </Link>  
@@ -60,11 +61,10 @@ const Images = () => {
                 ))
             :
             <div className='notfounddiv'>
+                {/* <Spin/> */}
                 <h1>There are no images</h1>
             </div>
             }
-
-
 
             {
                 isAuthenticated ?
