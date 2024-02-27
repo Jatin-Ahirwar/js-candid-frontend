@@ -6,6 +6,7 @@
 html,body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .pagecontainer {
@@ -15,34 +16,55 @@ html,body {
 .page1 {
     height: 110vh;
     width: 100vw;
-    background-image: url("https://media.istockphoto.com/id/1296299146/photo/lovely-happy-couple-dancing-woman-in-red-dress-and-man-in-black-suit-with-bow-tie-flying-silk.jpg?s=170667a&w=0&k=20&c=PVG6o3MHgyhFB2aMuzcM1qqDFW5WCCoUSynYLJffG1s=");
+    /* background-image: url("https://images.unsplash.com/photo-1511405889574-b01de1da5441?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+    background-image: url("https://images.unsplash.com/photo-1490723186985-6d7672633c86?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 500px rgba(0,0,0,0.9) inset;
+    transition: transform 0.3s linear; 
 }
 .page2 {
     height: 110vh;
     width: 100vw;
-    background-image: url("https://image.wedmegood.com/resized/800X/uploads/images/fe8115e5796b4af9b30411e854572537realwedding/2022-03-25_23-42-23.jpg");
+    background-image: url("https://images.unsplash.com/photo-1640953145351-ad659c8927e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    box-shadow: 0 0 500px rgba(0,0,0,0.9) inset;
+    transition: transform 0.3s linear; 
+
 }
 .page3 {
-    height: 110vh;
+    height: 78vh;
     width: 100vw;
-    background-image: url("https://www.zankyou.co.in/images/mag-card-c/c16/7308/878/623/-/in/wp-content/uploads/2017/11/black-and-white-bride.png");
+    background-image: url("https://images.unsplash.com/photo-1495462911434-be47104d70fa?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
+.page4 {
+    height: 78vh;
+    width: 100vw;
+    background-image: url("https://plus.unsplash.com/premium_photo-1661602476848-916dfee177ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    /* filter: grayscale(100%); */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 500px rgba(0,0,0,0.9) inset;
+}
+
 .textdiv{
     height: 100%;
     width: 100vw;
@@ -51,7 +73,11 @@ html,body {
     align-items: center;
     justify-content: flex-end;
     color: #F9F3E7;
-    padding: 0 0 10vh 0;
+    padding: 0 0 15vh 0;
+} 
+
+.textdiv img{
+    height: 8vh;
 }
 .textdiv h1{
     font-size: 2rem;
@@ -60,11 +86,113 @@ html,body {
     letter-spacing: 1px;
 }
 .textdiv p{
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     text-align: center;
     width: 50%;
     font-style: italic;    
 }
+.textcenter{
+    color: white;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+.small{
+    /* background-color: rebeccapurple; */
+    height: 32vh;
+    width: 100vw;
+    background-color: #F9F3E7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    padding: 0 5vh;
+    transition: transform 0.3s linear; 
+}
+#small-p{
+    /* background-color: rebeccapurple; */
+    width: 100%;
+    letter-spacing: .5px;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 5vh;
+    font-family: Pristina;
+    color: #8C8C8C;
+    /* font-family: STLiti; */
+    /* font-family: Vivaldi; */
+    /* font-weight: 100; */
+}
+#small-h{
+    color: #8C8C8C;
+    letter-spacing: 2px;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+.big{
+    height: 45vh;
+    width: 100vw;
+    background-color: #F9F3E7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s linear; 
+}
+.bigdiv{
+    height: 45%;
+    width: 46vw;
+    border-top: .2px solid #8c8c8c4e;
+    border-bottom: .2px solid #8c8c8c4e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0 3vw; */
+}
+.bigdiv-p{
+    font-family: times;
+    letter-spacing: .5px;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 1rem;
+    color: #8C8C8C;
+}
+@media (max-width:900px) {
+    .bigdiv{
+        height: 45%;
+        width: 60%;
+    }
+}
+@media (max-width:800px) {
+    .bigdiv{
+        height: 50%;
+        width: 60%;
+    }
+}
+@media (max-width:650px) {
+    .bigdiv{
+        width: 95%;
+        padding: 0;
+    }
+    .bigdiv-p{
+        line-height: 4vh;
+    }
+    .textdiv {
+        gap: 1vh;
+    }
+    .textdiv p{
+        width: 90%;
+    } 
 
+}
+@media (max-width:550px) {
+    #small-p{
+        font-size: 1.2rem;
+        line-height: 4vh;
+    }
 
-
+}
+@media (max-width:350px) {
+    .bigdiv-p{
+        line-height: 4vh;
+    }
+}

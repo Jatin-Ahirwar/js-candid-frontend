@@ -179,6 +179,21 @@ html,body {
     }
 }
 @media ( max-width :780px ){
+    /* .links {
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        position: absolute;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        background-color: #2E2E2E;
+        z-index: 1;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+        padding: 3vw;
+    } */
     .links {
         position: fixed;
         display: none;
@@ -187,13 +202,13 @@ html,body {
         position: relative;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 0%; /* Set to -100% to position off-screen initially */
         width: 100%;
         background-color: #2E2E2E;
         z-index: 1;
-        transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
         padding: 3vw;
-    }
+        transition: right cubic-bezier(0.19, 1, 0.22, 1) 0.5s; /* Move the transition property here */
+    }      
     .link{
         margin-left: 2vw;
         color: #F9F3E7;
@@ -205,7 +220,6 @@ html,body {
     .closingicon{
         display: initial;
     }
-
     .profilediv p{
         margin-left: 2vw;
         display: flex;
@@ -221,18 +235,18 @@ html,body {
     }
     .hidden-nav{
         background-color: #2E2E2E;
-        height: 50vh;
+        height: 60vh;
         width: 100%;
         box-shadow: none;
+        /* padding: 0 5vw; */
     }
     #hiddenlink{
-        padding: 0 2.5vw;
+        padding: 3vh 0;
         font-size: 2.5rem;
         color: #F9F3E7;
+        line-height: 6vh;
     }
-
     .menuicon{
         display: block;
     }
-
 }

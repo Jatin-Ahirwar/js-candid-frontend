@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import UploadPost from './UploadPost'
 import ConfirmationModal from './Confirmation'
+import Spin from './Spin'
 
 const Kids = () => {
     const { images } = useSelector((state)=>state.KidsReducer)

@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+.footer{
+    height: 15vh;
+    width: 100vw;
+    background-color: #F9F3E7;
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    padding: 0 0 5vh 0;
+}
+.footercenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.footercenter h4{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #8c8c8c;
+}
+.insta{
+    font-size: 3.5vh;    
+}

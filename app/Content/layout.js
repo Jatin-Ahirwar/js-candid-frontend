@@ -1,8 +1,8 @@
 "use client"
 import Nav from '@/Components/home/Nav'
 import { asynccurrentadmin } from '@/Store/Actions/AdminActions'
-import React, { Suspense, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 const layout = ({children}) => {
   const dispatch = useDispatch()
