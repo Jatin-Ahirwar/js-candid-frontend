@@ -7,7 +7,7 @@ import Link from 'next/link'
 const SingleTrailer = () => {
     const { singletrailer } = useSelector((state)=>state.TrailerReducer)
     return (
-        <div className='singletrailerwrapper'>
+        <div className='singletrailerwrapper animate__animated animate__fadeIn '>
             <div className='overlay'>
             <video className='overlaybgimage' autoPlay muted loop src={singletrailer?.trailervideo.url}></video>            
             <div className='overlaywraper'>

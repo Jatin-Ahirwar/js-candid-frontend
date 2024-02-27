@@ -68,7 +68,7 @@ const Contact = () => {
         }
 
     return <>
-    <div className='contactmaindiv'>
+    <div className='contactmaindiv animate__animated animate__fadeIn' >
         <div className='contacttopdiv'>
             <h2 style={{letterSpacing:"5px", textTransform:"uppercase"}}>Contact us</h2>
         </div>

@@ -40,7 +40,7 @@ const Prewed = () => {
             {
                 preweddings?.length >  0 ?
                 preweddings?.map((prewed)=>(
-                    <div className="preweddingproductdiv" key={prewed._id}>
+                    <div className="preweddingproductdiv animate__animated animate__fadeIn " key={prewed._id}>
                         <Link  style={{textDecoration:"none", color:"black"}} href={`/Content/singleprewedding/${prewed._id}`} className='preweddingproductdiv'>
                             <div className='coverimgdiv' >
                                 <img className='coverimg' src={prewed.posterimage.url} alt="" />

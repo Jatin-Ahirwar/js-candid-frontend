@@ -39,7 +39,7 @@ const SingleStories = () => {
     };
 
     return (
-    <div className='singleitemwrapper'>
+    <div className='singleitemwrapper animate__animated animate__fadeIn '>
         {UploadPostVisible && <UploadPost imageType={imageType} functionId={functionId} storyId={singlestories?._id}/>}
         {DeleteImageVisible && <ConfirmationModal  storyId={singlestories?._id} imageType={imageType} functionId={functionId} imageIndex={imageIndex} />}
         

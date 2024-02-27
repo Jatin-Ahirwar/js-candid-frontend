@@ -56,7 +56,16 @@ html,body {
     margin-top: 18px;
     margin-right: 15px;
 }
+.profilediv{
+    display: flex;
+    align-items: last baseline;
+    padding: 20px 0 0 0 ;
+}
 
+#ptag{
+    display: flex;
+    align-items: last baseline;
+}
 .link:hover{
     color: black;
 }
@@ -241,7 +250,7 @@ html,body {
         /* padding: 0 5vw; */
     }
     #hiddenlink{
-        padding: 3vh 0;
+        padding: 3vh 2.8vw;
         font-size: 2.5rem;
         color: #F9F3E7;
         line-height: 6vh;

@@ -39,7 +39,7 @@ const Fashion = () => {
             {
                fashions?.length > 0 ?
                 fashions?.map((fashion)=>(
-                    <div className="fashionproductdiv">
+                    <div className="fashionproductdiv animate__animated animate__fadeIn">
                         <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singlefashion/${fashion._id}`} className='fashionproductdiv'>
                             <div className='productcoverimgdiv' >
                                 <img className='productcoverimg' src={fashion.posterimage.url} alt="" />

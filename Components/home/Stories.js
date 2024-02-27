@@ -46,7 +46,7 @@ const Stories = () => {
                 <div className='storycontent'>
                     {stories?.length > 0 ?               
                         stories?.map((story) => (
-                                <div className="storyproductdiv" key={story._id}>
+                                <div className="storyproductdiv animate__animated animate__fadeIn " key={story._id}>
                                     <Link style={{textDecoration:"none", color:"black"}} href={"/Content/singlestories/" + story._id} className='storyproductdiv'>
                                         <div className='coverimgdiv'>
                                             {imageError ? (

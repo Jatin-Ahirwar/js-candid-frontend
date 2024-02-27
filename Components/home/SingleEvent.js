@@ -26,7 +26,7 @@ const SingleEvent = () => {
     };
   
     return (
-    <div className='singleitemwrapper'>
+    <div className='singleitemwrapper animate__animated animate__fadeIn '>
         {UploadPostVisible && <UploadPost imageType={imageType} eventId={singleevent?._id}/>}
         {DeleteImageVisible && <ConfirmationModal  imageType={imageType} eventId={singleevent?._id} imageIndex={imageIndex} />}
 

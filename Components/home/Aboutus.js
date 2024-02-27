@@ -4,7 +4,7 @@ import "@/Components/home/Aboutus.css"
 
 const Aboutus = () => {
   return <>
-    <div className='aboutmaindiv'>
+    <div className='aboutmaindiv animate__animated animate__fadeIn'>
         <div className='abouttopdiv'>
             <h2>About us</h2>
         </div>

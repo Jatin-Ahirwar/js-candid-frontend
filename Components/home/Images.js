@@ -2,10 +2,9 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import "@/Components/home/images.css"
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import UploadPost from './UploadPost'
 import ConfirmationModal from './Confirmation'
-import Spin from './Spin'
 
 const Images = () => {
     const { images  } = useSelector((state)=>state.ImagesReducer)
@@ -25,7 +24,6 @@ const Images = () => {
         console.log(index,imageType)
     };
     
-    
     return <> 
     <div className='imagesmaindiv'>
     {UploadPostVisible && <UploadPost imageType="images"/>} 
@@ -35,7 +33,7 @@ const Images = () => {
             <h1>IMAGES</h1>
         </div> 
 
-        <div className='imagecontentwrapper'>
+        <div className='imagecontentwrapper '>
             {
             images?.length > 0 ? 
                 images?.map((image, index) => (
@@ -61,7 +59,6 @@ const Images = () => {
                 ))
             :
             <div className='notfounddiv'>
-                {/* <Spin/> */}
                 <h1>There are no images</h1>
             </div>
             }
@@ -77,7 +74,7 @@ const Images = () => {
 
         </div>
     </div>
-   </>
+    </>
 }
 
 export default Images

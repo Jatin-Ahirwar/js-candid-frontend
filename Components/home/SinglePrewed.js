@@ -28,7 +28,7 @@ const SinglePrewed = () => {
     };
     
     return (
-    <div className='singleitemwrapper'>
+    <div className='singleitemwrapper animate__animated animate__fadeIn '>
         {UploadPostVisible && <UploadPost imageType={imageType} preweddingId={singleprewedding?._id}/>}
         {DeleteImageVisible && <ConfirmationModal  imageType={imageType} preweddingId={singleprewedding?._id} imageIndex={imageIndex} />}
 

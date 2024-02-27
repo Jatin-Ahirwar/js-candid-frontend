@@ -39,7 +39,7 @@ const Kids = () => {
             {
                 images?.length > 0 ?
                 images?.map((image,index)=>(
-                    <div className="kidsimagediv" key={image._id}>
+                    <div className="kidsimagediv animate__animated animate__fadeIn animate__slow " key={image._id}>
                         <Link href="" className='kidsimagediv' key={index}>
                             <img className='kidscoverimg' src={image.url} alt="" />
                         </Link>

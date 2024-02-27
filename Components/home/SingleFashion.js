@@ -26,7 +26,7 @@ const SingleFashion = () => {
     };
 
   return (
-    <div className='singleitemwrapper'>
+    <div className='singleitemwrapper animate__animated animate__fadeIn '>
         {UploadPostVisible && <UploadPost imageType={imageType} fashionId={singlefashion?._id}/>}
         {DeleteImageVisible && <ConfirmationModal  imageType={imageType} fashionId={singlefashion?._id} imageIndex={imageIndex} />}
         

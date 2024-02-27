@@ -1,11 +1,11 @@
 "use client"
 import React from 'react'
-import "@/Components/home/spinner.css"
+import "@/Components/home/spin.css"
 
 const Spin = () => {
   return (
     <div className="overlay">
-        <div className="spinner"></div>
+        <div className="spin"></div>
     </div>
   )
 }

@@ -64,12 +64,6 @@ const Nav = () => {
         linksElement.classList.remove("animate__fadeOutLeft");
 
       }, { once: true });
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 780) {
-          closingIcon.style.display = "none";
-          linksElement.style.left = "0%";
-        }
-      });
     };
 
     window.addEventListener('resize', () => {
@@ -108,7 +102,7 @@ const Nav = () => {
       <Link className="link" href="/Content/trailer">Trailers</Link>
       <Link className="link" href="/Content/contact">Contact</Link>
       <Link className="link" href="/Content/aboutus">About us</Link>
-      <div className='profilediv'>
+      <div className='profilediv' >        
           <div id="ptag">
             <p id="pp">MORE</p>
           </div>

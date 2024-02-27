@@ -43,7 +43,7 @@ const Event = () => {
             {
                 events?.length > 0 ?
                     events?.map((event)=>(
-                        <div className="eventproductdiv">
+                        <div className="eventproductdiv animate__animated animate__fadeIn ">
                             <Link style={{textDecoration:"none", color:"black"}} href={`/Content/singleevent/${event._id}`} className='eventproductdiv'>
                                 <div className='eventcoverimgdiv' >
                                     <img className='eventcoverimg' src={event.posterimage.url} alt="" />

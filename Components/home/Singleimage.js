@@ -8,7 +8,7 @@ const Singleimage = () => {
     const { singleimages } = useSelector((state)=>state.ImagesReducer)
     const dispatch = useDispatch()
     return <>
-        <div className='singletrailerwrapper'>
+        <div className='singletrailerwrapper animate__animated animate__fadeIn'>
             <div className='overlay'>
             <img className='overlaybgimage' src={singleimages?.url} alt="" />
             <div className='overlaywraper'>

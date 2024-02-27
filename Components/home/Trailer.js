@@ -9,7 +9,6 @@ import ConfirmationModal from './Confirmation'
 
 const Trailer = () => {
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
-    const dispatch = useDispatch()
     const { trailers } = useSelector((state)=>state.TrailerReducer)
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const [DeleteImageVisible, setDeleteImageVisible] = useState(false)
@@ -41,7 +40,7 @@ const Trailer = () => {
                 trailers?.length > 0 ? 
                 
                 trailers?.map((trailer)=>(
-                    <div className="trailerdiv" key={trailer._id}>
+                    <div className="trailerdiv animate__animated animate__fadeIn" key={trailer._id}>
                         <Link href={`/Content/singletrailer/${trailer._id}`} className='trailerdiv'>
                             <img className='coverimg' src={trailer.trailerposter.url} alt="" />
                             <i id='play' class="ri-play-mini-fill"></i>
