@@ -15,7 +15,6 @@ export const AdminReducer = createSlice({
     state.admin = action.payload
     state.isAuthenticated = true
     },
-        
     removeadmin: (state,action) =>{
     state.admin = null,
     state.isAuthenticated = false,
@@ -28,8 +27,7 @@ export const AdminReducer = createSlice({
 
     removeerror: (state,action) =>{
         state.errors = []
-    },   
-
+    },
   },
   
 })

@@ -10,9 +10,9 @@ const ConfirmationModal = ({
     imageType, 
     imageIndex, 
     preweddingId,
-    trailerId, 
-    eventId, 
-    fashionId, 
+    trailerId,
+    eventId,
+    fashionId,
     functionId, 
     storyId, 
     }) => {

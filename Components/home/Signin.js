@@ -16,7 +16,7 @@ const Signin = () => {
   const [password, setpassword] = useState('')
   const dispatch = useDispatch()
 
-  const submitHandler =async (e)=>{
+  const submitHandler = async (e)=>{
     e.preventDefault()
     const admin = {
       email,

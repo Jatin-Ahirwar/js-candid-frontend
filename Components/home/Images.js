@@ -2,12 +2,12 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import "@/Components/home/images.css"
 import Link from 'next/link'
-import {  useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import UploadPost from './UploadPost'
 import ConfirmationModal from './Confirmation'
 
 const Images = () => {
-    const { images  } = useSelector((state)=>state.ImagesReducer)
+    const { images } = useSelector((state)=>state.ImagesReducer)
     const { isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const [UploadPostVisible, setUploadPostVisible] = useState(false)
     const [DeleteImageVisible, setDeleteImageVisible] = useState(false)

@@ -19,7 +19,6 @@ html,body {
     padding: 0 6vw;
     display: flex;
     align-items: center;
-    /* gap: 45vw; */
     justify-content: space-between;
     font-weight: 400;
     z-index: 999999;

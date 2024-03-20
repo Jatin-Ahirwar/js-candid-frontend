@@ -26,9 +26,6 @@ const Upload = ({imageType}) => {
     const teaserInputRef = useRef(null);
     const dispatch = useDispatch();
     
-
-
-    
     useEffect(()=>{
         console.log(imageType)
     },[])
@@ -135,57 +132,6 @@ const Upload = ({imageType}) => {
         const updatedFiles = [...selectedfiles];
         updatedFiles.splice(index, 1);
         setselectedfiles(updatedFiles);
-    };
-
-    const UploadConten = async (e) => {
-        e.preventDefault();
-        // if (!selectedfiles.length) {
-        //     toast.error('Please select files to upload.');
-        //     return;
-        // }
-        if (!trailerposter.length) {
-            toast.error('Please select poster to upload.');
-            return;
-        }
-        if (!trailervideo.length) {
-            toast.error('Please select teaser to upload.');
-            return;
-        }
-
-        // const Images = new FormData();
-        // for (const file of selectedfiles) {
-        //     Images.append('images', file);
-        // }
-
-        const Content = {
-            groomname,
-            bridename,
-            date,
-            country,
-            location,
-            trailerposter,
-            trailervideo
-        }
-        console.log(Content)
-        setLoading(true);
-
-        if (isAuthenticated) {
-            if (imageType === 'trailer') {
-                await dispatch(asyncCreateTrailer(Content));
-            }
-            // else if (imageType === 'prewedding') {
-            //     await dispatch(asyncuploadimages(content));
-            // }
-            }
-            else {
-                toast.error("Please log in to access the resource !");
-            }
-
-        setLoading(false);
-        // Clear the selected files and reset the file input
-        setselectedfiles([]);
-        fileInputRef.current.value = '';
-        setIsVisible(false);
     };
 
     const TrailerHandler = async (e) => {
@@ -370,12 +316,10 @@ const Upload = ({imageType}) => {
     };
 
     const handleClose = () => {
-        // Hide the component and clear selected files
         setIsVisible(false);
         setselectedfiles([]);
         setselectedposter("")
         setselectedteaser("")
-        
     };
 
     if (!IsVisible) {

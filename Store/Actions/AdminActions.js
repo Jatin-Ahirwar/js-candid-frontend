@@ -43,7 +43,7 @@ export const asyncsignoutadmin = (admin) => async(dispatch,getstate) =>{
     try {
         const { data } = await axios.get("/signout" )
         dispatch(removeadmin())
-        toast.success("Successfully Sign Out. ") 
+        toast.success("Successfully Sign Out. ")
     } catch (error) {
         dispatch(iserror(error.response.data.message))
         toast.error(error.response.data.message);

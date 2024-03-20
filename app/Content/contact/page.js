@@ -1,4 +1,4 @@
-import Contact from '@/Components/home/Contact'
+import Contact from '@/Components/home/Contact.js'
 import React from 'react'
 
 const contact = () => {

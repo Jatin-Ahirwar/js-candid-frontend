@@ -66,6 +66,7 @@ const Nav = () => {
       }, { once: true });
     };
 
+    if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
       const menuIcon = document.querySelector(".menuicon");
       const linksElement = document.querySelector(".links");
@@ -89,7 +90,7 @@ const Nav = () => {
           linksElement.style.display = "none";
         }
       }
-    });
+    })};
 
     return <>
     <div className='nav'>
