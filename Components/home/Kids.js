@@ -63,7 +63,7 @@ const Kids = () => {
                 ))                
                 :                
                 <div className='notfounddiv'>
-                    <Spin/>
+                    There is no kids images.
                 </div>
             }
 
