@@ -187,21 +187,22 @@ html,body {
     }
 }
 @media ( max-width :780px ){
-    /* .links {
-        position: fixed;
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-        position: absolute;
-        top: 0;
-        right: 100%;
-        width: 100%;
-        background-color: #2E2E2E;
-        z-index: 1;
-        transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
-        padding: 3vw;
-    } */
+    .nav{
+        height: 80px;
+        padding: 0 10px 0 0;
+    }
+    .nav h1{
+        font-size: 5vh;
+    }
+    .menuicon{
+        height: 40px;
+        width: 40px;
+    }
+    .closeicon{
+        height: 40px;
+        width: 40px;
+    }
+
     .links {
         position: fixed;
         display: none;
@@ -216,7 +217,11 @@ html,body {
         z-index: 1;
         padding: 3vw;
         transition: right cubic-bezier(0.19, 1, 0.22, 1) 0.5s; /* Move the transition property here */
-    }      
+    }     
+    .logo{
+        font-size: 10px;
+        scale: .8;
+    } 
     .link{
         margin-left: 2vw;
         color: #F9F3E7;

@@ -15,8 +15,7 @@ html,body {
 }
 .page1 {
     height: 110vh;
-    width: 100vw;
-    /* background-image: url("https://images.unsplash.com/photo-1511405889574-b01de1da5441?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+    /* width: 100%; */
     background-image: url("https://images.unsplash.com/photo-1490723186985-6d7672633c86?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
@@ -169,6 +168,19 @@ html,body {
     }
 }
 @media (max-width:650px) {
+    .textdiv h1 {
+        font-size: 1.5rem;
+    }
+    .textdiv .liness p{
+        font-size: 11px;
+    }
+    .page1{
+        height: 90vh;
+    }
+    .textdiv img{
+        height: 20px;
+        width: 70%;
+    }
     .bigdiv{
         width: 95%;
         padding: 0;
@@ -181,7 +193,27 @@ html,body {
     }
     .textdiv p{
         width: 90%;
-    } 
+    }
+    .page2 .small{
+        height: 25vh;
+        font-size: 12px;
+    }
+    .page2 .small #small-p{
+        font-size: .9rem;
+    }
+    .page2 .big{
+        height: 30vh;
+    }
+    .page2 .big .bigdiv .bigdiv-p{
+        font-size: 12px;
+    }
+    .page3 .big{
+        height: 30vh;
+    }
+    .page3 .big .bigdiv .bigdiv-p{
+        font-size: 12px;
+    }
+    
 
 }
 @media (max-width:550px) {

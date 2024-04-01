@@ -31,7 +31,6 @@ const Page1 = () => {
               <div className="bigdiv">
                   <p className='bigdiv-p'>We're die-hard romantics, photographers by passion. Travelling worldwide to capture your special day, we share a collective passion for narrating your story through our lenses.</p>
               </div>
-
             </div>
         </div>
 

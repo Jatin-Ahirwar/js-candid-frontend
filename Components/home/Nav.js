@@ -6,15 +6,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 
 const Nav = () => {
+  const [navbar, setnavbar] = useState(true)
     const { admin , isAuthenticated } = useSelector((state)=>state.AdminReducer)
     const dispatch = useDispatch()
     
     const SignOutHandler = () =>{
       dispatch(asyncsignoutadmin(admin))
     }
-        
-    const [navbar, setnavbar] = useState(true)
-    
 
     const OpenNavHandler = (e) => {
       e.preventDefault();
@@ -36,9 +34,6 @@ const Nav = () => {
       // Ensure the left property is reset for proper sliding in
       linksElement.style.left = "0%";
     };
-
-
-    // ... (your existing code)
 
     const CloseNavHandler = (e) => {
       e.preventDefault();
