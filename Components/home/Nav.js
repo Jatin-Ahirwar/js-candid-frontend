@@ -99,7 +99,7 @@ const Nav = () => {
       <Link className="link" href="/Content/contact">Contact</Link>
       <Link className="link" href="/Content/aboutus">About us</Link>
       <div className='profilediv' >        
-          <div id="ptag">
+          <div id="ptag" >
             <p id="pp">MORE</p>
           </div>
             <div className="hidden-nav">

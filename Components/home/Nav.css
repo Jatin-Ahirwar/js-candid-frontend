@@ -63,7 +63,7 @@ html,body {
 
 #ptag{
     display: flex;
-    align-items: last baseline;
+    height: 35px;
 }
 .link:hover{
     color: black;
