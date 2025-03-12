@@ -32,7 +32,7 @@ html,body {
 
 .imagecontentwrapper{
     min-height: calc(100vh - 60vh);
-    width: 60vw;
+    width: 65vw;
     gap: 1.29vw;
     display: flex;
     flex-wrap: wrap;

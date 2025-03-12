@@ -21,7 +21,7 @@ const SingleTrailer = () => {
                 </div>
                 <div className='overlaymid'>
                     <div className='overlaymidcenter'>
-                        <video className='overlaymidcenterimage' autoPlay muted loop src={singletrailer?.trailervideo.url}></video>
+                        <video className='overlaymidcenterimage' controls autoPlay loop src={singletrailer?.trailervideo.url}></video>
                     </div>
                 </div>
             </div>
