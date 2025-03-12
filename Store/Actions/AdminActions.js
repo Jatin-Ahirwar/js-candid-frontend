@@ -12,7 +12,12 @@ import { asyncaSinglestories, asyncaallstories } from "./StoriesActions";
 
 export const asynccurrentadmin = () => async(dispatch,getstate) =>{
     try {
-        const { data } = await axios.post("/admin")
+        const { data } = await axios.post(
+            "/admin",
+            {},
+            { withCredentials: true }  // ✅ Required to send cookies
+        );
+
         dispatch(addadmin(data))
     } catch (error) {
         dispatch(iserror(error.response.data.message))
